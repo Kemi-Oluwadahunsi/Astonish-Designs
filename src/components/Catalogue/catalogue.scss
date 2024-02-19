@@ -1,0 +1,59 @@
+.catalogBody {
+  padding: 6rem 4rem 4rem 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+
+  .catalogTitle {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+
+    h2 {
+      font-size: 4rem;
+      color: #9b660d;
+    }
+
+    p {
+      font-size: 1.4rem;
+      font-weight: 300;
+      font-style: normal;
+    }
+  }
+
+  .pictures {
+    display: flex;
+    gap: 1rem;
+    align-content: center;
+    justify-content: center;
+    background-color: #fcf9c5;
+    padding: 3rem 0;
+  }
+
+  .viewCatalog {
+    display: flex;
+    justify-content: end;
+
+    button {
+      display: flex;
+      width: 16%;
+      margin-right: 5rem;
+      padding: 0.9rem 1.5rem;
+      background: #e1b611;
+      color: #2f2f2f;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+      font-size: 1.2rem;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      font-style: normal;
+      font-weight: 400;
+      border: none;
+      border-radius: 6.25rem;
+      cursor: pointer;
+    }
+  }
+}

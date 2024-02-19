@@ -1,0 +1,114 @@
+@import "../../App.scss";
+
+.mainBody {
+
+  .main {
+  height: 100svh;
+  background: linear-gradient(
+      to bottom,
+  rgba(0, 0, 0, 0.5),
+  rgba(0, 0, 0, 0.5)
+ ),url(/public/images/hero-back2.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+  padding: 0 4rem;
+
+  @include tablet {
+      
+    }
+
+    @include mobile {
+      height: 60svh;
+      gap: 3rem;
+    }
+
+  .mainContent {
+    display: flex;
+    color: #9b660d;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+
+    @include tablet {
+      
+    }
+
+    @include mobile {
+      
+    }
+
+    .text {
+      
+      
+      h1 {
+        line-height: 12rem;
+        font-size: 12rem;
+        letter-spacing: 1px;
+
+        @include tablet {
+      font-size: 6rem;
+    }
+
+    @include mobile {
+    font-size: 4rem;
+      line-height: 4rem;
+    }
+      }
+
+      .design {
+        margin-left: 1em;
+
+        @include mobile {
+          margin-left: 0.5em;
+        }
+      }
+      span {
+        font-size: 3em;
+        font-family: "Helvetica Neue";
+        padding-left: 6em;
+        color: #fdfce9;
+
+        @include mobile {
+          display: block;
+          margin-top: .5rem;
+         font-size: 1.3em;
+         padding-left: 3em; 
+        }
+      }
+    }
+      // button {
+      //   display: flex;
+      //   width: 12%;
+      //   margin: auto;
+      //   margin-top: 1rem;
+      //   padding: 1rem;
+      //   background: #f1cf1e;
+      //   color: #2f2f2f;
+      //   justify-content: center;
+      //   align-items: center;
+      //   gap: 1rem;
+      //   font-size: 1.2rem;
+      //   font-family: Verdana, Geneva, Tahoma, sans-serif;
+      //   font-style: normal;
+      //   font-weight: 400;
+      //   border: none;
+      //   border-radius: 6.25rem;
+      //   cursor: pointer;
+      // }
+ 
+
+    .rightMain {
+      width: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}
+
+}

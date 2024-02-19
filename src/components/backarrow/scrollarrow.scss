@@ -1,0 +1,55 @@
+@import "../../App.scss";
+
+.scroll-buttons {
+
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+  .btn-Scroll {
+    position: fixed;
+    bottom: 2rem;
+    font-size: 2rem;
+    z-index: 10001;
+    cursor: pointer;
+    color: #f1cf1e;
+    right: 2%;
+    background-color: #f1cf1e;
+    border-radius: 50px;
+    padding: 8px 10px;
+    border: none;
+    opacity: 0.9;
+
+    @include tablet {
+      bottom: 2rem;
+    }
+
+    @include mobile {
+      bottom: 1.5rem;
+    }
+  }
+
+  .btn-whatsapp {
+    position: fixed;
+    bottom: 6rem;
+    right: 2%;
+    font-size: 2rem;
+    z-index: 10001;
+    cursor: pointer;
+    color: #25d366; /* WhatsApp green color */
+    background-color: gold;
+    border-radius: 50%;
+    padding: 5px 10px;
+    border: none;
+    opacity: 0.9;
+    text-decoration: none;
+
+    @include tablet {
+      bottom: 3.5rem;
+    }
+
+    @include mobile {
+      bottom: 3rem;
+    }
+  }
+}

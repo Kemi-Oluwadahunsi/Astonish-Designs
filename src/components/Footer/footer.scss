@@ -1,0 +1,69 @@
+.footer {
+  background-color: #805113;
+  display: flex;
+  flex-direction: column;
+  padding: 5rem 0 0 0;
+  
+
+  .firstFooter {
+    display: flex;
+    justify-content: space-around;
+    padding: 0 4rem 2rem 4rem;
+    border-bottom: 1px solid #9b660d;
+
+    .logoSpace {
+
+        .logoOriginal > img {
+            border-radius: 50%;
+        }
+    }
+
+    .footerLinks {
+      width: 60%;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      
+
+      ul {
+        display: flex;
+        justify-content: space-around;
+        flex-direction: column;
+        width: 80%;
+        gap: 2rem;
+
+        li {
+          list-style: none;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          font-size: 1.2rem;
+          font-weight: 500;
+          font-family: Verdana, Geneva, Tahoma, sans-serif;
+          color: #f9f08f;
+          cursor: pointer;
+
+
+          &:hover {
+            text-decoration: underline;
+            text-decoration-color: #f1cf1e;
+            text-decoration-thickness: 5px;
+          }
+        }
+      }
+    }
+  }
+
+  .secondFooter {
+    background: #8b5712;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 0;
+
+    .rights {
+       color: #f5e24f;
+       font-size: 1rem;
+    }
+  }
+}

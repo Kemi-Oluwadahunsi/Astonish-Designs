@@ -1,0 +1,54 @@
+.aboutContainer {
+  height: 100svh;
+  display: flex;
+  padding: 10rem 8rem;
+  justify-content: space-between;
+
+
+  .leftImage {
+    width: 50%;
+  }
+
+  .rightText {
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 2rem;
+    gap: 3rem;
+
+    h1 {
+      font-size: 4rem;
+      color: #9b660d;
+    }
+
+    .textAbout {
+      font-size: 1.2rem;
+      line-height: 2rem;
+      font-weight: 300;
+      font-style: normal;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 2rem;
+    }
+
+    button {
+      display: flex;
+      width: 35%;
+      padding: 0.9rem 2rem;
+      background: #e1b611;
+      color: #2f2f2f;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+      font-size: 1.2rem;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      font-style: normal;
+      font-weight: 400;
+      border: none;
+      border-radius: 6.25rem;
+      cursor: pointer;
+    }
+  }
+}

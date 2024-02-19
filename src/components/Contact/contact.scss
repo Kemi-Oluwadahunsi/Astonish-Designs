@@ -1,0 +1,170 @@
+.contactContainer {
+  padding: 0 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80dvh;
+  position: relative;
+
+  .contactBody {
+    display: flex;
+    justify-content: space-around;
+    width: 75%;
+    padding: 2.5rem 2.5rem 2rem 2.5rem;
+    border-radius: 15px;
+    background-color: #f9f18f;
+    gap: 2rem;
+    z-index: 1000;
+    position: absolute;
+    top: 2rem;
+    box-shadow: 0 0 30px 5px #e1b611;
+
+    .leftContact {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      width: 40%;
+
+      .connection {
+        display: flex;
+        flex-direction: column;
+        gap: 0.7rem;
+
+        h2 {
+          font-size: 2rem;
+        }
+      }
+      .location:hover,
+      .mail:hover,
+      .phone:hover {
+        transform: scale(1.03);
+        box-shadow: 1px 1px 5px #6d4216;
+      }
+
+      .location,
+      .mail,
+      .phone {
+        background-color: #fcf9c5;
+        display: flex;
+        padding: 1rem 1.5rem;
+        gap: 1rem;
+        border-radius: 5px;
+        cursor: pointer;
+
+        .location:hover,
+        .mail:hover,
+        .phone:hover {
+          transform: scale(1.05);
+          box-shadow: 1px 1px 5px #6d4216;
+        }
+
+        .iconDiv {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 0.5rem 0.8rem;
+          font-size: 2rem;
+          height: 3rem;
+          border-radius: 5px;
+          color: #c28e0c;
+
+          &:hover {
+            background-color: #f1cf1e;
+          }
+        }
+
+        .address {
+          display: flex;
+          flex-direction: column;
+          gap: 0.5em;
+          color: #2f2f2f;
+
+          .locationType {
+            font-weight: bold;
+            font-family: Arial, Helvetica, sans-serif;
+          }
+        }
+      }
+      .socials {
+        display: flex;
+        gap: 1.5rem;
+        font-size: 2.5rem;
+        color: #c28e0c;
+        padding: 1rem;
+
+        .facebook,
+        .instagram, .xTwitter, .linkedin {
+          padding: 0.5rem;
+          border-radius: 5px;
+        }
+
+        .facebook:hover,
+        .instagram:hover,
+        .xTwitter:hover,
+        .linkedin:hover {
+          transform: scale(1.2);
+        }
+      }
+    }
+
+    .rightForm {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      justify-content: center;
+      width: 50%;
+
+      .rightStart {
+        text-align: center;
+        font-size: 1.2rem;
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+        width: 70%;
+        gap: .5rem;
+
+        input,
+        textarea {
+          padding: 0.8rem 1rem;
+          background-color: #fcf9c5;
+          border: 1px solid #c28e0c;
+          color: #402208;
+          border-radius: 5px;
+          font-size: 1.2rem;
+        }
+
+        label{
+          font-weight: bold;
+        }
+
+        .required::after {
+        content: ' *';
+        color: red;
+        font-size: 1.2rem;
+      }
+
+        input:focus, textarea:focus {
+                border-color: #e1b611;
+            }
+        button {
+          padding: 0.7rem;
+          border: none;
+          color: #2f2f2f;
+          background-color: #e1b611;
+          font-size: 1.2rem;
+          font-weight: 600;
+          width: 80%;
+          margin: auto;
+          cursor: pointer;
+          border-radius: 5px;
+          margin-top: 1rem;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,80 @@
+$primary-color: #bce0fb;
+
+@import "animate.css";
+
+@font-face {
+  font-family: 'Helvetica Neue';
+  src: url('./assets//fonts/helvetica-neu.ttf') format('ttf');
+}
+
+@font-face {
+  font-family: 'La Belle Aurore';
+  src: url('./assets//fonts/LaBelleAurore.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Coolvetica';
+  src: url('./assets//fonts/CoolveticaRg-Regular.woff2') format('woff2');
+}
+
+input, textarea{
+  font-family: 'Helvetica Neue';
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "DM Sans", sans-serif;
+}
+
+html {
+   overflow-x: hidden;
+}
+
+body {
+  background-color: #fdfce9;
+  color: #2F2F2F;
+  text-align: justify;
+  text-justify: inter-word; /* Adjusts spacing between words */
+  letter-spacing: 0.5px;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+@mixin mobile {
+  @media (max-width: 480px) {
+     @content;
+    html {
+      scroll-snap-type: none;
+      scroll-snap-align: none;
+    }
+  }
+}
+
+
+@mixin tablet {
+   @media screen and (min-width:481px) and (max-width: 768px) {
+    @content;
+    html {
+      scroll-snap-type: none;
+      scroll-snap-align: none;
+    }
+    
+    #section {
+      height: 30rem;
+     
+    }
+  }
+}
+
+@mixin laptop {
+  @media (min-width: 769px) {
+    @content;
+
+  }
+}
+
