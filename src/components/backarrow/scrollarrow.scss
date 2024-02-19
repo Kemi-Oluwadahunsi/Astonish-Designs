@@ -25,7 +25,9 @@
     }
 
     @include mobile {
-      bottom: 1.5rem;
+      bottom: 1rem;
+      padding: 4px 5px;
+      font-size: 1.5rem;
     }
   }
 
@@ -49,7 +51,9 @@
     }
 
     @include mobile {
-      bottom: 3rem;
+      bottom: 3.5rem;
+      padding: 2.5px 5px;
+      font-size: 1.7em;
     }
   }
 }
