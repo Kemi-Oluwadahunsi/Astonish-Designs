@@ -128,8 +128,6 @@ const Testimonial = () => {
                     Astonish Designs has transformed my outlook on fashion.
                     Their diverse range of styles caters to every occasion, and
                     the quality of their garments is unmatched.
-                    {/* I&aposm constantly
-                receiving compliments whenever I wear their pieces! */}
                   </p>
                   <FontAwesomeIcon icon={faQuoteRight} className="rightQuote" />
                 </div>
@@ -159,7 +157,7 @@ const Testimonial = () => {
                     I&apos;ve been a loyal customer of Astonish Designs for
                     years, and I can confidently say that their commitment to
                     excellence never wavers, their collections always leave me
-                    feeling stylish and empowered.
+                    feeling great.
                   </p>
                   <FontAwesomeIcon icon={faQuoteRight} className="rightQuote" />
                 </div>

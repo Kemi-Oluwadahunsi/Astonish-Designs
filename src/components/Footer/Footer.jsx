@@ -11,10 +11,8 @@ const Footer = () => {
   return (
     <div className="footer">
       <div className="firstFooter">
-        <div className="logoSpace">
-          <div className="logoOriginal">
-            <img src="/images/logoOriginal.jpg" alt="logo" width={100} />
-          </div>
+        <div className="logoOriginal">
+          <img src="/images/logoOriginal.jpg" alt="logo" width={100} />
         </div>
 
         <div className="footerLinks">
@@ -39,7 +37,6 @@ const Footer = () => {
               <li>Fashionista</li>
             </a>
           </ul>
-          
         </div>
       </div>
 

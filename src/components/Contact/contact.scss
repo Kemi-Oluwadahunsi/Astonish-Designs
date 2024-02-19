@@ -1,3 +1,5 @@
+@import "../../App.scss";
+
 .contactContainer {
   padding: 0 4rem;
   display: flex;
@@ -5,6 +7,11 @@
   justify-content: center;
   height: 80dvh;
   position: relative;
+
+  @include mobile {
+    height: auto;
+    padding: 0 1.5rem;
+  }
 
   .contactBody {
     display: flex;
@@ -19,19 +26,46 @@
     top: 2rem;
     box-shadow: 0 0 30px 5px #e1b611;
 
+    @include mobile {
+      flex-direction: column;
+      width: 100%;
+      padding: 1.5rem 1rem 1rem 1rem;
+      gap: 1rem;
+      position: relative;
+    }
+
     .leftContact {
       display: flex;
       flex-direction: column;
       gap: 2rem;
       width: 40%;
 
+      @include mobile {
+        width: 100%;
+        gap: .5rem;
+      }
+
       .connection {
         display: flex;
         flex-direction: column;
         gap: 0.7rem;
 
+        @include mobile {
+          gap: 0.3rem;
+        }
+
         h2 {
           font-size: 2rem;
+
+          @include mobile {
+            font-size: 1.4rem;
+          }
+        }
+
+        p {
+          @include mobile {
+            font-size: 0.9rem;
+          }
         }
       }
       .location:hover,
@@ -51,11 +85,20 @@
         border-radius: 5px;
         cursor: pointer;
 
+        @include mobile {
+          padding: 0.5em;
+          gap: 0;
+        }
+
         .location:hover,
         .mail:hover,
         .phone:hover {
           transform: scale(1.05);
           box-shadow: 1px 1px 5px #6d4216;
+
+          @include mobile {
+            display: none;
+          }
         }
 
         .iconDiv {
@@ -68,6 +111,10 @@
           border-radius: 5px;
           color: #c28e0c;
 
+          @include mobile {
+            display: none;
+          }
+
           &:hover {
             background-color: #f1cf1e;
           }
@@ -79,9 +126,31 @@
           gap: 0.5em;
           color: #2f2f2f;
 
+          @include mobile {
+            flex-direction: row;
+            gap: 0.3em;
+            width: 100%;
+
+            address {
+              font-size: .9rem;
+            }
+
+            a {
+              font-size: .9rem;
+            }
+
+            p {
+              font-size: 0.9rem;
+            }
+          }
+
           .locationType {
             font-weight: bold;
             font-family: Arial, Helvetica, sans-serif;
+
+            @include mobile {
+              font-size: .9rem;
+            }
           }
         }
       }
@@ -92,8 +161,14 @@
         color: #c28e0c;
         padding: 1rem;
 
+        @include mobile {
+          display: none;
+        }
+
         .facebook,
-        .instagram, .xTwitter, .linkedin {
+        .instagram,
+        .xTwitter,
+        .linkedin {
           padding: 0.5rem;
           border-radius: 5px;
         }
@@ -116,9 +191,18 @@
       justify-content: center;
       width: 50%;
 
+      @include mobile {
+        width: 100%;
+        gap: .5rem;
+      }
+
       .rightStart {
         text-align: center;
         font-size: 1.2rem;
+
+        @include mobile {
+         display: none;
+        }
       }
 
       form {
@@ -126,31 +210,51 @@
         flex-direction: column;
         margin: auto;
         width: 70%;
-        gap: .5rem;
+        gap: 0.5rem;
+
+        @include mobile {
+          width: 100%;
+          gap: 0.2rem;
+        }
 
         input,
         textarea {
           padding: 0.8rem 1rem;
           background-color: #fcf9c5;
-          border: 1px solid #c28e0c;
+          border: 2px solid #c28e0c;
           color: #402208;
           border-radius: 5px;
           font-size: 1.2rem;
+
+          @include mobile {
+            font-size: 0.9rem;
+            padding: .4rem .5rem;
+          }
         }
 
-        label{
+        label {
           font-weight: bold;
+
+          @include mobile {
+            font-size: 0.9rem;
+          }
         }
 
         .required::after {
-        content: ' *';
-        color: red;
-        font-size: 1.2rem;
-      }
+          content: " *";
+          color: red;
+          font-size: 1.2rem;
 
-        input:focus, textarea:focus {
-                border-color: #e1b611;
-            }
+          @include mobile {
+            font-size: 1rem;
+          }
+        }
+
+        input:focus,
+        textarea:focus {
+          outline: #c28e0c;
+          border: 1px solid #c28e0c;
+        }
         button {
           padding: 0.7rem;
           border: none;
@@ -163,6 +267,12 @@
           cursor: pointer;
           border-radius: 5px;
           margin-top: 1rem;
+
+          @include mobile {
+            font-size: 1.1rem;
+            padding: .5rem;
+            width: 100%;
+          }
         }
       }
     }

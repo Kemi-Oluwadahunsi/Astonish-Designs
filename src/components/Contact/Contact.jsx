@@ -29,14 +29,17 @@ const Contact = React.forwardRef(({ updateButtonText }, ref) => {
     }
   };
   return (
-    <div ref={ref}  id="contact">
+    <div ref={ref} id="contact">
       {!close && (
         <div className="contactContainer">
           <div className="contactBody">
             <div className="leftContact">
               <div className="connection">
                 <h2>Let&apos;s discuss your Project</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                <p>
+                  Welcome! We&apos;re thrilled to connect
+                  with you.
+                </p>
               </div>
               <div className="location">
                 <div className="iconDiv">
@@ -53,7 +56,7 @@ const Contact = React.forwardRef(({ updateButtonText }, ref) => {
                   <FontAwesomeIcon icon={faLocationDot} />
                 </div>
                 <div className="address">
-                  <p className="locationType">Send Email:</p>
+                  <p className="locationType">Email:</p>
                   <a href="mailto:lifestylewithastonish@gmail.com">
                     Lifestylewithastonish@gmail.com
                   </a>
@@ -112,7 +115,7 @@ const Contact = React.forwardRef(({ updateButtonText }, ref) => {
               <p className="rightStart">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
               </p>
-              <form action="">
+              <form>
                 <label htmlFor="Name" className="required">
                   Name
                 </label>
@@ -121,6 +124,7 @@ const Contact = React.forwardRef(({ updateButtonText }, ref) => {
                   name="name"
                   required
                   placeholder="Swiss Merry"
+                  autoComplete="name"
                   // value={formData.name}
                   // onChange={handleChange}
                 />
@@ -132,6 +136,7 @@ const Contact = React.forwardRef(({ updateButtonText }, ref) => {
                   name="email"
                   required
                   placeholder="example@dot.com"
+                  autoComplete="email"
                   // value={formData.email}
                   // onChange={handleChange}
                 />
@@ -141,6 +146,7 @@ const Contact = React.forwardRef(({ updateButtonText }, ref) => {
                   name="message"
                   rows="10"
                   placeholder="Feel free to contact Me for your bespoke outfits. Thank you!"
+                  autoComplete="message"
                   // value={formData.message}
                   // onChange={handleChange}
                 />
@@ -154,7 +160,7 @@ const Contact = React.forwardRef(({ updateButtonText }, ref) => {
         </div>
       )}
     </div>
-);
+  );
 });
 Contact.displayName = "Contact";
 Contact.propTypes = {
