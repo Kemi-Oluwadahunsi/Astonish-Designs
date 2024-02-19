@@ -1,9 +1,16 @@
+@import "../../App.scss";
+
 hr {
   height: 1rem;
   background-color: #9b660d;
   width: 100%;
-  margin-bottom: 5rem;
-  margin-top: 4rem;
+  margin: 5rem 0;
+  
+
+  @include mobile {
+    height: .5rem;
+    margin: 2rem 0 ;
+  }
 }
 
 .serviceSection {
@@ -15,6 +22,11 @@ hr {
   justify-content: center;
   gap: 10rem;
 
+  @include mobile {
+    padding: 0 2rem;
+    gap: 4rem;
+  }
+
   .firstDiv {
     display: flex;
     flex-direction: column;
@@ -23,21 +35,38 @@ hr {
     align-items: center;
     justify-content: center;
 
+    @include mobile {
+      gap: .5em;
+    }
+
     h2 {
       font-size: 4rem;
       color: #9b660d;
+
+      @include mobile {
+        font-size: 2.5rem;
+      }
     }
 
     .serviceParagraph {
       font-size: 1.4rem;
       font-weight: 300;
       font-style: normal;
+
+      @include mobile {
+        font-size: 0.9rem;
+        line-height: 1.3rem;
+      }
     }
   }
 
   .serviceWrap {
     display: flex;
     gap: 1rem;
+
+    @include mobile {
+      display: block;
+    }
 
     .services {
       display: flex;
@@ -46,6 +75,11 @@ hr {
       flex-wrap: wrap;
       gap: 3em;
       justify-content: space-around;
+
+      @include mobile  {
+        flex-direction: column;
+        gap: 2rem;
+      }
 
       .div1,
       .div3,
@@ -56,22 +90,42 @@ hr {
         flex-direction: column;
         gap: 1rem;
 
+        @include mobile {
+          width: 100%;
+
+          img {
+           width: 20%;
+         }
+        }
+
         h2 {
           font-size: 2rem;
           font-weight: 500;
           color: #c28e0c;
           text-align: start;
+
+          @include mobile {
+            font-size: 1.3rem;
+          }
         }
 
         p {
           line-height: 1.5;
           letter-spacing: 1px;
+
+          @include mobile {
+            font-size: .9rem;
+          }
         }
       }
     }
 
     .serviceImage {
       display: flex;
+
+      @include mobile {
+        display: none;
+      }
     }
   }
 }

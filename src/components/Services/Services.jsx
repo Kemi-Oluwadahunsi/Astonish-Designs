@@ -20,6 +20,7 @@ const Services = () => {
                 src="/images/scissors.png"
                 alt="scissors"
                 width={130}
+                className="icon"
               />
               <h2>Custom Clothing Design</h2>
               <p>
@@ -35,6 +36,7 @@ const Services = () => {
                 src="/images/special-occassion.png"
                 alt="special-occassion"
                 width={80}
+                className="icon"
               />
               <h2>Special Occasion Outfits</h2>
               <p>
@@ -50,6 +52,7 @@ const Services = () => {
                 src="/images/age-inclusive.png"
                 alt="age-inclusive"
                 width={100}
+                className="icon"
               />
               <h2>Age-Inclusive Collections</h2>
               <p>
@@ -65,6 +68,7 @@ const Services = () => {
                 src="/images/ready-to-wear.png"
                 alt="readytowear"
                 width={100}
+                className="icon"
               />
               <h2>Ready-To-Wear Outfits</h2>
               <p>

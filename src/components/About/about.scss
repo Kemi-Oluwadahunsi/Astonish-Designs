@@ -1,12 +1,24 @@
+@import "../../App.scss";
+
 .aboutContainer {
   height: 100svh;
   display: flex;
   padding: 10rem 8rem;
   justify-content: space-between;
 
+  @include mobile {
+    flex-direction: column;
+    padding: 1rem 2rem;
+    width: 100%;
+    height: auto;
+  }
 
   .leftImage {
     width: 50%;
+
+    @include mobile {
+      display: none;
+    }
   }
 
   .rightText {
@@ -17,9 +29,18 @@
     padding-top: 2rem;
     gap: 3rem;
 
+    @include mobile {
+      width: 100%;
+      gap: 1rem;
+    }
+
     h1 {
       font-size: 4rem;
       color: #9b660d;
+
+      @include mobile {
+        font-size: 2.5rem;
+      }
     }
 
     .textAbout {
@@ -31,6 +52,13 @@
       flex-direction: column;
       justify-content: center;
       gap: 2rem;
+
+      @include mobile {
+        font-size: .9rem;
+        line-height: 1.5rem;
+        letter-spacing: 1px;
+        
+      }
     }
 
     button {
@@ -49,6 +77,20 @@
       border: none;
       border-radius: 6.25rem;
       cursor: pointer;
+
+      &:hover {
+      transform: scale(1.1);
+    }
+
+    @include mobile {
+      width: 60%;
+      font-size: 1rem;
+      margin: auto;
+
+      &:hover {
+        transform: scale(1);
+      }
+    }
     }
   }
 }

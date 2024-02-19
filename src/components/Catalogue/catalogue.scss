@@ -1,8 +1,15 @@
+@import "../../App.scss";
+
 .catalogBody {
   padding: 6rem 4rem 4rem 4rem;
   display: flex;
   flex-direction: column;
   gap: 4rem;
+
+  @include mobile {
+    padding: 4rem 2rem;
+    gap: 2rem;
+  }
 
   .catalogTitle {
     display: flex;
@@ -15,12 +22,21 @@
     h2 {
       font-size: 4rem;
       color: #9b660d;
+
+      @include mobile {
+        font-size: 2.5rem;
+      }
     }
 
     p {
       font-size: 1.4rem;
       font-weight: 300;
       font-style: normal;
+
+      @include mobile {
+        font-size: 0.9rem;
+        line-height: 1.3rem;
+      }
     }
   }
 
@@ -31,11 +47,92 @@
     justify-content: center;
     background-color: #fcf9c5;
     padding: 3rem 0;
+
+    @include tablet {
+      width: 100%;
+      
+      .singlePictures {
+        width: 100%;
+
+        img {
+          width: 100%;
+          height: auto;
+        }
+      }
+
+      .slick-slider {
+        margin: 0 auto;
+        width: 100%;
+        //   max-width: 850px; /* Adjust as needed */
+      }
+
+      .slick-prev,
+      .slick-next {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 2.5rem;
+        height: 2.5rem;
+        background-color: rgba(225, 181, 17, 0.7);
+        border: none;
+        cursor: pointer;
+        z-index: 1;
+      }
+
+      .slick-prev {
+        left: 0;
+      }
+
+      .slick-next {
+        right: 0;
+      }
+    }
+
+    @include mobile {
+      .singlePictures {
+        width: fit-content;
+
+        img {
+          width: 100%;
+        }
+      }
+
+      .slick-slider {
+        margin: 0 auto;
+        width: 100%;
+        //   max-width: 850px; /* Adjust as needed */
+      }
+
+      .slick-prev,
+      .slick-next {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 2.5rem;
+        height: 2.5rem;
+        background-color: rgba(225, 181, 17, 0.7);
+        border: none;
+        cursor: pointer;
+        z-index: 1;
+      }
+
+      .slick-prev {
+        left: 0;
+      }
+
+      .slick-next {
+        right: 0;
+      }
+    }
   }
 
   .viewCatalog {
     display: flex;
     justify-content: end;
+
+    @include mobile {
+      justify-content: center;
+    }
 
     button {
       display: flex;
@@ -54,6 +151,20 @@
       border: none;
       border-radius: 6.25rem;
       cursor: pointer;
+
+      &:hover {
+      transform: scale(1.1);
+    }
+
+    @include mobile {
+      width: 60%;
+      font-size: 1rem;
+      margin: auto;
+
+      &:hover {
+        transform: scale(1);
+      }
+    }
     }
   }
 }
