@@ -40,7 +40,7 @@
 
       @include mobile {
         width: 100%;
-        gap: .5em;
+        gap: 0.5em;
         // flex-direction: column;
       }
 
@@ -63,7 +63,7 @@
         //         display: none;
         //       }
         //     }
-            
+
         li {
           list-style: none;
           display: flex;
@@ -76,7 +76,7 @@
           cursor: pointer;
 
           @include mobile {
-            font-size: .9rem;
+            font-size: 0.9rem;
             cursor: none;
           }
 
@@ -86,16 +86,14 @@
             text-decoration-thickness: 5px;
 
             @include mobile {
-              display: none;
+              text-decoration: none;
             }
-
-            
           }
         }
       }
 
       .externalLinks {
-         display: flex;
+        display: flex;
         justify-content: space-around;
         flex-direction: column;
         width: 80%;
@@ -116,8 +114,14 @@
           color: #f9f08f;
           cursor: pointer;
 
+          a:link,
+          a:visited {
+            // Apply styles to both unvisited and visited links
+            color: #f9f08f; // Set the color of visited links
+          }
+
           @include mobile {
-            font-size: .9rem;
+            font-size: 0.9rem;
             gap: 1rem;
             cursor: none;
           }
@@ -128,7 +132,7 @@
             text-decoration-thickness: 5px;
 
             @include mobile {
-              display: none;
+              text-decoration: none;
             }
           }
         }
@@ -136,46 +140,32 @@
     }
 
     .socials {
+        margin-top: 2rem;
 
       ul {
         display: flex;
-      gap: 1.5rem;
-      font-size: 2.5rem;
-      color: #e1b611;
-      padding: 1rem;
-
-      @include laptop {
-        display: none;
-      }
-      @include mobile {
+        align-items: center;       
+        gap: 1.5rem;
         font-size: 1.5rem;
+        color: #e1b611;
         padding: 1.5rem 0 0 0;
-      }
 
-      li {
-        list-style-type: none;
-      }
+        @include laptop {
+          display: none;
+        }
 
-      .facebook,
-      .instagram,
-      .xTwitter,
-      .linkedin {
-        padding: 0.5rem;
-        border-radius: 5px;
-      }
+        li {
+          list-style-type: none;
+        }
 
-      .facebook:hover,
-      .instagram:hover,
-      .xTwitter:hover,
-      .linkedin:hover {
-        transform: scale(1.2);
-
-        @include mobile {
-          transform: none;
+        .facebook,
+        .instagram,
+        .xTwitter,
+        .linkedin {
+          padding: 0.5rem;
+          border-radius: 5px;
         }
       }
-      }
-      
     }
   }
 
