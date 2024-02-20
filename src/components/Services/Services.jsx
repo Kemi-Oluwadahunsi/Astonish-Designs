@@ -22,7 +22,7 @@ const Services = () => {
                 width={130}
                 className="icon"
               />
-              <h2>Custom Clothing Design</h2>
+              <h2 className="smallScissors">Custom Clothing Design</h2>
               <p>
                 Astonish Designs specializes in creating one-of-a-kind, bespoke
                 garments tailored to individual preferences and measurements.
@@ -38,7 +38,7 @@ const Services = () => {
                 width={80}
                 className="icon"
               />
-              <h2>Special Occasion Outfits</h2>
+              <h2 className="special-occ">Special Occasion Outfits</h2>
               <p>
                 For weddings, parties, and special events, Astonish Designs
                 crafts exquisite outfits that make a statement. Each design is
@@ -54,7 +54,7 @@ const Services = () => {
                 width={100}
                 className="icon"
               />
-              <h2>Age-Inclusive Collections</h2>
+              <h2 className="age-inc">Age-Inclusive Collections</h2>
               <p>
                 Astonish Designs embraces diversity by curating fashion
                 collections that cater to various age groups. Each collection is
@@ -70,7 +70,7 @@ const Services = () => {
                 width={100}
                 className="icon"
               />
-              <h2>Ready-To-Wear Outfits</h2>
+              <h2 className="ready">Ready-To-Wear Outfits</h2>
               <p>
                 Astonish Designs embraces diversity by curating fashion
                 collections that cater to various age groups. Each collection is

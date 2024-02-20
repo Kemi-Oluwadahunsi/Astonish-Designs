@@ -7,7 +7,7 @@
   padding: 5rem 0 0 0;
 
   @include mobile {
-    
+    padding: 2rem 0 0 0;
     margin: auto;
   }
 
@@ -27,11 +27,10 @@
         // text-align: center;
         display: none;
       }
-      
     }
     .logoOriginal > img {
-        border-radius: 50%;
-      }
+      border-radius: 50%;
+    }
 
     .footerLinks {
       width: 60%;
@@ -84,6 +83,37 @@
         }
       }
     }
+
+    .socials {
+      display: flex;
+      gap: 1.5rem;
+      font-size: 2.5rem;
+      color: #e1b611;
+      padding: 1rem;
+
+      @include laptop {
+        display: none;
+      }
+      @include mobile {
+        font-size: 1.5rem;
+        padding: 1.5rem 0 0 0;
+      }
+
+      .facebook,
+      .instagram,
+      .xTwitter,
+      .linkedin {
+        padding: 0.5rem;
+        border-radius: 5px;
+      }
+
+      .facebook:hover,
+      .instagram:hover,
+      .xTwitter:hover,
+      .linkedin:hover {
+        transform: scale(1.2);
+      }
+    }
   }
 
   .secondFooter {
@@ -94,7 +124,7 @@
     padding: 1rem 0;
 
     @include mobile {
-      padding: .5rem 0;
+      padding: 0.5rem 0;
     }
 
     .rights {
@@ -102,7 +132,7 @@
       font-size: 1rem;
 
       @include mobile {
-        font-size: .7rem;
+        font-size: 0.7rem;
       }
     }
   }

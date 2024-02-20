@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 import "./footer.scss";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faFacebookSquare, faInstagram, faLinkedin, faXTwitter } from "@fortawesome/free-brands-svg-icons";
 
 const Footer = () => {
   const scrollToTop = () => {
@@ -37,6 +39,43 @@ const Footer = () => {
               <li>Fashionista</li>
             </a>
           </ul>
+        </div>
+
+        <div className="socials">
+          <a
+            href="https://www.instagram.com/astonishdesigns"
+            target="_blank"
+            rel="noreferrer"
+            className="instagram"
+          >
+            <FontAwesomeIcon icon={faInstagram} />
+          </a>
+          <a
+            href="https://www.facebook.com/officialastonishdesigns"
+            target="_blank"
+            rel="noreferrer"
+            className="facebook"
+          >
+            <FontAwesomeIcon icon={faFacebookSquare} />
+          </a>
+
+          <a
+            href="https://www.facebook.com/officialastonishdesigns"
+            target="_blank"
+            rel="noreferrer"
+            className="xTwitter"
+          >
+            <FontAwesomeIcon icon={faXTwitter} />
+          </a>
+
+          <a
+            href="https://www.facebook.com/officialastonishdesigns"
+            target="_blank"
+            rel="noreferrer"
+            className="linkedin"
+          >
+            <FontAwesomeIcon icon={faLinkedin} />
+          </a>
         </div>
       </div>
 

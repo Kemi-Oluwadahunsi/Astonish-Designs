@@ -35,7 +35,7 @@ const Contact = React.forwardRef(({ updateButtonText }, ref) => {
           <div className="contactBody">
             <div className="leftContact">
               <div className="connection">
-                <h2>Let&apos;s discuss your Project</h2>
+                <h2>Connect With Us</h2>
                 <p>
                   Welcome! We&apos;re thrilled to connect
                   with you.
@@ -58,7 +58,7 @@ const Contact = React.forwardRef(({ updateButtonText }, ref) => {
                 <div className="address">
                   <p className="locationType">Email:</p>
                   <a href="mailto:lifestylewithastonish@gmail.com">
-                    Lifestylewithastonish@gmail.com
+                    lifestylewithastonish@gmail.com
                   </a>
                 </div>
               </div>

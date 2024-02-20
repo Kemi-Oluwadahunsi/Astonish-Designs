@@ -35,8 +35,11 @@ html {
 body {
   background-color: #fdfce9;
   color: #2F2F2F;
-  text-align: justify;
-  text-justify: inter-word; /* Adjusts spacing between words */
+  // text-wrap: wrap;
+  text-align:justify;
+  hyphens: auto;
+  word-spacing: -1px;
+ /* Adjusts spacing between words */
   letter-spacing: 0.5px;
 }
 

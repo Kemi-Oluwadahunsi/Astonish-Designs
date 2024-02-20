@@ -32,7 +32,7 @@
 
     @include tablet {
       width: 100%;
-      padding: 3rem 0;
+      padding: 1rem 0;
 
        .singlePictures {
         width: fit-content;
@@ -49,12 +49,12 @@
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
-        width: 2.5rem;
-        height: 2.5rem;
-        background-color: rgba(225, 181, 17, 0.7);
+        width: 1rem;
+        height: 1rem;
+        background-color: rgba(225, 181, 17, 0.3);
         border: none;
         cursor: pointer;
-        z-index: 1;
+        z-index: 99;
       }
 
       .slick-prev {
@@ -82,9 +82,9 @@
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
-        width: 2rem;
-        height: 2rem;
-        background-color: rgba(225, 181, 17, 0.7);
+        width: 1.5rem;
+        height: 1.5rem;
+        background-color: rgba(225, 181, 17, 0.3);
         border: none;
         cursor: pointer;
         z-index: 1;
@@ -113,6 +113,14 @@
         width: 100%;
       }
 
+      h3 {
+
+        @include mobile {
+          font-size: 1rem;
+          margin-top: 1rem;
+        }
+      }
+
       .testimony {
         display: flex;
         flex-direction: column;
@@ -122,17 +130,21 @@
         font-family: "La Belle Aurore";
 
         .leftQuote {
+          font-size: .8rem;
           margin-left: -18rem;
 
           @include mobile {
             margin-left: -17rem;
+            font-size: 0.6rem;
           }
         }
 
         .rightQuote {
+          font-size: 0.8rem;
           margin-right: -18rem;
 
           @include mobile {
+            font-size: 0.6rem;
             margin-right: -17rem;
           }
         }
@@ -140,16 +152,14 @@
         .testimonialParagraph {
           line-height: 1.4;
           letter-spacing: 2px;
-          text-align: start;
-          text-wrap: balance;
           padding-left: 1rem;
+          text-align: justify;
 
           @include mobile {
             line-height: 1.2;
-            letter-spacing: 1.3px;
+            letter-spacing: 1.2px;
             font-size: 0.9em;
-            // text-align: justify;
-            text-wrap: balance;
+            padding:0 1rem;
           }
         }
       }
@@ -161,6 +171,11 @@
         align-items: center;
         justify-content: center;
         font-size: 1.2rem;
+
+        @include mobile {
+          font-size: 1rem;
+          gap: .5rem;
+        }
       }
 
       .testImage {
