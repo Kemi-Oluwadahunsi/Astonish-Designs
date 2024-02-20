@@ -19,7 +19,7 @@
 
     @include mobile {
       flex-direction: column;
-      padding: 0 2rem 1rem 2rem;
+      padding: 0 1rem 1rem 1rem;
     }
 
     .logoOriginal {
@@ -40,7 +40,8 @@
 
       @include mobile {
         width: 100%;
-        flex-direction: column;
+        gap: .5em;
+        // flex-direction: column;
       }
 
       ul {
@@ -52,10 +53,17 @@
 
         @include mobile {
           width: 100%;
-          justify-content: start;
+          justify-content: space-evenly;
           gap: 1rem;
         }
 
+        // .wwd {
+
+        //       @include mobile {
+        //         display: none;
+        //       }
+        //     }
+            
         li {
           list-style: none;
           display: flex;
@@ -68,7 +76,50 @@
           cursor: pointer;
 
           @include mobile {
-            font-size: 1rem;
+            font-size: .9rem;
+            cursor: none;
+          }
+
+          &:hover {
+            text-decoration: underline;
+            text-decoration-color: #f1cf1e;
+            text-decoration-thickness: 5px;
+
+            @include mobile {
+              display: none;
+            }
+
+            
+          }
+        }
+      }
+
+      .externalLinks {
+         display: flex;
+        justify-content: space-around;
+        flex-direction: column;
+        width: 80%;
+        gap: 2rem;
+
+        @include mobile {
+          width: 100%;
+          margin-left: -4rem;
+        }
+
+        a {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          font-size: 1.2rem;
+          font-weight: 500;
+          font-family: Verdana, Geneva, Tahoma, sans-serif;
+          color: #f9f08f;
+          cursor: pointer;
+
+          @include mobile {
+            font-size: .9rem;
+            gap: 1rem;
+            cursor: none;
           }
 
           &:hover {
@@ -85,7 +136,9 @@
     }
 
     .socials {
-      display: flex;
+
+      ul {
+        display: flex;
       gap: 1.5rem;
       font-size: 2.5rem;
       color: #e1b611;
@@ -97,6 +150,10 @@
       @include mobile {
         font-size: 1.5rem;
         padding: 1.5rem 0 0 0;
+      }
+
+      li {
+        list-style-type: none;
       }
 
       .facebook,
@@ -112,7 +169,13 @@
       .xTwitter:hover,
       .linkedin:hover {
         transform: scale(1.2);
+
+        @include mobile {
+          transform: none;
+        }
       }
+      }
+      
     }
   }
 
@@ -132,7 +195,7 @@
       font-size: 1rem;
 
       @include mobile {
-        font-size: 0.7rem;
+        font-size: 0.8rem;
       }
     }
   }

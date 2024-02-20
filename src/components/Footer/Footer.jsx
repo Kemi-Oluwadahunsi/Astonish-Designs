@@ -1,7 +1,12 @@
 import { Link } from "react-router-dom";
 import "./footer.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faFacebookSquare, faInstagram, faLinkedin, faXTwitter } from "@fortawesome/free-brands-svg-icons";
+import {
+  faFacebookSquare,
+  faInstagram,
+  faLinkedin,
+  faXTwitter,
+} from "@fortawesome/free-brands-svg-icons";
 
 const Footer = () => {
   const scrollToTop = () => {
@@ -19,63 +24,82 @@ const Footer = () => {
 
         <div className="footerLinks">
           <ul>
-            <li onClick={scrollToTop}>Home</li>
-
-            <Link to="/about">
-              <li>About Us</li>
-            </Link>
+            <li onClick={scrollToTop}>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/about">About Us</Link>
+            </li>
 
             <li>Contact</li>
           </ul>
 
-          <ul>
-            <a href="https://www.elle.com/" target="_blank" rel="noreferrer">
-              <li>Fashion Magazine</li>
+          <div className="externalLinks">
+            <a href="https://www.elle.com" target="_blank" rel="noreferrer">
+              Fashion Magazine
             </a>
-            <a href="https://www.elle.com/" target="_blank" rel="noreferrer">
-              <li>Women&apos;s Wear Daily</li>
+
+            <a
+              href="https://www.elle.com"
+              target="_blank"
+              rel="noreferrer"
+              className="wwd"
+            >
+              Women&apos;s Wear Daily
             </a>
-            <a href="https://www.elle.com/" target="_blank" rel="noreferrer">
-              <li>Fashionista</li>
+
+            <a href="https://www.elle.com" target="_blank" rel="noreferrer">
+              Fashionista
             </a>
-          </ul>
+          </div>
         </div>
 
         <div className="socials">
-          <a
-            href="https://www.instagram.com/astonishdesigns"
-            target="_blank"
-            rel="noreferrer"
-            className="instagram"
-          >
-            <FontAwesomeIcon icon={faInstagram} />
-          </a>
-          <a
-            href="https://www.facebook.com/officialastonishdesigns"
-            target="_blank"
-            rel="noreferrer"
-            className="facebook"
-          >
-            <FontAwesomeIcon icon={faFacebookSquare} />
-          </a>
+          <ul>
+            <li>
+              <a
+                href="https://www.instagram.com/astonishdesigns"
+                target="_blank"
+                rel="noreferrer"
+                className="instagram"
+              >
+                <FontAwesomeIcon icon={faInstagram} />
+              </a>
+            </li>
 
-          <a
-            href="https://www.facebook.com/officialastonishdesigns"
-            target="_blank"
-            rel="noreferrer"
-            className="xTwitter"
-          >
-            <FontAwesomeIcon icon={faXTwitter} />
-          </a>
+            <li>
+              <a
+                href="https://www.facebook.com/officialastonishdesigns"
+                target="_blank"
+                rel="noreferrer"
+                className="facebook"
+              >
+                <FontAwesomeIcon icon={faFacebookSquare} />
+              </a>
+            </li>
 
-          <a
-            href="https://www.facebook.com/officialastonishdesigns"
-            target="_blank"
-            rel="noreferrer"
-            className="linkedin"
-          >
-            <FontAwesomeIcon icon={faLinkedin} />
-          </a>
+            <li>
+              <a
+                href="https://www.facebook.com/officialastonishdesigns"
+                target="_blank"
+                rel="noreferrer"
+                className="xTwitter"
+              >
+                <FontAwesomeIcon icon={faXTwitter} />
+              </a>
+            </li>
+
+            <li>
+              <a
+                href="https://www.facebook.com/officialastonishdesigns"
+                target="_blank"
+                rel="noreferrer"
+                className="linkedin"
+              >
+                <FontAwesomeIcon icon={faLinkedin} />
+              </a>
+            </li>
+          </ul>
         </div>
       </div>
 
