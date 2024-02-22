@@ -7,9 +7,9 @@ import {
   faTimes,
 } from '@fortawesome/free-solid-svg-icons'
 import {
-  faFacebook,
+  faFacebookSquare,
   faInstagram,
-  // faWhatsapp,
+  faLinkedin,
   faXTwitter,
 } from '@fortawesome/free-brands-svg-icons'
 import { Link } from 'react-router-dom'
@@ -59,15 +59,15 @@ const Navbar = ({ scrollToContact }) => {
                   <FontAwesomeIcon
                     icon={faTimes}
                     style={{
-                      width: "30px",
-                      height: "30px",
+                      width: "20px",
+                      height: "20px",
                       border: "none",
                     }}
                   />
                 ) : (
                   <FontAwesomeIcon
                     icon={faBars}
-                    style={{ width: "30px", height: "30px" }}
+                    style={{ width: "20px", height: "20px" }}
                   />
                 )}
               </button>
@@ -95,45 +95,47 @@ const Navbar = ({ scrollToContact }) => {
               <ul>
                 <li onClick={closeMobileContent}>
                   <a
+                    href="https://www.instagram.com/astonishdesigns"
                     target="_blank"
-                    rel="noopener noreferrer"
-                    href="https://www.linkedin.com/in/oluwakemioluwadahunsi/"
+                    rel="noreferrer"
+                    className="instagram"
                   >
-                    <FontAwesomeIcon icon={faInstagram} color="#0c0c1d" />
+                    <FontAwesomeIcon icon={faInstagram} />
                   </a>
                 </li>
 
                 <li onClick={closeMobileContent}>
                   <a
+                    href="https://www.facebook.com/officialastonishdesigns"
                     target="_blank"
-                    rel="noopenener noreferrer"
-                    href="https://www.facebook.com/kaliceagbabiaka1"
+                    rel="noreferrer"
+                    className="facebook"
                   >
-                    <FontAwesomeIcon icon={faFacebook} color="#0c0c1d" />
+                    <FontAwesomeIcon icon={faFacebookSquare} />
                   </a>
                 </li>
 
                 <li onClick={closeMobileContent}>
                   <a
+                    href="https://www.facebook.com/officialastonishdesigns"
                     target="_blank"
-                    rel="noopener noreferrer"
-                    href="https://twitter.com/km_oluwadahunsi"
+                    rel="noreferrer"
+                    className="xTwitter"
                   >
-                    <FontAwesomeIcon icon={faXTwitter} color="#0c0c1d" />
+                    <FontAwesomeIcon icon={faXTwitter} />
                   </a>
                 </li>
 
-            
-
-                {/* <li onClick={closeMobileContent}>
+                <li onClick={closeMobileContent}>
                   <a
+                    href="https://www.facebook.com/officialastonishdesigns"
                     target="_blank"
-                    rel="noopener noreferrer"
-                    href="https://wa.me/+2348146433203"
+                    rel="noreferrer"
+                    className="linkedin"
                   >
-                    <FontAwesomeIcon icon={faWhatsapp} color="#0c0c1d" />
+                    <FontAwesomeIcon icon={faLinkedin} />
                   </a>
-                </li> */}
+                </li>
               </ul>
             </div>
           </div>

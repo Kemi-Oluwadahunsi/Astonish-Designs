@@ -2,6 +2,8 @@
 
 .small-screens {
   background-color: rgba(47, 47, 47, 0.1);
+  width: 100%;
+  // position: fixed;
 
   @include laptop {
     display: none;
@@ -17,11 +19,12 @@
 
       @include mobile {
         padding: 1rem;
+        width: 100%;
       }
 
       .logo {
         display: block;
-        padding: 0.5rem auto;
+        // padding: 0.5rem auto;
         img {
           border-radius: 50%;
         }
@@ -30,55 +33,55 @@
           display: block;
           width: 3.5rem;
           height: auto;
-        }
 
-        h3 {
-          color: #3fabf1;
-          font-size: 0.6rem;
-          margin-top: 0.1rem;
-          font-family: sans-serif;
-          letter-spacing: 0.7px;
-          animation: fadeIn 1s 1.8s backwards;
+          @include mobile {
+            width: 3.2rem;
+          }
         }
       }
 
       .toggleButton {
-        width: 4rem;
-        height: 4rem;
+        width: 2rem;
+        height: 2rem;
         border-radius: 50%;
-        background-color: #3fabf1;
-        padding: 1rem;
+        background-color: #c28e0c;
+        padding: 0.5rem;
         display: flex;
         align-items: center;
         justify-content: center;
-        z-index: 1000;
+        z-index: 10000;
 
         @include mobile {
-          width: 3.5rem;
-          height: 3.5rem;
+          width: 2.5rem;
+          height: 2.5rem;
         }
 
         button {
-          background-color: #3fabf1;
-          color: #0c0c1d;
+          background-color: #c28e0c;
+          color: #fdfce9;
           border: none;
         }
       }
     }
 
     .bg {
-      background-color: #10416a;
+      // background-color: rgba(47, 47, 47, 0.9);
+      background-color: rgb(194, 142, 12);
       position: absolute;
-      left: 30%;
-      width: 70vw;
-      height: 80vh;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      position: fixed;
+      width: 100vw;
+      height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: start;
       padding-top: 5rem;
       gap: 5rem;
-      z-index: 2000;
+      z-index: 1000;
       border-bottom-left-radius: 10px;
 
       .navigationItems {
@@ -86,40 +89,49 @@
         flex: 1;
         flex-direction: column;
         align-items: center;
-        justify-content: center;
+        justify-content: space-around;
         flex-basis: 100%;
 
-        .navLinks {
-          list-style: none;
-          height: 70%;
-          display: flex;
-          flex-direction: column;
-          gap: 2rem;
-          font-size: 1.5rem;
-          font-weight: 600;
-          color: #3fabf1;
-          text-decoration: underline;
-        }
-          button {
-    display: flex;
-    padding: 0.9rem 2rem;
-    background: #f1cf1e;
-    color:#2F2F2F;
-    justify-content: center;
-    align-items: center;
-    gap: 0.25rem;
-    font-size: 1.3rem;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    border: none;
-    border-radius: 6.25rem;  
-    cursor: pointer;
+        li {
+              list-style: none;
+              display: flex;
+              justify-content: center;
+              font-size: 1.2rem;
+              font-weight: 500;
+              font-family: Verdana, Geneva, Tahoma, sans-serif;
+              color: #fdfce9;
+              cursor: pointer;
 
-    &:hover {
-      transform: scale(1.1);
-    }
-  }
+              &:hover {
+                text-decoration: underline;
+                text-decoration-color: #f1cf1e;
+                text-decoration-thickness: 5px;
+                transform: scale(1.1);
+
+                @include mobile {
+                  text-decoration: none;
+                  transform: none;
+                }
+              }
+            }
+
+        
+        button {
+          display: flex;
+          padding: 0.7rem 1.5rem;
+          background: #f1cf1e;
+          color: #2f2f2f;
+          justify-content: center;
+          align-items: center;
+          gap: 0.25rem;
+          font-size: 1.2rem;
+          font-family: Verdana, Geneva, Tahoma, sans-serif;
+          font-style: normal;
+          font-weight: 500;
+          border: none;
+          border-radius: 6.25rem;
+          cursor: pointer;
+        }
       }
 
       .socialIcons {
@@ -128,14 +140,15 @@
         width: 100%;
         flex-basis: 20%;
         align-items: flex-end;
-        justify-content: flex-end;
+        justify-content: center;
         padding: 0 0.5rem 0.5rem 0;
+         color: #805113;
 
         ul {
           display: flex;
           align-items: center;
           justify-content: space-around;
-          width: 100%;
+          width: 80%;
 
           li {
             display: flex;

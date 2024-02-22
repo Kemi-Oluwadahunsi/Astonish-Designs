@@ -6,6 +6,7 @@ import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import Contact from "../Contact/Contact";
 import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
+import Navbar from "../Navbar/Navbar";
 
 const AboutMajor = ({ showContact, toggleContact }) => {
   const [buttonText, setButtonText] = useState("Click to close");
@@ -28,6 +29,7 @@ const AboutMajor = ({ showContact, toggleContact }) => {
       <div>
         <div className="aboutMajorBody">
           <Header />
+          <Navbar />
           <div className="aboutText2">
             <h1>About Us</h1>
 
@@ -125,7 +127,6 @@ const AboutMajor = ({ showContact, toggleContact }) => {
             </div>
           </div>
 
-          <div className="aboutCEO"></div>
           <div className="lastPart">
             <div className="ceo">
               <img src="/images/CEOsmall.png" alt="ceo" width={150} />

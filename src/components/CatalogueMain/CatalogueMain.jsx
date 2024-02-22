@@ -8,6 +8,7 @@ import Contact from "../Contact/Contact";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import PropTypes from "prop-types";
+import Navbar from "../Navbar/Navbar";
 
 
 const CatalogueMain = ({ showContact, toggleContact }) => {
@@ -58,6 +59,7 @@ const CatalogueMain = ({ showContact, toggleContact }) => {
       <div className="catalogueMain">
         <div className="subHeader">
           <Header />
+          <Navbar />
           <div className="catalogueMainTitle">
             <h1>Our Collections</h1>
             <p>

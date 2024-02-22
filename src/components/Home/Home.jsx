@@ -25,7 +25,7 @@ const Home = ({ showContact, toggleContact }) => {
     <div className="mainBody">
       <div className="main">
         <Header scrollToContact={scrollToContact} />
-        <Navbar scrollToContact={scrollToContact}/>
+        <Navbar scrollToContact={scrollToContact} />
         <div className="mainContent">
           <div className="text">
             <h1>Astonish</h1>

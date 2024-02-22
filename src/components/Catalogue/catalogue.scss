@@ -96,10 +96,14 @@
       
       .singlePictures {
         width: fit-content;
+
+        
+
         
 
         img {
           width: 80%;
+          height: 20rem;
           margin: auto;
         }
       }
@@ -117,18 +121,18 @@
         transform: translateY(-50%);
         width: 1.5rem;
         height: 1.5rem;
-        background-color: rgba(225, 181, 17, 0.3);
+        background-color: rgba(225, 181, 17, 0.5);
         border: none;
         cursor: pointer;
         z-index: 1;
       }
 
       .slick-prev {
-        left: 0;
+        left: .5rem;
       }
 
       .slick-next {
-        right: 0;
+        right: .5rem;
       }
     }
   }
