@@ -74,6 +74,8 @@
         @include mobile {
           font-size: 1rem;
           line-height: 1.5rem;
+          word-spacing: -2px;
+          letter-spacing: .7px;
         }
       }
     }
