@@ -20,6 +20,7 @@
     @include mobile {
       flex-direction: column;
       padding: 0 1rem 1rem 1rem;
+            gap: 1.5rem;
     }
 
     .logoOriginal {
@@ -59,7 +60,6 @@
         @include mobile {
           width: 100%;
           justify-content: space-around;
-          gap: 1rem;
         }
 
         li {
