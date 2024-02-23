@@ -32,6 +32,8 @@ const CatalogueMain = ({ showContact, toggleContact }) => {
     dots: true,
     infinite: true,
     speed: 300,
+    autoplay: true,
+    autoplaySpeed: 3000,
     slidesToShow: 3,
     slidesToScroll: 1,
     prevArrow: <button className="slick-prev">Previous</button>,
@@ -72,10 +74,11 @@ const CatalogueMain = ({ showContact, toggleContact }) => {
 
         <div className="collections">
           <div className="readyToWear">
+            <h2 className="smallScreenTitle">Ready To Wear</h2>
             <div className="outerDiv">
               <h2>Ready To Wear</h2>
               <div className="innerDiv">
-                <img src="/images/catalogFolder/readyToWear2.JPG" alt="" />
+                <img src="/images/catalogFolder/readyToWear2.JPG" alt="rtw" />
               </div>
             </div>
 
@@ -84,45 +87,80 @@ const CatalogueMain = ({ showContact, toggleContact }) => {
                 <div className="stylePictures">
                   <img
                     src="/images/ReadyToWear1.JPG"
-                    alt=""
+                    alt="rtw"
                     width={250}
-                    height={300}
+                    height={315}
                   />
                 </div>
                 <div className="stylePictures">
-                  <img src="/images/readyToWear3.JPG" alt="" width={240} />
+                  <img
+                    src="/images/readyToWear3.JPG"
+                    alt="rtw"
+                    width={250}
+                    height={315}
+                  />
                 </div>
 
                 <div className="stylePictures">
-                  <img src="/images/readyToWear5.JPG" alt="" width={250} />
+                  <img
+                    src="/images/readyToWear5.JPG"
+                    alt="rtw"
+                    width={250}
+                    height={315}
+                  />
                 </div>
 
                 <div className="stylePictures">
-                  <img src="/images/readyToWear11.JPG" alt="" width={250} />
+                  <img
+                    src="/images/readyToWear11.JPG"
+                    alt="rtw"
+                    width={250}
+                    height={315}
+                  />
                 </div>
 
                 <div className="stylePictures">
-                  <img src="/images/white-jumpsuit.JPG" alt="" width={250} />
+                  <img
+                    src="/images/white-jumpsuit.JPG"
+                    alt="rtw"
+                    width={250}
+                    height={315}
+                  />
                 </div>
 
                 <div className="stylePictures">
-                  <img src="/images/readyToWear9.JPG" alt="" width={200} />
+                  <img
+                    src="/images/readyToWear9-3.jpg"
+                    alt="rtw"
+                    width={250}
+                    height={315}
+                  />
                 </div>
 
                 <div className="stylePictures">
-                  <img src="/images/readyToWear14.JPG" alt="" width={250} />
+                  <img
+                    src="/images/readyToWear14.JPG"
+                    alt="rtw"
+                    width={255}
+                    height={315}
+                  />
                 </div>
 
                 <div className="stylePictures">
-                  <img src="/images/readyToWear6.JPG" alt="" width={250} />
+                  <img
+                    src="/images/readyToWear6.JPG"
+                    alt="rtw"
+                    width={250}
+                    height={315}
+                  />
                 </div>
 
                 <div className="stylePictures">
                   <img
                     src="/images/readyToWearBlue.JPG"
-                    alt=""
+                    alt="rtw"
                     width={250}
-                    height={310}
+                    height={315}
                   />
                 </div>
               </Slider>
@@ -130,65 +168,112 @@ const CatalogueMain = ({ showContact, toggleContact }) => {
           </div>
 
           <div className="specialOccassions">
+            <h2 className="smallScreenTitle">Special Occassions</h2>
             <div className="outerDiv">
               <h2>Special Occassions</h2>
               <div className="innerDiv">
-                <img src="/images/catalogFolder/specialOccassion.JPG" alt="" />
+                <img
+                  src="/images/catalogFolder/specialOccassion.JPG"
+                  alt="special"
+                />
               </div>
             </div>
 
             <div className="sideDiv">
               <Slider {...settings}>
                 <div className="stylePictures">
-                  <img src="/images/spacialOccassion2.JPG" alt="" width={250} />
+                  <img
+                    src="/images/spacialOccassion2.JPG"
+                    alt="speacial"
+                    width={250}
+                    height={315}
+                  />
                 </div>
 
                 <div className="stylePictures">
-                  <img src="/images/catalog1.JPG" alt="" width={250} />
+                  <img
+                    src="/images/catalog1.JPG"
+                    alt="special"
+                    width={250}
+                    height={315}
+                  />
                 </div>
 
                 <div className="stylePictures">
-                  <img src="/images/specialOccassion7.JPG" alt="" width={250} />
+                  <img
+                    src="/images/specialOccassion7.JPG"
+                    alt="special"
+                    width={250}
+                    height={315}
+                  />
                 </div>
+
                 <div className="stylePictures">
-                  <img src="/images/specialOccassion8.JPG" alt="" width={200} />
+                  <img
+                    src="/images/specialOccassion8.JPG"
+                    alt="special"
+                    width={250}
+                    height={315}
+                  />
                 </div>
+
                 <div className="stylePictures">
                   <img
                     src="/images/specialOccassion10.png"
-                    alt=""
-                    width={240}
+                    alt="special"
+                    width={250}
+                    height={315}
                   />
                 </div>
 
                 <div className="stylePictures">
                   <img
                     src="/images/specialOccassion12.JPG"
-                    alt=""
+                    alt="special"
                     width={250}
+                    height={315}
                   />
                 </div>
 
                 <div className="stylePictures">
-                  <img src="/images/spacialOccassion3.JPG" alt="" width={250} />
+                  <img
+                    src="/images/spacialOccassion3.JPG"
+                    alt="special"
+                    width={250}
+                    height={315}
+                  />
                 </div>
 
                 <div className="stylePictures">
-                  <img src="/images/special-occassion.jpg" alt="" width={250} />
+                  <img
+                    src="/images/special-occassion.jpg"
+                    alt="special"
+                    width={250}
+                    height={315}
+                  />
                 </div>
 
                 <div className="stylePictures">
-                  <img src="/images/specialOccassion5.JPG" alt="" width={250} />
+                  <img
+                    src="/images/specialOccassion5.JPG"
+                    alt="special"
+                    width={250}
+                    height={315}
+                  />
                 </div>
               </Slider>
             </div>
           </div>
 
           <div className="photoshoots">
+            <h2 className="smallScreenTitle">Bespoke Outfits</h2>
             <div className="outerDiv">
               <h2>Bespoke Outfits</h2>
               <div className="innerDiv">
-                <img src="/images/catalogFolder/photoshoot.JPG" alt="" />
+                <img
+                  src="/images/catalogFolder/photoshoot.JPG"
+                  alt="photoshoot"
+                />
               </div>
             </div>
 
@@ -197,54 +282,86 @@ const CatalogueMain = ({ showContact, toggleContact }) => {
                 <div className="stylePictures">
                   <img
                     src="/images/photoshoot2.JPG"
-                    alt=""
+                    alt="photoshoot"
                     width={250}
-                    height={310}
+                    height={315}
                   />
                 </div>
                 <div className="stylePictures">
-                  <img src="/images/photoshoot3.JPG" alt="" width={250} />
+                  <img
+                    src="/images/photoshoot3.JPG"
+                    alt="photoshoot"
+                    width={250}
+                    height={315}
+                  />
                 </div>
                 <div className="stylePictures">
                   <img
                     src="/images/photoshoot4.JPG"
-                    alt=""
+                    alt="photoshoot"
                     width={250}
-                    height={310}
+                    height={315}
                   />
                 </div>
                 <div className="stylePictures">
-                  <img src="/images/photoshoot7.jpg" alt="" width={250} />
+                  <img
+                    src="/images/photoshoot7.jpg"
+                    alt="photoshoot"
+                    width={250}
+                    height={315}
+                  />
                 </div>
 
                 <div className="stylePictures">
                   <img
                     src="/images/specialOccassion13.JPG"
-                    alt=""
+                    alt="photoshoot"
                     width={250}
+                    height={315}
                   />
                 </div>
 
                 <div className="stylePictures">
-                  <img src="/images/photoshootCat.JPG" alt="" width={250} />
+                  <img
+                    src="/images/photoshootCat.JPG"
+                    alt="photoshoot"
+                    width={250}
+                    height={315}
+                  />
                 </div>
 
                 <div className="stylePictures">
-                  <img src="/images/photoshoot12.JPG" alt="" width={210} />
+                  <img
+                    src="/images/photoshoot12.JPG"
+                    alt="photoshoot"
+                    width={250}
+                    height={315}
+                  />
                 </div>
 
                 <div className="stylePictures">
-                  <img src="/images/photoshoot13.JPG" alt="" width={250} />
+                  <img
+                    src="/images/photoshoot13.JPG"
+                    alt="photoshoot"
+                    width={250}
+                    height={315}
+                  />
                 </div>
 
                 <div className="stylePictures">
-                  <img src="/images/photoshoot11.JPG" alt="" width={250} />
+                  <img
+                    src="/images/photoshoot11.JPG"
+                    alt="photoshoot"
+                    width={250}
+                    height={315}
+                  />
                 </div>
               </Slider>
             </div>
           </div>
 
           <div className="kidsCollections">
+            <h2 className="smallScreenTitle">Kid&apos;s Collections</h2>
             <div className="outerDiv">
               <h2>Kid&apos;s Collections</h2>
               <div className="innerDiv">
@@ -255,24 +372,54 @@ const CatalogueMain = ({ showContact, toggleContact }) => {
             <div className="sideDiv">
               <Slider {...settings}>
                 <div className="stylePictures">
-                  <img src="/images/kidsCollection4.jpg" alt="" width={250} />
+                  <img
+                    src="/images/kidsCollection4.jpg"
+                    alt="kidswear"
+                    width={250}
+                    height={315}
+                  />
                 </div>
                 <div className="stylePictures">
-                  <img src="/images/kidsCollection6.jpg" alt="" width={250} />
+                  <img
+                    src="/images/kidsCollection2.JPG"
+                    alt="kidswear"
+                    width={250}
+                    height={315}
+                  />
                 </div>
                 <div className="stylePictures">
-                  <img src="/images/kidsCollection2.JPG" alt="" width={250} />
+                  <img
+                    src="/images/kidsCollection6.jpg"
+                    alt="kidswear"
+                    width={250}
+                    height={315}
+                  />
                 </div>
                 <div className="stylePictures">
-                  <img src="/images/kidsCollection.JPG" alt="" width={230} />
+                  <img
+                    src="/images/kidsCollection.JPG"
+                    alt="kidswear"
+                    width={250}
+                    height={315}
+                  />
                 </div>
 
                 <div className="stylePictures">
-                  <img src="/images/kidsCollection5.jpg" alt="" width={250} />
+                  <img
+                    src="/images/kidsCollection5.jpg"
+                    alt="kidswear"
+                    width={250}
+                    height={315}
+                  />
                 </div>
 
                 <div className="stylePictures">
-                  <img src="/images/kidsCollection8.jpg" alt="" width={250} />
+                  <img
+                    src="/images/kidsCollection8.jpg"
+                    alt="kidswear"
+                    width={250}
+                    height={315}
+                  />
                 </div>
               </Slider>
             </div>
