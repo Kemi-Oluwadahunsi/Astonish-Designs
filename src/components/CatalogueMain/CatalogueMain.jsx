@@ -130,7 +130,7 @@ const CatalogueMain = ({ showContact, toggleContact }) => {
 
                 <div className="stylePictures">
                   <img
-                    src="/images/readyToWear9-3.jpg"
+                    src="/images/readyToWear9.JPG"
                     alt="rtw"
                     width={250}
                     height={315}

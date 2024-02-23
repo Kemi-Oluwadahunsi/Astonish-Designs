@@ -2,9 +2,9 @@
 
 .aboutMajorBody {
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)),
-    url("/images/logoOriginal.jpg");
+   url("/images/logoOriginal.jpg");
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: cover;
   background-position: center;
   padding: 0 4rem;
   display: flex;
@@ -16,6 +16,7 @@
     background-repeat: repeat;
     background-position: bottom;
     gap: 1rem;
+    background-size: contain;
   }
 
   .aboutText2 {
