@@ -28,11 +28,6 @@ const ScrollArrow = () => {
 
 
   return (
-    // <div
-    // className="btn-Scroll" style={{display: isVisible ? 'block':'none'}} onClick={goTop}>
-    //   <FontAwesomeIcon icon={faArrowCircleUp} color="white" />
-    // </div>
-
     <div className="scroll-buttons">
       <div
         className="btn-Scroll"
@@ -42,7 +37,7 @@ const ScrollArrow = () => {
         <FontAwesomeIcon icon={faArrowCircleUp} color="white" />
       </div>
       <a
-        href="https://wa.me/08146433203"
+        href="https://wa.me/+2348134473169"
         className="btn-whatsapp"
         target="_blank"
         rel="noopener noreferrer"

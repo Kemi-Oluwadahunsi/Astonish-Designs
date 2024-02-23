@@ -56,12 +56,17 @@ const CatalogueMain = ({ showContact, toggleContact }) => {
     ],
   };
 
+  const scrollToContact = () => {
+    const contactMeSection = document.getElementById("contactMe");
+    contactMeSection.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <>
       <div className="catalogueMain">
         <div className="subHeader">
-          <Header />
-          <Navbar />
+          <Header scrollToContact={scrollToContact} />
+          <Navbar scrollToContact={scrollToContact} />
           <div className="catalogueMainTitle">
             <h1>Our Collections</h1>
             <p>
@@ -426,7 +431,7 @@ const CatalogueMain = ({ showContact, toggleContact }) => {
           </div>
         </div>
 
-        <div className="contactMe">
+        <div className="contactMe" id="contactMe">
           <p>Let&apos;s Make Your Dream Outfits Real!</p>
           <button onClick={toggleContact} className="contactButton">
             {shouldShowContact ? "Contact Us Now" : buttonText}

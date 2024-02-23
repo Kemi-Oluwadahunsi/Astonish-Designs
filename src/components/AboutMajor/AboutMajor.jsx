@@ -24,12 +24,17 @@ const AboutMajor = ({ showContact, toggleContact }) => {
     setInitialLoad(false);
   }, []);
 
+  const scrollToContact = () => {
+    const contactMeSection = document.getElementById("contactMe");
+    contactMeSection.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <>
       <div>
         <div className="aboutMajorBody">
-          <Header />
-          <Navbar />
+          <Header scrollToContact={scrollToContact} />
+          <Navbar scrollToContact={scrollToContact} />
           <div className="aboutText2">
             <h1>About Us</h1>
 
@@ -136,7 +141,7 @@ const AboutMajor = ({ showContact, toggleContact }) => {
               </div>
             </div>
 
-            <div className="contactMe">
+            <div className="contactMe" id="contactMe">
               <p>Let&apos;s Make Your Dream Outfits Real!</p>
               <button onClick={toggleContact} className="contactButton">
                 {shouldShowContact ? "Contact Us Now" : buttonText}

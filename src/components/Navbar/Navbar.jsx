@@ -1,20 +1,15 @@
-
-import './navbar.scss'
-import { useEffect, useState } from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {
-  faBars,
-  faTimes,
-} from '@fortawesome/free-solid-svg-icons'
+import "./navbar.scss";
+import { useEffect, useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
 import {
   faFacebookSquare,
   faInstagram,
   faLinkedin,
   faXTwitter,
-} from '@fortawesome/free-brands-svg-icons'
-import { Link } from 'react-router-dom'
+} from "@fortawesome/free-brands-svg-icons";
+import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
-
 
 const Navbar = ({ scrollToContact }) => {
   const [showMobileContent, setShowMobileContent] = useState(false);
@@ -62,6 +57,8 @@ const Navbar = ({ scrollToContact }) => {
                       width: "20px",
                       height: "20px",
                       border: "none",
+                      zIndex: 10000,
+                      position: "fixed",
                     }}
                   />
                 ) : (
@@ -76,17 +73,24 @@ const Navbar = ({ scrollToContact }) => {
 
           <div className={`bg ${showMobileContent ? "visible" : "hidden"}`}>
             <ul className="navigationItems">
-              <Link to="/">
+              <Link to="/" onClick={closeMobileContent}>
                 <li>Home</li>
               </Link>
 
-              <Link to="/about">
+              <Link to="/about" onClick={closeMobileContent}>
                 <li>About Us</li>
               </Link>
 
-              <li onClick={scrollToContact}>Contact</li>
+              <li
+                onClick={() => {
+                  scrollToContact();
+                  closeMobileContent();
+                }}
+              >
+                Contact
+              </li>
 
-              <Link to="/catalogue">
+              <Link to="/catalogue" onClick={closeMobileContent}>
                 <button>Catalogue</button>
               </Link>
             </ul>
@@ -147,4 +151,4 @@ const Navbar = ({ scrollToContact }) => {
 Navbar.propTypes = {
   scrollToContact: PropTypes.func.isRequired,
 };
-export default Navbar
+export default Navbar;

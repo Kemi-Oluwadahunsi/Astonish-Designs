@@ -7,10 +7,12 @@ import Contact from "../Contact/Contact";
 import Header from "../Header/Header";
 import PropTypes from "prop-types";
 import { animateScroll as scroll } from "react-scroll";
-import { useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import Navbar from "../Navbar/Navbar";
+import { motion, AnimatePresence } from "framer-motion";
 
 const Home = ({ showContact, toggleContact }) => {
+   const [text, setText] = useState("");
   const contactRef = useRef(null);
   const scrollToContact = () => {
     console.log("Scrolling to contact");
@@ -21,6 +23,28 @@ const Home = ({ showContact, toggleContact }) => {
     });
   };
 
+
+  const sentence = "A Style For Every Age"
+
+useEffect(() => {
+  const typingAnimation = () => {
+    let index = 0;
+    const interval = setInterval(() => {
+      setText(sentence.slice(0, index));
+      index++;
+      if (index > sentence.length) {
+        clearInterval(interval);
+        setTimeout(typingAnimation, 5000); // Repeat after 20 seconds
+      }
+    }, 100);
+
+    return () => clearInterval(interval);
+  };
+
+  typingAnimation();
+}, []);
+
+
   return (
     <div className="mainBody">
       <div className="main">
@@ -30,7 +54,10 @@ const Home = ({ showContact, toggleContact }) => {
           <div className="text">
             <h1>Astonish</h1>
             <h1 className="design">Designs</h1>
-            <span>A Style For Every Age</span>
+            <AnimatePresence>
+               <motion.span>{text}</motion.span>
+            </AnimatePresence>
+           
           </div>
         </div>
       </div>

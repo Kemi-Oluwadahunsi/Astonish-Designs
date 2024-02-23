@@ -11,6 +11,7 @@
 
   .navbar {
     z-index: 1000;
+
     .nav {
       display: flex;
       align-items: center;
@@ -24,7 +25,7 @@
 
       .logo {
         display: block;
-        // padding: 0.5rem auto;
+
         img {
           border-radius: 50%;
         }
@@ -60,6 +61,7 @@
           background-color: #c28e0c;
           color: #fdfce9;
           border: none;
+         
         }
       }
     }
@@ -74,7 +76,7 @@
       bottom: 0;
       position: fixed;
       width: 100vw;
-      height: 95dvh;
+      height: 100dvh;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -93,29 +95,28 @@
         flex-basis: 100%;
 
         li {
-              list-style: none;
-              display: flex;
-              justify-content: center;
-              font-size: 1.2rem;
-              font-weight: 500;
-              font-family: Verdana, Geneva, Tahoma, sans-serif;
-              color: #fdfce9;
-              cursor: pointer;
+          list-style: none;
+          display: flex;
+          justify-content: center;
+          font-size: 1.2rem;
+          font-weight: 500;
+          font-family: Verdana, Geneva, Tahoma, sans-serif;
+          color: #fdfce9;
+          cursor: pointer;
 
-              &:hover {
-                text-decoration: underline;
-                text-decoration-color: #f1cf1e;
-                text-decoration-thickness: 5px;
-                transform: scale(1.1);
+          &:hover {
+            text-decoration: underline;
+            text-decoration-color: #f1cf1e;
+            text-decoration-thickness: 5px;
+            transform: scale(1.1);
 
-                @include mobile {
-                  text-decoration: none;
-                  transform: none;
-                }
-              }
+            @include mobile {
+              text-decoration: none;
+              transform: none;
             }
+          }
+        }
 
-        
         button {
           display: flex;
           padding: 0.7rem 1.5rem;
@@ -142,7 +143,7 @@
         align-items: flex-end;
         justify-content: center;
         padding: 0 0.5rem 0.5rem 0;
-         color: #805113;
+        color: #805113;
 
         ul {
           display: flex;

@@ -4,6 +4,8 @@ import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
 import { faFacebookSquare, faInstagram, faLinkedin, faXTwitter } from "@fortawesome/free-brands-svg-icons";
 import React, { useState } from "react";
 import PropTypes from "prop-types";
+import { useRef } from "react";
+import emailjs from "@emailjs/browser";
 
 const Contact = React.forwardRef(({ updateButtonText }, ref) => {
   const [close, setClose] = useState(false);
@@ -28,6 +30,59 @@ const Contact = React.forwardRef(({ updateButtonText }, ref) => {
       ref.current.scrollIntoView({ behavior: "smooth" });
     }
   };
+
+  const formRef = useRef();
+
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  const handleFormSubmit = () => {
+    alert("Message submitted successfully");
+  };
+
+  const [error, setError] = useState(false);
+  const [success, setSuccess] = useState(false);
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(
+        "service_gm0vt1r",
+        "template_89lz7hi",
+        formRef.current,
+        "x5COycZ9vWD3qHvPY"
+      )
+      .then(
+        (result) => {
+          setSuccess(true);
+          setError(false);
+          console.log(result);
+
+          // Reset the form fields
+          setFormData({
+            name: "",
+            email: "",
+            message: "",
+          });
+          handleFormSubmit();
+        },
+        (error) => {
+          setError(true);
+          setSuccess(false);
+          console.log("Error sending email:", error);
+        }
+      );
+  };
+
+
   return (
     <div ref={ref} id="contact">
       {!close && (
@@ -36,10 +91,7 @@ const Contact = React.forwardRef(({ updateButtonText }, ref) => {
             <div className="leftContact">
               <div className="connection">
                 <h2>Connect With Us</h2>
-                <p>
-                  Welcome! We&apos;re thrilled to connect
-                  with you.
-                </p>
+                <p>Welcome! We&apos;re thrilled to connect with you.</p>
               </div>
               <div className="location">
                 <div className="iconDiv">
@@ -115,7 +167,7 @@ const Contact = React.forwardRef(({ updateButtonText }, ref) => {
               <p className="rightStart">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
               </p>
-              <form>
+              <form ref={formRef} onSubmit={sendEmail}>
                 <label htmlFor="Name" className="required">
                   Name
                 </label>
@@ -125,8 +177,8 @@ const Contact = React.forwardRef(({ updateButtonText }, ref) => {
                   required
                   placeholder="Swiss Merry"
                   autoComplete="name"
-                  // value={formData.name}
-                  // onChange={handleChange}
+                  value={formData.name}
+                  onChange={handleChange}
                 />
                 <label htmlFor="Email" className="required">
                   Email
@@ -137,8 +189,8 @@ const Contact = React.forwardRef(({ updateButtonText }, ref) => {
                   required
                   placeholder="example@dot.com"
                   autoComplete="email"
-                  // value={formData.email}
-                  // onChange={handleChange}
+                  value={formData.email}
+                  onChange={handleChange}
                 />
 
                 <label htmlFor="message">Message</label>
@@ -147,13 +199,15 @@ const Contact = React.forwardRef(({ updateButtonText }, ref) => {
                   rows="10"
                   placeholder="Feel free to contact Me for your bespoke outfits. Thank you!"
                   autoComplete="message"
-                  // value={formData.message}
-                  // onChange={handleChange}
+                  value={formData.message}
+                  onChange={handleChange}
                 />
 
-                <button type="submit" onClick={handleSubmit}>
+                <button type="submit" value="send" onClick={handleSubmit}>
                   Submit
                 </button>
+                {error && "Error"}
+                {success && ""}
               </form>
             </div>
           </div>
