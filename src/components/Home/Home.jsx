@@ -34,7 +34,7 @@ useEffect(() => {
       index++;
       if (index > sentence.length) {
         clearInterval(interval);
-        setTimeout(typingAnimation, 5000); // Repeat after 20 seconds
+        setTimeout(typingAnimation, 5000);
       }
     }, 100);
 
