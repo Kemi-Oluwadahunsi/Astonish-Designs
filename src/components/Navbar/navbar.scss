@@ -3,7 +3,6 @@
 .small-screens {
   background-color: rgba(47, 47, 47, 0.1);
   width: 100%;
-  // position: fixed;
 
   @include laptop {
     display: none;

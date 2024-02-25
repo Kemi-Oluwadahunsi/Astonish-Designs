@@ -1,6 +1,7 @@
 {
   "name": "astonish-design-portfolio",
   "private": true,
+  "homepage": "http://astonish-designs.com.ng/",
   "version": "0.0.0",
   "type": "module",
   "scripts": {

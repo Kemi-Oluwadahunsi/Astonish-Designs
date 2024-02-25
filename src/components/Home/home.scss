@@ -18,7 +18,7 @@
     padding: 0 4rem;
 
     @include tablet {
-       height: 33rem;
+      height: 33rem;
       gap: 3rem;
       padding: 0;
     }
@@ -77,10 +77,10 @@
 
           @include tablet {
             display: block;
-            margin-top: .5rem;
+            margin-top: 0.5rem;
             font-size: 2em;
             padding-left: 4em;
-      }
+          }
 
           @include mobile {
             display: block;
@@ -90,25 +90,6 @@
           }
         }
       }
-      // button {
-      //   display: flex;
-      //   width: 12%;
-      //   margin: auto;
-      //   margin-top: 1rem;
-      //   padding: 1rem;
-      //   background: #f1cf1e;
-      //   color: #2f2f2f;
-      //   justify-content: center;
-      //   align-items: center;
-      //   gap: 1rem;
-      //   font-size: 1.2rem;
-      //   font-family: Verdana, Geneva, Tahoma, sans-serif;
-      //   font-style: normal;
-      //   font-weight: 400;
-      //   border: none;
-      //   border-radius: 6.25rem;
-      //   cursor: pointer;
-      // }
 
       .rightMain {
         width: 50%;

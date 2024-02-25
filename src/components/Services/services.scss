@@ -117,23 +117,20 @@ hr {
         gap: 1rem;
 
         @include tablet {
-            gap: .7rem;
-            
+          gap: 0.7rem;
+
           img {
             width: 10%;
-
-            
           }
           .scissors {
-              height: 15%;
-            }
+            height: 15%;
           }
+        }
 
         @include mobile {
           width: 100%;
 
           img {
-            //  width: 20%;
             display: none;
           }
         }
@@ -154,7 +151,7 @@ hr {
         }
 
         .smallScissors::before {
-          content:url(/images/Icons/scissors-1.png);
+          content: url(/images/Icons/scissors-1.png);
           margin: 5px 10px 0 0;
 
           @include laptop {
@@ -169,7 +166,6 @@ hr {
         .special-occ::before {
           content: url(/images/Icons/special-occassion-1.png);
           margin: 5px 10px 0 0;
-          
 
           @include laptop {
             display: none;
@@ -195,9 +191,9 @@ hr {
 
         .ready::before {
           content: url(/images/Icons/ready-to-wear-1.png);
-         margin: 5px 10px 0 0;
+          margin: 5px 10px 0 0;
 
-         @include laptop {
+          @include laptop {
             display: none;
           }
 

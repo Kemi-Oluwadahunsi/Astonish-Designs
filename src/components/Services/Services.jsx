@@ -90,5 +90,3 @@ const Services = () => {
 };
 
 export default Services;
-// .serviceTextCard2:hover,
-// .serviceTextCard3:hover

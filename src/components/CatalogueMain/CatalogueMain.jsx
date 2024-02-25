@@ -20,10 +20,8 @@ const CatalogueMain = ({ showContact, toggleContact }) => {
     setButtonText(text);
   };
 
-  // Check if it's the initial load or if the contact button has been toggled
   const shouldShowContact = initialLoad ? false : showContact;
 
-  // Set initialLoad to false after the component has mounted
   useEffect(() => {
     setInitialLoad(false);
   }, []);
