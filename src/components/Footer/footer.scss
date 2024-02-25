@@ -6,6 +6,11 @@
   flex-direction: column;
   padding: 5rem 0 0 0;
 
+  @include tablet {
+    padding: 2rem 0 0 0;
+    margin: auto;
+  }
+
   @include mobile {
     padding: 2rem 0 0 0;
     margin: auto;
@@ -17,6 +22,15 @@
     padding: 0 4rem 2rem 4rem;
     border-bottom: 1px solid #9b660d;
     gap: 10rem;
+
+    @include tablet {
+      flex-direction: column;
+      padding: 0 2rem 1rem 2rem;
+      justify-content: center;
+      align-items: center;
+            gap: 2rem;
+    }
+
     @include mobile {
       flex-direction: column;
       padding: 0 1rem 1rem 1rem;
@@ -24,6 +38,10 @@
     }
 
     .logoOriginal {
+
+      @include tablet {
+        display: none;
+      }
 
       @include mobile {
         display: none;
@@ -42,6 +60,13 @@
       gap: 2rem;
       margin: auto;
 
+      @include tablet {
+        width: 100%;
+        gap: 0;
+        padding: 0 2rem;
+        margin: 0;
+      }
+
       @include mobile {
         width: 100%;
         gap: 0;
@@ -56,6 +81,11 @@
         flex-direction: column;
         width: 80%;
         gap: 2rem;
+
+        @include tablet {
+          width: 100%;
+          padding: 0 3rem;
+        }
 
         @include mobile {
           width: 100%;
@@ -142,10 +172,14 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        gap: 1.5rem;
-        font-size: 1.5rem;
+        gap: 2.5rem;
+        font-size: 2.5rem;
         color: #e1b611;
         padding: 1.5rem 0 0 0;
+
+        @include mobile {
+          font-size: 1.5rem;
+        }
 
         @include laptop {
           display: none;
@@ -173,6 +207,10 @@
     align-items: center;
     padding: 1rem 0;
 
+    @include tablet {
+      padding: 0.7rem 0;
+    }
+
     @include mobile {
       padding: 0.5rem 0;
     }
@@ -180,6 +218,10 @@
     .rights {
       color: #f5e24f;
       font-size: 1rem;
+
+      @include tablet {
+     font-size: 0.9rem;
+    }
 
       @include mobile {
         font-size: 0.8rem;

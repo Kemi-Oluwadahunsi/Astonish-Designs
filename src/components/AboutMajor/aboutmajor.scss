@@ -11,6 +11,14 @@
   flex-direction: column;
   gap: 3rem;
 
+  @include tablet {
+    padding: 0;
+    background-repeat: repeat;
+    background-position: center;
+    gap: 2rem;
+    background-size: contain;
+  }
+
   @include mobile {
     padding: 0;
     background-repeat: repeat;
@@ -26,6 +34,10 @@
     align-items: center;
     justify-content: center;
 
+    @include tablet {
+      gap: 2rem;
+    }
+
     @include mobile {
       gap: 1rem;
     }
@@ -36,6 +48,10 @@
       align-items: center;
       font-size: 3rem;
       color: #9b660d;
+
+      @include tablet {
+        font-size: 2.5rem;
+      }
 
       @include mobile {
         font-size: 2rem;
@@ -58,6 +74,11 @@
         font-size: 2rem;
         color: #c28d0c;
 
+        @include tablet {
+          font-size: 1.7rem;
+          text-align: center;
+        }
+
         @include mobile {
           font-size: 1.3rem;
           text-align: center;
@@ -70,6 +91,13 @@
         line-height: 2rem;
         letter-spacing: 1px;
         font-family: Arial, Helvetica, sans-serif;
+
+        @include tablet {
+          font-size: 1.1rem;
+          line-height: 1.8rem;
+          word-spacing: -1px;
+          letter-spacing: .8px;
+        }
 
         @include mobile {
           font-size: 1rem;
@@ -89,6 +117,14 @@
     margin: auto;
     padding-bottom: 2rem;
 
+    @include tablet {
+      flex-direction: column;
+      justify-content: center;
+      width: 100%;
+      gap: 2rem;
+      padding-top: 2rem;
+    }
+
     @include mobile {
       flex-direction: column;
       justify-content: center;
@@ -102,6 +138,12 @@
       justify-content: space-between;
       gap: 2rem;
 
+      @include tablet {
+        gap: 2rem;
+        justify-content: center;
+        align-items: center;
+      }
+
       @include mobile {
         gap: 0.5rem;
         flex-direction: column;
@@ -110,6 +152,10 @@
       img {
         border: 3px solid #f6e14e;
         border-radius: 50%;
+
+        @include tablet {
+          width:25%;
+        }
 
         @include mobile {
           width: 30%;
@@ -165,6 +211,12 @@
         border: none;
         border-radius: 6.25rem;
         cursor: pointer;
+
+        @include tablet {
+          font-size: 1.1rem;
+          padding: .7rem 0.8rem;
+          margin-top: 0;
+        }
 
         @include mobile {
           font-size: 1rem;

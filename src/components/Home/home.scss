@@ -18,6 +18,9 @@
     padding: 0 4rem;
 
     @include tablet {
+       height: 33rem;
+      gap: 3rem;
+      padding: 0;
     }
 
     @include mobile {
@@ -48,6 +51,7 @@
 
           @include tablet {
             font-size: 6rem;
+            line-height: 6rem;
           }
 
           @include mobile {
@@ -70,6 +74,13 @@
           padding-left: 6em;
           color: #fdfce9;
           margin-top: 1rem;
+
+          @include tablet {
+            display: block;
+            margin-top: .5rem;
+            font-size: 2em;
+            padding-left: 4em;
+      }
 
           @include mobile {
             display: block;

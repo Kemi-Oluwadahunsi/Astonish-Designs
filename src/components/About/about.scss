@@ -6,6 +6,13 @@
   padding: 10rem 8rem;
   justify-content: space-between;
 
+  @include tablet {
+    flex-direction: column;
+    padding: 1rem 2rem;
+    width: 100%;
+    height: auto;
+  }
+
   @include mobile {
     flex-direction: column;
     padding: 1rem 2rem;
@@ -15,6 +22,10 @@
 
   .leftImage {
     width: 50%;
+
+    @include tablet {
+      display: none;
+    }
 
     @include mobile {
       display: none;
@@ -29,6 +40,11 @@
     padding-top: 2rem;
     gap: 3rem;
 
+    @include tablet {
+      width: 100%;
+      gap: 1.5rem;
+    }
+
     @include mobile {
       width: 100%;
       gap: 1rem;
@@ -38,6 +54,10 @@
       font-size: 4rem;
       color: #9b660d;
 
+      @include tablet {
+        font-size: 3rem;
+      }
+
       @include mobile {
         font-size: 2.5rem;
       }
@@ -46,16 +66,22 @@
     .textAbout {
       font-size: 1.2rem;
       line-height: 2rem;
-      font-weight: 300;
+      font-weight: 500;
       font-style: normal;
       display: flex;
       flex-direction: column;
       justify-content: center;
       gap: 2rem;
 
+      @include tablet {
+        font-size: 1rem;
+        line-height: 1.7rem;
+        letter-spacing: 1px;
+        text-wrap: balance;
+      }
+
       @include mobile {
         font-size: .9rem;
-        font-weight: 500;
         line-height: 1.5rem;
         letter-spacing: 1px;
         text-wrap: balance;
@@ -81,6 +107,16 @@
 
       &:hover {
       transform: scale(1.1);
+    }
+
+    @include tablet {
+        font-size: 1.1rem;
+        width: 30%;
+        margin: auto;
+
+        &:hover {
+        transform: scale(1);
+      }
     }
 
     @include mobile {

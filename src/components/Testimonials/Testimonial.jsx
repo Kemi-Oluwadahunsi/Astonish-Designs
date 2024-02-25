@@ -50,7 +50,7 @@ const Testimonial = () => {
   return (
     <div>
       <div className="testimonialContainer">
-        <h1 className="testimonialTitle">What Our Clients Say</h1>
+        <h2 className="testimonialTitle">What Our Clients Say</h2>
         {showSlider ? (
           <div className="testimonies">
             <Slider {...settings}>

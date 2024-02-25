@@ -22,6 +22,8 @@
 
     @include tablet {
       bottom: 2rem;
+      padding: 5.5px 7.5px;
+      font-size: 1.7rem;
     }
 
     @include mobile {
@@ -47,7 +49,9 @@
     text-decoration: none;
 
     @include tablet {
-      bottom: 3.5rem;
+      bottom: 5rem;
+      padding: 4.5px 9px;
+      font-size: 1.7em;
     }
 
     @include mobile {

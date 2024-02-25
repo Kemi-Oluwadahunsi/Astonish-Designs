@@ -20,7 +20,7 @@ const Services = () => {
                 src="/images/scissors.png"
                 alt="scissors"
                 width={130}
-                className="icon"
+                className="icon scissors"
               />
               <h2 className="smallScissors">Custom Clothing Design</h2>
               <p>

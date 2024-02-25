@@ -7,6 +7,12 @@ import { Link } from "react-router-dom";
 
 
 const About = () => {
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
   return (
     <div className="aboutContainer">
       <div className="leftImage">
@@ -26,7 +32,7 @@ const About = () => {
             offers a versatile range of clothing and accessories that resonate
             with individuals of all ages.
           </p>
-          <div className="readMoreButton">
+          <div className="readMoreButton" onClick={scrollToTop}>
             <Link to="/about">
               <button className="readMore">
                 Read More <FontAwesomeIcon icon={faArrowRight} />

@@ -165,7 +165,7 @@ const Contact = React.forwardRef(({ updateButtonText }, ref) => {
 
             <div className="rightForm">
               <p className="rightStart">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                We would love to hear from you!
               </p>
               <form ref={formRef} onSubmit={sendEmail}>
                 <label htmlFor="Name" className="required">

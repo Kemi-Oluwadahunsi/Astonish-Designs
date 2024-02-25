@@ -8,6 +8,11 @@
   height: 80dvh;
   position: relative;
 
+  @include tablet {
+    height: auto;
+    padding: 3rem;
+  }
+
   @include mobile {
     height: auto;
     padding: 3rem 1.5rem;
@@ -26,6 +31,15 @@
     top: 2rem;
     box-shadow: 0 0 30px 5px #e1b611;
 
+    @include tablet {
+      flex-direction: column;
+      width: 100%;
+      padding: 2rem;
+      gap: .7rem;
+      top: 0;
+      position: relative;
+    }
+
     @include mobile {
       flex-direction: column;
       width: 100%;
@@ -41,6 +55,13 @@
       gap: 2rem;
       width: 40%;
 
+      @include tablet {
+        width: 100%;
+        align-items: center;
+      justify-content: center;
+        gap: .5rem;
+      }
+
       @include mobile {
         width: 100%;
         gap: .5rem;
@@ -51,6 +72,11 @@
         flex-direction: column;
         gap: 0.7rem;
 
+        @include tablet {
+         align-items: center;
+         justify-content: center;
+        }
+
         @include mobile {
           gap: 0.3rem;
         }
@@ -58,12 +84,21 @@
         h2 {
           font-size: 2rem;
 
+          @include tablet {
+            font-size: 1.7rem;
+          }
+
           @include mobile {
             font-size: 1.4rem;
           }
         }
 
         p {
+
+          @include tablet {
+            font-size: 1rem;
+          }
+
           @include mobile {
             font-size: 0.9rem;
           }
@@ -74,6 +109,11 @@
       .phone:hover {
         transform: scale(1.03);
         box-shadow: 1px 1px 5px #6d4216;
+
+        @include tablet {
+          transform: none;
+          box-shadow: none;
+        }
       }
 
       .location,
@@ -85,6 +125,11 @@
         gap: 1rem;
         border-radius: 5px;
         cursor: pointer;
+
+        @include tablet {
+          width: 80%;
+          padding: .1rem 1rem;
+        }
 
         @include mobile {
           padding: 0.5em .3rem;
@@ -112,6 +157,10 @@
           border-radius: 5px;
           color: #c28e0c;
 
+          @include tablet {
+            font-size: 1.5rem;
+          }
+
           @include mobile {
             display: none;
           }
@@ -126,6 +175,24 @@
           flex-direction: column;
           gap: 0.5em;
           color: #2f2f2f;
+
+          @include tablet {
+            justify-content: center;
+            gap: 0.1em;
+            width: 100%;
+
+            address {
+              font-size: .9rem;
+            }
+
+            a {
+              font-size: .9rem;
+            }
+
+            p {
+              font-size: 0.9rem;
+            }
+          }
 
           @include mobile {
             flex-direction: row;
@@ -162,6 +229,10 @@
         color: #c28e0c;
         padding: 1rem;
 
+        @include tablet {
+          padding: .5rem 0 0 0;
+        }
+
         @include mobile {
           display: none;
         }
@@ -170,7 +241,7 @@
         .instagram,
         .xTwitter,
         .linkedin {
-          padding: 0.5rem;
+          padding: 0 0.5rem;
           border-radius: 5px;
         }
 
@@ -179,6 +250,10 @@
         .xTwitter:hover,
         .linkedin:hover {
           transform: scale(1.2);
+
+          @include tablet {
+            transform: none;
+          }
         }
       }
     }
@@ -192,6 +267,10 @@
       justify-content: center;
       width: 50%;
 
+      @include tablet {
+        width: 100%;
+      }
+
       @include mobile {
         width: 100%;
         gap: .5rem;
@@ -200,6 +279,11 @@
       .rightStart {
         text-align: center;
         font-size: 1.2rem;
+
+        @include tablet {
+          margin-top: 1rem;
+          font-size: 1.1rem;
+        }
 
         @include mobile {
          display: none;
@@ -212,6 +296,10 @@
         margin: auto;
         width: 70%;
         gap: 0.5rem;
+
+        @include tablet {
+          width: 80%;
+        }
 
         @include mobile {
           width: 100%;
@@ -226,6 +314,11 @@
           color: #402208;
           border-radius: 5px;
           font-size: 1.2rem;
+
+          @include tablet {
+            font-size: 1rem;
+            padding: .6rem .8rem;
+          }
 
           @include mobile {
             font-size: 0.9rem;
@@ -245,6 +338,10 @@
           content: " *";
           color: red;
           font-size: 1.2rem;
+
+          @include tablet {
+            font-size: 1.1rem;
+          }
 
           @include mobile {
             font-size: 1rem;
@@ -271,6 +368,20 @@
 
           &:hover {
             background-color: #c28e0c;
+
+            @include tablet {
+              background-color: #e1b611;
+            }
+
+            @include mobile {
+              background-color: #e1b611;
+            }
+          }
+
+          @include tablet {
+            font-size: 1.1rem;
+            padding: .7rem;
+            width: 80%;
           }
 
           @include mobile {

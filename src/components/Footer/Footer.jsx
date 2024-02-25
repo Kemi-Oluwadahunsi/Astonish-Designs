@@ -27,29 +27,25 @@ const Footer = () => {
             <li onClick={scrollToTop}>
               <Link to="/">Home</Link>
             </li>
-            <li>
+            <li onClick={scrollToTop}>
               <Link to="/about">About Us</Link>
             </li>
 
-            <li>
-              <Link to="/catalogue">
-                Catalogue
-              </Link>
+            <li onClick={scrollToTop}>
+              <Link to="/catalogue">Catalogue</Link>
             </li>
           </ul>
 
           <div className="externalLinks">
-            <a href="https://www.elle.com" target="_blank" rel="noreferrer">
-              Fashion Magazine
-            </a>
-
             <a
-              href="https://www.elle.com"
+              href="https://leadingladiesafrica.org/from-threads-to-trends-esosa-igbinedion-is-carving-her-way-into-the-fashion-industry/"
               target="_blank"
               rel="noreferrer"
-              className="wwd"
             >
-              Women&apos;s Wear Daily
+              Featured Blog
+            </a>
+            <a href="https://www.elle.com" target="_blank" rel="noreferrer">
+              Fashion Magazine
             </a>
 
             <a href="https://www.elle.com" target="_blank" rel="noreferrer">

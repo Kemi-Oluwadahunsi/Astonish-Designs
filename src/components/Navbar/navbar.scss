@@ -16,7 +16,8 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 2rem 3rem;
+      padding: 1.5rem;
+      width: 100%;
 
       @include mobile {
         padding: 1rem;
@@ -42,8 +43,8 @@
       }
 
       .toggleButton {
-        width: 2rem;
-        height: 2rem;
+        width: 3.5rem;
+        height: 3.5rem;
         border-radius: 50%;
         background-color: #c28e0c;
         padding: 0.5rem;
@@ -61,13 +62,11 @@
           background-color: #c28e0c;
           color: #fdfce9;
           border: none;
-         
         }
       }
     }
 
     .bg {
-      // background-color: rgba(47, 47, 47, 0.9);
       background-color: rgb(194, 142, 12);
       position: absolute;
       top: 0;
@@ -76,7 +75,7 @@
       bottom: 0;
       position: fixed;
       width: 100vw;
-      height: 100dvh;
+      height: screen;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -85,6 +84,7 @@
       gap: 5rem;
       z-index: 1000;
       border-bottom-left-radius: 10px;
+      border-bottom-right-radius: 10px;
 
       .navigationItems {
         display: flex;
@@ -98,17 +98,26 @@
           list-style: none;
           display: flex;
           justify-content: center;
-          font-size: 1.2rem;
+          font-size: 1.7rem;
           font-weight: 500;
           font-family: Verdana, Geneva, Tahoma, sans-serif;
           color: #fdfce9;
           cursor: pointer;
+
+          @include mobile {
+            font-size: 1.2rem;
+          }
 
           &:hover {
             text-decoration: underline;
             text-decoration-color: #f1cf1e;
             text-decoration-thickness: 5px;
             transform: scale(1.1);
+
+            @include tablet {
+              text-decoration: none;
+              transform: none;
+            }
 
             @include mobile {
               text-decoration: none;
@@ -125,13 +134,17 @@
           justify-content: center;
           align-items: center;
           gap: 0.25rem;
-          font-size: 1.2rem;
+          font-size: 1.7rem;
           font-family: Verdana, Geneva, Tahoma, sans-serif;
           font-style: normal;
           font-weight: 500;
           border: none;
           border-radius: 6.25rem;
           cursor: pointer;
+
+          @include mobile {
+            font-size: 1.2rem;
+          }
         }
       }
 
@@ -142,8 +155,12 @@
         flex-basis: 20%;
         align-items: flex-end;
         justify-content: center;
-        padding: 0 0.5rem 0.5rem 0;
+        padding: 0 0 1rem 0;
         color: #805113;
+
+        @include mobile {
+          padding: 0 0 0.7rem 0;
+        }
 
         ul {
           display: flex;
@@ -154,7 +171,11 @@
           li {
             display: flex;
             list-style: none;
-            font-size: 2rem;
+            font-size: 2.8rem;
+
+            @include mobile {
+              font-size: 2rem;
+            }
           }
         }
       }

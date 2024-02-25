@@ -6,6 +6,11 @@
   flex-direction: column;
   gap: 4rem;
 
+  @include tablet {
+    padding: 4rem 0;
+    gap: 2rem;
+  }
+
   @include mobile {
     padding: 4rem 0;
     gap: 2rem;
@@ -19,13 +24,21 @@
     align-items: center;
     justify-content: center;
 
+    @include tablet {
+      padding: 0 2rem;
+    }
+
     @include mobile {
-       padding: 0 2rem;
+      padding: 0 2rem;
     }
 
     h2 {
       font-size: 4rem;
       color: #9b660d;
+
+      @include tablet {
+        font-size: 3rem;
+      }
 
       @include mobile {
         font-size: 2.5rem;
@@ -36,6 +49,11 @@
       font-size: 1.4rem;
       font-weight: 300;
       font-style: normal;
+
+      @include tablet {
+        font-size: 1rem;
+        line-height: 1.3rem;
+      }
 
       @include mobile {
         font-size: 0.9rem;
@@ -54,20 +72,20 @@
 
     @include tablet {
       width: 100%;
-      
+
       .singlePictures {
-        width: 100%;
+        width: fit-content;
 
         img {
-          width: 100%;
+          width: 90%;
           height: auto;
+          margin: auto;
         }
       }
 
       .slick-slider {
         margin: 0 auto;
         width: 100%;
-        //   max-width: 850px; /* Adjust as needed */
       }
 
       .slick-prev,
@@ -75,8 +93,8 @@
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
-        width: 2.5rem;
-        height: 2.5rem;
+        width: 2rem;
+        height: 2rem;
         background-color: rgba(225, 181, 17, 0.7);
         border: none;
         cursor: pointer;
@@ -93,13 +111,9 @@
     }
 
     @include mobile {
-      
+      padding: 2rem 0;
       .singlePictures {
         width: fit-content;
-
-        
-
-        
 
         img {
           width: 80%;
@@ -128,11 +142,11 @@
       }
 
       .slick-prev {
-        left: .5rem;
+        left: 0.5rem;
       }
 
       .slick-next {
-        right: .5rem;
+        right: 0.5rem;
       }
     }
   }
@@ -140,6 +154,10 @@
   .viewCatalog {
     display: flex;
     justify-content: end;
+
+    @include tablet {
+      justify-content: center;
+    }
 
     @include mobile {
       justify-content: center;
@@ -164,18 +182,28 @@
       cursor: pointer;
 
       &:hover {
-      transform: scale(1.1);
-    }
-
-    @include mobile {
-      width: 70%;
-      font-size: 1rem;
-      margin: auto;
-
-      &:hover {
-        transform: scale(1);
+        transform: scale(1.1);
       }
-    }
+
+      @include tablet {
+        width: 30%;
+        font-size: 1.1rem;
+        margin: auto;
+
+        &:hover {
+          transform: scale(1);
+        }
+      }
+
+      @include mobile {
+        width: 70%;
+        font-size: 1rem;
+        margin: auto;
+
+        &:hover {
+          transform: scale(1);
+        }
+      }
     }
   }
 }

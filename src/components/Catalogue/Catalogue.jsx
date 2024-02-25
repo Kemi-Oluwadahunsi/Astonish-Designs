@@ -9,6 +9,12 @@ import { useMediaQuery } from "react-responsive";
 import { useEffect, useState } from "react";
 
 const Catalogue = () => {
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
   const isTabletOrMobile = useMediaQuery({ query: "(max-width: 768px)" });
 
   const [showSlider, setShowSlider] = useState(isTabletOrMobile);
@@ -103,7 +109,7 @@ const Catalogue = () => {
       )}
 
       <Link to="/catalogue">
-        <div className="viewCatalog">
+        <div className="viewCatalog" onClick={scrollToTop}>
           <button>
             View Catalogue <FontAwesomeIcon icon={faArrowRight} />
           </button>

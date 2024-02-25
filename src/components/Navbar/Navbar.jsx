@@ -54,8 +54,8 @@ const Navbar = ({ scrollToContact }) => {
                   <FontAwesomeIcon
                     icon={faTimes}
                     style={{
-                      width: "20px",
-                      height: "20px",
+                      width: "23px",
+                      height: "23px",
                       border: "none",
                       zIndex: 10000,
                       position: "fixed",
@@ -64,7 +64,7 @@ const Navbar = ({ scrollToContact }) => {
                 ) : (
                   <FontAwesomeIcon
                     icon={faBars}
-                    style={{ width: "20px", height: "20px" }}
+                    style={{ width: "23px", height: "23px" }}
                   />
                 )}
               </button>
