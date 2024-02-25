@@ -40,7 +40,7 @@ const CatalogueMain = ({ showContact, toggleContact }) => {
     nextArrow: <button className="slick-next">Next</button>,
     responsive: [
       {
-        breakpoint: 768,
+        breakpoint: 900,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 1,

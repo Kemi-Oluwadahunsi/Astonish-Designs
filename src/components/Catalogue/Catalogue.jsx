@@ -15,7 +15,7 @@ const Catalogue = () => {
       behavior: "smooth",
     });
   };
-  const isTabletOrMobile = useMediaQuery({ query: "(max-width: 768px)" });
+  const isTabletOrMobile = useMediaQuery({ query: "(max-width: 900px)" });
 
   const [showSlider, setShowSlider] = useState(isTabletOrMobile);
  useEffect(() => {
@@ -34,7 +34,7 @@ const Catalogue = () => {
     nextArrow: <button className="slick-next">Next</button>,
     responsive: [
       {
-        breakpoint: 768,
+        breakpoint: 900,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 1,

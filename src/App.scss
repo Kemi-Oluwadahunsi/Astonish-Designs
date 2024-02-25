@@ -60,7 +60,7 @@ a {
 
 
 @mixin tablet {
-   @media screen and (min-width:481px) and (max-width: 768px) {
+   @media screen and (min-width:481px) and (max-width: 900px) {
     @content;
     html {
       scroll-snap-type: none;
@@ -75,7 +75,7 @@ a {
 }
 
 @mixin laptop {
-  @media (min-width: 769px) {
+  @media (min-width: 900px) {
     @content;
 
   }
