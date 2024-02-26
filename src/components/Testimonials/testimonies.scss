@@ -101,31 +101,29 @@
 
         .leftQuote {
           font-size: 0.8rem;
-          margin-left: -18rem;
+          display: flex;
+          align-self: flex-start;
 
           @include tablet {
-            margin-left: -11rem;
             font-size: 0.6rem;
           }
 
           @include mobile {
-            margin-left: -17rem;
             font-size: 0.6rem;
           }
         }
 
         .rightQuote {
           font-size: 0.8rem;
-          margin-right: -18rem;
+          display: flex;
+          align-self: flex-end;
 
           @include tablet {
             font-size: 0.6rem;
-            margin-right: -11rem;
           }
 
           @include mobile {
             font-size: 0.6rem;
-            margin-right: -17rem;
           }
         }
 
