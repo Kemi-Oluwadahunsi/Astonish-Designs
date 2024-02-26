@@ -80,6 +80,9 @@
           width: 90%;
           height: auto;
           margin: auto;
+          border: 1px solid #e1b511;
+          border-top-right-radius: 15px;
+          border-bottom-left-radius: 15px;
         }
       }
 
@@ -116,9 +119,12 @@
         width: fit-content;
 
         img {
-          width: 80%;
-          height: 20rem;
+          width: 60%;
+          height: 15rem;
           margin: auto;
+          border: 1px solid #e1b511;
+          border-top-right-radius: 15px;
+          border-bottom-left-radius: 15px;
         }
       }
 
@@ -141,11 +147,11 @@
       }
 
       .slick-prev {
-        left: 0.5rem;
+        left: 2.5rem;
       }
 
       .slick-next {
-        right: 0.5rem;
+        right: 2.5rem;
       }
     }
   }
