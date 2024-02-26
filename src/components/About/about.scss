@@ -1,9 +1,9 @@
 @import "../../App.scss";
 
 .aboutContainer {
-  height: 100svh;
+  height: fit-content;
   display: flex;
-  padding: 10rem 8rem;
+  padding: 5rem 8rem 0 8rem;
   justify-content: space-between;
 
   @include tablet {
@@ -97,7 +97,7 @@
       justify-content: center;
       align-items: center;
       gap: 1rem;
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       font-family: Verdana, Geneva, Tahoma, sans-serif;
       font-style: normal;
       font-weight: 400;
