@@ -1,7 +1,7 @@
 @import "../../App.scss";
 
 .catalogBody {
-  padding: 6rem 4rem 4rem 4rem;
+  padding: 6rem 0 4rem 0;
   display: flex;
   flex-direction: column;
   gap: 4rem;
@@ -164,15 +164,15 @@
 
     button {
       display: flex;
-      width: 16%;
+      width: fit-content;
       margin-right: 5rem;
-      padding: 0.9rem 1.5rem;
+      padding: 0.9rem 1.3rem;
       background: #e1b611;
       color: #2f2f2f;
       justify-content: center;
       align-items: center;
       gap: 1rem;
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       font-family: Verdana, Geneva, Tahoma, sans-serif;
       font-style: normal;
       font-weight: 400;
