@@ -1,7 +1,6 @@
 {
   "name": "astonish-design-portfolio",
   "private": true,
-  "homepage": "http://astonish-designs.com.ng/",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
@@ -16,7 +15,6 @@
     "@fortawesome/free-brands-svg-icons": "^6.5.1",
     "@fortawesome/free-solid-svg-icons": "^6.5.1",
     "@fortawesome/react-fontawesome": "^0.2.0",
-    "animate.css": "^4.1.1",
     "framer-motion": "^11.0.6",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
