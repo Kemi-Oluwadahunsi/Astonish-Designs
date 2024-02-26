@@ -156,6 +156,7 @@
         border: 10px solid #e1b511;
         gap: 1rem;
         flex-basis: 27%;
+        width: fit-content;
         padding: 2rem 0 0 0;
         height: 33rem;
         position: relative;
@@ -181,9 +182,9 @@
         .innerDiv {
           width: fit-content;
           height: 30rem;
-          position: absolute;
+          position: relative;
           left: 4rem;
-          top: 4rem;
+          top: 2.4rem;
 
           img {
             height: 100%;
@@ -221,6 +222,7 @@
 
         .stylePictures {
           width: fit-content;
+          height: fit-content;
 
           img {
             width: 100%;
