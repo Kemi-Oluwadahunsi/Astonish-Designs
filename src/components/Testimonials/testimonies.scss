@@ -37,6 +37,7 @@
     display: flex;
     justify-content: space-around;
     padding: 5rem 0;
+    gap: 1rem;
 
     @include tablet {
       .eachTestimony {
@@ -49,7 +50,7 @@
     }
 
     .eachTestimony {
-      width: 23%;
+      width: fit-content;
       display: flex;
       flex-direction: column;
       gap: 1.5rem;
