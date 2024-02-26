@@ -112,7 +112,7 @@
           &:hover {
             text-decoration: underline;
             text-decoration-color: #f1cf1e;
-            text-decoration-thickness: 5px;
+            text-decoration-thickness: 2px;
             text-underline-offset: 5px;
 
             @include mobile {
@@ -153,7 +153,7 @@
           &:hover {
             text-decoration: underline;
             text-decoration-color: #f1cf1e;
-            text-decoration-thickness: 5px;
+            text-decoration-thickness: 2px;
             text-underline-offset: 5px;
 
             @include mobile {
