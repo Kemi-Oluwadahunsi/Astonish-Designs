@@ -197,7 +197,7 @@ const Contact = React.forwardRef(({ updateButtonText }, ref) => {
                 <textarea
                   name="message"
                   rows="10"
-                  placeholder="Feel free to contact Me for your bespoke outfits. Thank you!"
+                  placeholder="Feel free to contact me for your bespoke outfits. Thank you!"
                   autoComplete="message"
                   value={formData.message}
                   onChange={handleChange}
