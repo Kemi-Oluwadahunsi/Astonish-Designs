@@ -216,9 +216,10 @@
 
         @include mobile {
           margin-top: 0;
-          gap: 0.5rem;
-          width: 100%;
-          height: 23rem;
+          margin: auto;
+          gap: 0;
+          width: 90%;
+          height: 18rem;
           background-color: transparent;
         }
 
@@ -235,7 +236,10 @@
             }
 
             @include mobile {
-              padding-right: 0;
+              padding: 0;
+              width: 80%;
+              height: 250px;
+              margin: auto;
             }
           }
         }
@@ -269,6 +273,10 @@
 
         .slick-next {
           right: 0;
+
+          // @include mobile {
+          //   right: -10px;
+          // }
         }
       }
     }
