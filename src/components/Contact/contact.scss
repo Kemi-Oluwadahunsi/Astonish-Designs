@@ -1,7 +1,7 @@
 @import "../../App.scss";
 
 .contactContainer {
-  padding: 0 4rem 2rem 4rem;
+  padding: 0 4rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -22,11 +22,13 @@
     display: flex;
     justify-content: space-around;
     width: 75%;
+    height: fit-content;
     padding: 2.5rem 2.5rem 2rem 2.5rem;
     border-radius: 15px;
     background-color: #f9f18f;
     gap: 2rem;
     z-index: 1000;
+    position: relative;
     top: 2rem;
     box-shadow: 0 0 30px 5px #e1b611;
 
