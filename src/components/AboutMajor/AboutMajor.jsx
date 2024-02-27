@@ -137,7 +137,7 @@ const AboutMajor = ({ showContact, toggleContact }) => {
               <img src="/images/CEOsmall.png" alt="ceo" width={150} />
               <div className="position">
                 <h4>Esosa I.</h4>
-                <span>CEO, Astonish Designs.</span>
+                <span>Creative Director, Astonish Designs.</span>
               </div>
             </div>
 
