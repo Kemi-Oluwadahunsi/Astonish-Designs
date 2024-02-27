@@ -72,10 +72,10 @@ const Services = () => {
               />
               <h2 className="ready">Ready-To-Wear Outfits</h2>
               <p>
-                Astonish Designs embraces diversity by curating fashion
-                collections that cater to various age groups. Each collection is
-                thoughtfully designed to celebrate different styles and
-                preferences, ensuring inclusivity in every piece.
+                Our Ready-To-Wear Outfits are meticulously designed, ensuring each piece is not only on-trend but
+                also effortlessly chic. From casual day looks to sophisticated
+                evening attire, we have range of outfits to suit every
+                occasion and style preference.
               </p>
             </div>
           </div>
