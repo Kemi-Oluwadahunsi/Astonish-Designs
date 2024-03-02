@@ -325,7 +325,7 @@
       margin: auto;
       margin-top: 1rem;
       padding: 1rem;
-      background: #f1cf1e;
+      background: rgba(225, 182, 17, 0.5);
       color: #2f2f2f;
       justify-content: center;
       align-items: center;
@@ -337,6 +337,20 @@
       border: none;
       border-radius: 6.25rem;
       cursor: pointer;
+
+      &:hover {
+          transform: scale(1.1);
+          background-color: transparent;
+        color: #e1b511;
+
+        @include tablet {
+          transform: scale(1);
+        }
+
+        @include mobile {
+          transform: scale(1);
+        }
+        }
 
       @include mobile {
         font-size: 1.1rem;

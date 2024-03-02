@@ -1,8 +1,8 @@
 @import "../../App.scss";
 
 hr {
-  height: .5rem;
-  background-color: #9b660d;
+  height: .3rem;
+  background-color: #3d3d3d;
   width: 100%;
   margin: 5rem 0;
 
@@ -25,6 +25,7 @@ hr {
   align-items: center;
   justify-content: center;
   gap: 5rem;
+  height: fit-content;
 
   @include tablet {
     padding: 0 2rem;
@@ -54,7 +55,7 @@ hr {
 
     h2 {
       font-size: 4rem;
-      color: #9b660d;
+      color: #9a670e;
 
       @include tablet {
         font-size: 3rem;
@@ -84,9 +85,10 @@ hr {
 
   .serviceWrap {
     display: flex;
+    justify-content: space-around;
     gap: 1rem;
     width: fit-content;
-    height: 50rem;
+    height: fit-content;
 
     @include tablet {
       display: block;
@@ -94,6 +96,7 @@ hr {
 
     @include mobile {
       display: block;
+      height: auto;
     }
 
     .services {
@@ -102,7 +105,7 @@ hr {
       width: fit-content;
       flex-wrap: wrap;
       gap: 2em;
-      justify-content: space-around;
+      justify-content: space-evenly;
 
       @include mobile {
         flex-direction: column;
@@ -113,10 +116,14 @@ hr {
       .div3,
       .div5,
       .div6 {
-        width: 45%;
+        width: 48%;
         display: flex;
         flex-direction: column;
         gap: 1rem;
+        background-color: #f6f6f6;
+        height: fit-content;
+        padding: 1em;
+        border-radius: 5px;
 
         @include tablet {
           gap: 0.7rem;
@@ -140,7 +147,7 @@ hr {
         h2 {
           font-size: 2rem;
           font-weight: 500;
-          color: #c28e0c;
+          color: #454545;
           text-align: start;
 
           @include tablet {
@@ -207,6 +214,7 @@ hr {
         p {
           line-height: 1.5;
           letter-spacing: 1px;
+          padding: 0 .5em;
 
           @include tablet {
             font-size: 1rem;
@@ -220,8 +228,8 @@ hr {
     }
 
     .serviceImage {
-      display: flex;
       width: fit-content;
+      height: fit-content;
 
       @include tablet {
         display: none;

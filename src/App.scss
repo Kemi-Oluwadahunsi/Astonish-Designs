@@ -1,4 +1,4 @@
-$primary-color: #bce0fb;
+$primary-color: #ffffff;
 
 @font-face {
   font-family: "Helvetica Neue";
@@ -32,13 +32,11 @@ html {
 }
 
 body {
-  background-color: #fdfce9;
-  color: #2f2f2f;
-  // text-wrap: wrap;
+  background-color: #ffffff;
+  color: #6d6d6d;
   text-align: justify;
   hyphens: auto;
   word-spacing: -1px;
-  /* Adjusts spacing between words */
   letter-spacing: 0.5px;
 }
 

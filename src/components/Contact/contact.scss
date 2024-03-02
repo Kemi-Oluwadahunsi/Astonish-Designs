@@ -25,12 +25,12 @@
     height: fit-content;
     padding: 2.5rem 2.5rem 2rem 2.5rem;
     border-radius: 15px;
-    background-color: #f9f18f;
+    background-color: #efefef;
     gap: 2rem;
     z-index: 1000;
     position: relative;
     top: 2rem;
-    box-shadow: 0 0 30px 5px #e1b611;
+    box-shadow: 0 0 20px 1px #6d6d6d;
 
     @include tablet {
       flex-direction: column;
@@ -108,9 +108,14 @@
       .mail:hover,
       .phone:hover {
         transform: scale(1.03);
-        box-shadow: 1px 1px 5px #6d4216;
+        box-shadow: 1px 1px 5px 1px #7c7c7c;
 
         @include tablet {
+          transform: none;
+          box-shadow: none;
+        }
+
+        @include mobile {
           transform: none;
           box-shadow: none;
         }
@@ -119,7 +124,7 @@
       .location,
       .mail,
       .phone {
-        background-color: #fcf9c5;
+        background-color: #bdbdbd;
         display: flex;
         padding: 1rem 1.5rem;
         gap: 0.7rem;
@@ -136,17 +141,6 @@
           gap: 0;
         }
 
-        .location:hover,
-        .mail:hover,
-        .phone:hover {
-          transform: scale(1.05);
-          box-shadow: 1px 1px 5px #6d4216;
-
-          @include mobile {
-            display: none;
-          }
-        }
-
         .iconDiv {
           display: flex;
           align-items: center;
@@ -156,7 +150,7 @@
           height: 3rem;
           width: fit-content;
           border-radius: 5px;
-          color: #c28e0c;
+          color: #656565;
 
           @include tablet {
             font-size: 1.5rem;
@@ -167,7 +161,7 @@
           }
 
           &:hover {
-            background-color: #f1cf1e;
+            background-color: #989898;
           }
         }
 
@@ -228,7 +222,7 @@
         display: flex;
         gap: 1.5rem;
         font-size: 2.5rem;
-        color: #c28e0c;
+        color: #7c7c7c;
         padding: 1rem;
 
         @include tablet {
@@ -311,9 +305,9 @@
         input,
         textarea {
           padding: 0.8rem 1rem;
-          background-color: #fcf9c5;
-          border: 2px solid #c28e0c;
-          color: #402208;
+          background-color: transparent;
+          border: 2px solid #656565;
+          color: #464646;
           border-radius: 5px;
           font-size: 1.2rem;
 
@@ -352,14 +346,14 @@
 
         input:focus,
         textarea:focus {
-          outline: #c28e0c;
-          border: 1px solid #c28e0c;
+          outline: #464646;
+          border: 1px solid #464646;
         }
         button {
           padding: 0.7rem;
           border: none;
-          color: #2f2f2f;
-          background-color: #e1b611;
+          color: #efefef;
+          background-color: #525252;
           font-size: 1.2rem;
           font-weight: 600;
           width: 80%;
@@ -369,14 +363,15 @@
           margin-top: 1rem;
 
           &:hover {
-            background-color: #c28e0c;
+            background-color: #7c7c7c;
+            color: #292929;
 
             @include tablet {
-              background-color: #e1b611;
+              background-color: #525252;
             }
 
             @include mobile {
-              background-color: #e1b611;
+              background-color: #525252;
             }
           }
 

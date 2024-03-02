@@ -1,8 +1,10 @@
 @import "../../App.scss";
 
 .footer {
-  background-color: #805113;
+  // background-color: rgba(101, 101, 101, 0.5);
+  background-color: #3d3d3d;
   display: flex;
+  flex-wrap: wrap;
   flex-direction: column;
   padding: 5rem 0 0 0;
   position: relative;
@@ -21,26 +23,23 @@
   .firstFooter {
     display: flex;
     justify-content: space-around;
+    flex-wrap: wrap;
     padding: 0 4rem 2rem 4rem;
-    border-bottom: 1px solid #9b660d;
-    gap: 10rem;
+    border-bottom: 1px solid #efefef;
+    align-items: center;
 
     @include tablet {
-      flex-direction: column;
+      justify-content: space-between;
       padding: 0 2rem 1rem 2rem;
-      justify-content: center;
-      align-items: center;
-            gap: 2rem;
     }
 
     @include mobile {
-      flex-direction: column;
+      justify-content: space-between;
       padding: 0 1rem 1rem 1rem;
-            gap: 1.5rem;
+      gap: 1.5rem;
     }
 
     .logoOriginal {
-
       @include tablet {
         display: none;
       }
@@ -55,26 +54,27 @@
     }
 
     .footerLinks {
-      width: 60%;
+      flex-basis: 50%;
       display: flex;
       align-items: center;
-      justify-content: center;
+      justify-content: space-around;
       gap: 2rem;
       margin: auto;
 
       @include tablet {
-        width: 100%;
+        flex-basis: 100%;
+        align-items: center;
+        justify-content: space-between;
+        width: fit-content;
         gap: 0;
-        padding: 0 2rem;
-        margin: 0;
       }
 
       @include mobile {
-        width: 100%;
+        flex-basis: 100%;
+        padding: 0 1rem;
+        justify-content: space-between;
+        width: fit-content;
         gap: 0;
-        padding: 0 0 0 2rem;
-        margin: 0;
-        
       }
 
       ul {
@@ -87,11 +87,14 @@
         @include tablet {
           width: 100%;
           padding: 0 3rem;
+          justify-content: center;
+          align-items: center;
         }
 
         @include mobile {
-          width: 100%;
+          width: 50%;
           justify-content: space-around;
+          padding-left: 1em;
         }
 
         li {
@@ -102,7 +105,7 @@
           font-size: 1.2rem;
           font-weight: 500;
           font-family: Verdana, Geneva, Tahoma, sans-serif;
-          color: #f9f08f;
+          color: #dcdcdc;
           cursor: pointer;
 
           @include mobile {
@@ -113,7 +116,7 @@
 
           &:hover {
             text-decoration: underline;
-            text-decoration-color: #f1cf1e;
+            text-decoration-color: #000000;
             text-decoration-thickness: 2px;
             text-underline-offset: 5px;
 
@@ -132,7 +135,7 @@
         gap: 2rem;
 
         @include mobile {
-          width: 100%;
+          width: 50%;
           margin-left: -4rem;
         }
 
@@ -143,7 +146,7 @@
           font-size: 1.2rem;
           font-weight: 500;
           font-family: Verdana, Geneva, Tahoma, sans-serif;
-          color: #f9f08f;
+          color: #dcdcdc;
           cursor: pointer;
 
           @include mobile {
@@ -154,7 +157,7 @@
 
           &:hover {
             text-decoration: underline;
-            text-decoration-color: #f1cf1e;
+            text-decoration-color: #000000;
             text-decoration-thickness: 2px;
             text-underline-offset: 5px;
 
@@ -167,24 +170,29 @@
     }
 
     .socials {
+      display: none;
       margin-top: 2rem;
       margin: auto;
+
+      @include tablet {
+        display: block;
+        font-size: 1.5rem;
+      }
+
+      @include mobile {
+        display: block;
+      }
 
       ul {
         display: flex;
         align-items: center;
         justify-content: center;
         gap: 2.5rem;
-        font-size: 2.5rem;
-        color: #e1b611;
+        font-size: 2rem;
+        color: #989898;
         padding: 1.5rem 0 0 0;
-
         @include mobile {
-          font-size: 1.5rem;
-        }
-
-        @include laptop {
-          display: none;
+          gap: 1rem;
         }
 
         li {
@@ -203,8 +211,8 @@
   }
 
   .secondFooter {
-    background: #8b5712;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     padding: 1rem 0;
@@ -218,12 +226,12 @@
     }
 
     .rights {
-      color: #f5e24f;
+      color: #989898;
       font-size: 1rem;
 
       @include tablet {
-     font-size: 0.9rem;
-    }
+        font-size: 0.9rem;
+      }
 
       @include mobile {
         font-size: 0.8rem;

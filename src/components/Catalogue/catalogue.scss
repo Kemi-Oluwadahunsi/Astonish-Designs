@@ -34,7 +34,7 @@
 
     h2 {
       font-size: 4rem;
-      color: #9b660d;
+      color: #9a670e;
 
       @include tablet {
         font-size: 3rem;
@@ -67,7 +67,7 @@
     gap: 1rem;
     align-content: center;
     justify-content: center;
-    background-color: #fcf9c5;
+    background-color: #f6f6f6;
     padding: 3rem 0;
 
     @include tablet {
@@ -173,21 +173,25 @@
       width: fit-content;
       margin-right: 5rem;
       padding: 0.9rem 1.3rem;
-      background: #e1b611;
-      color: #2f2f2f;
+      background-image: linear-gradient(to right, #888888 0%, #f5e14f 100%);;
+      color: #3d3d3d;
       justify-content: center;
       align-items: center;
       gap: 1rem;
-      font-size: 1.1rem;
+      font-size: 1rem;
       font-family: Verdana, Geneva, Tahoma, sans-serif;
       font-style: normal;
-      font-weight: 400;
+      font-weight: 600;
       border: none;
       border-radius: 6.25rem;
       cursor: pointer;
+      transition: background-image 0.3s ease-in;
+      
 
       &:hover {
         transform: scale(1.1);
+        background-image: linear-gradient(to right, #f5e14f 0%, #888888 100%);
+        transition: background-image 0.3s ease-in;
       }
 
       @include tablet {

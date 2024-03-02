@@ -72,16 +72,22 @@ const Services = () => {
               />
               <h2 className="ready">Ready-To-Wear Outfits</h2>
               <p>
-                Our Ready-To-Wear Outfits are meticulously designed, ensuring each piece is not only on-trend but
-                also effortlessly chic. From casual day looks to sophisticated
-                evening attire, we have range of outfits to suit every
-                occasion and style preference.
+                Our Ready-To-Wear Outfits are meticulously designed, ensuring
+                each piece is not only on-trend but also effortlessly chic. From
+                casual day looks to sophisticated evening attire, we have range
+                of outfits to suit every occasion and style preference.
               </p>
             </div>
           </div>
 
           <div className="serviceImage">
-            <img src="/images/IMG_0778.JPG" alt="services" width={600} />
+            <img
+              src="/images/servicesImagesLeft.jpeg"
+              alt="services"
+              width={500}
+              height={650}
+              style={{ objectFit: "cover" }}
+            />
           </div>
         </div>
       </div>

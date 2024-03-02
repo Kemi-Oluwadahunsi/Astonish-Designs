@@ -48,16 +48,15 @@ useEffect(() => {
   return (
     <div className="mainBody">
       <div className="main">
-        <Header scrollToContact={scrollToContact} />
+        <Header scrollToContact={scrollToContact} isAboutPage={false} />
         <Navbar scrollToContact={scrollToContact} />
         <div className="mainContent">
           <div className="text">
             <h1>Astonish</h1>
             <h1 className="design">Designs</h1>
             <AnimatePresence>
-               <motion.span>{text}</motion.span>
+              <motion.span>{text}</motion.span>
             </AnimatePresence>
-           
           </div>
         </div>
       </div>

@@ -1,12 +1,6 @@
 @import "../../App.scss";
 
 .aboutMajorBody {
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)),
-   url("/images/logoOriginal.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  padding: 0 4rem;
   display: flex;
   flex-direction: column;
   gap: 3rem;
@@ -31,7 +25,7 @@
     display: flex;
     flex-direction: column;
     gap: 3rem;
-    align-items: center;
+    padding: 0 10rem;
     justify-content: center;
 
     @include tablet {
@@ -40,36 +34,47 @@
 
     @include mobile {
       gap: 1rem;
-    }
-
-    h1 {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 3rem;
-      color: #9b660d;
-
-      @include tablet {
-        font-size: 2.5rem;
-      }
-
-      @include mobile {
-        font-size: 2rem;
-      }
+      padding: 0 2rem;
     }
 
     .aboutMajorText {
-      width: 80%;
       display: flex;
       flex-direction: column;
       gap: 2rem;
 
-      div {
+      .welcomeFirst {
+        display: flex;
+        justify-content: space-between;
+        gap: 8rem;
+
+        @include mobile {
+          flex-direction: column;
+          gap: 2rem;
+        }
+
+        .welcomeText {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          gap: 1rem;
+
+          h2 {
+            font-size: 3rem;
+
+            @include mobile {
+              font-size: 1.3rem;
+            }
+          }
+        }
+      }
+
+      .astonishAbout, .values, .philosophy, .achievement {
         display: flex;
         flex-direction: column;
         gap: 1rem;
       }
-
+      
       div > h2 {
         font-size: 2rem;
         color: #c28d0c;
@@ -87,7 +92,6 @@
 
       div p {
         font-size: 1.2rem;
-        color: #faf18e;
         line-height: 2rem;
         letter-spacing: 1px;
         font-family: Arial, Helvetica, sans-serif;
@@ -96,133 +100,198 @@
           font-size: 1.1rem;
           line-height: 1.8rem;
           word-spacing: -1px;
-          letter-spacing: .8px;
+          letter-spacing: 0.8px;
         }
 
         @include mobile {
           font-size: 1rem;
           line-height: 1.5rem;
           word-spacing: -2px;
-          letter-spacing: .7px;
+          letter-spacing: 0.7px;
         }
       }
     }
   }
 
-  .lastPart {
+  .overallAstonish {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 80%;
-    margin: auto;
-    padding-bottom: 2rem;
-
-    @include tablet {
-      flex-direction: column;
-      justify-content: center;
-      width: 100%;
-      gap: 2rem;
-      padding-top: 2rem;
-    }
+    gap: 5rem;
+    margin-top: 3rem;
 
     @include mobile {
       flex-direction: column;
-      justify-content: center;
-      width: 100%;
       gap: 2rem;
-      padding-top: 2rem;
     }
 
-    .ceo {
+    .storyValues {
+      flex: 1;
       display: flex;
-      justify-content: space-between;
+      flex-direction: column;
       gap: 2rem;
-
-      @include tablet {
-        gap: 2rem;
-        justify-content: center;
-        align-items: center;
-      }
-
-      @include mobile {
-        gap: 0.5rem;
-        flex-direction: column;
-      }
-
-      img {
-        border: 3px solid #f6e14e;
-        border-radius: 50%;
-
-        @include tablet {
-          width:25%;
-        }
-
-        @include mobile {
-          width: 30%;
-          margin: auto;
-        }
-      }
-
-      .position {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        gap: 1rem;
-        color: #c28d0c;
-
-        @include mobile {
-          gap: 0.5rem;
-          margin: auto;
-          align-items: center;
-        }
-
-        h4 {
-          font-size: 1.3rem;
-        }
-      }
     }
 
-    .contactMe {
+    .philosophyAchievement {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      gap: 2rem;
+    }
+  }
+
+  .theDesigner {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    margin-top: 2rem;
+  
+
+    .designerHead {
       display: flex;
       flex-direction: column;
       gap: 1rem;
       align-items: center;
       justify-content: center;
 
-      p {
-        font-size: 1.3rem;
-        color: #c28d0c;
+      .designerHeader {
+        font-size: 3rem;
+      }
+    }
+
+    .lastPart {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    
+      padding-bottom: 2rem;
+
+      @include tablet {
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+        gap: 2rem;
+        padding-top: 2rem;
       }
 
-      button {
-        display: flex;
-        margin: auto;
-        margin-top: 1rem;
-        padding: 1rem;
-        background: #f1cf1e;
-        color: #2f2f2f;
+      @include mobile {
+        flex-direction: column;
         justify-content: center;
-        align-items: center;
-        gap: 0.5rem;
-        font-size: 1.2rem;
-        font-family: Verdana, Geneva, Tahoma, sans-serif;
-        font-style: normal;
-        font-weight: 400;
-        border: none;
-        border-radius: 6.25rem;
-        cursor: pointer;
+        width: 100%;
+        gap: 2rem;
+        padding-top: 2rem;
+      }
+
+      .ceo {
+        display: flex;
+        justify-content: space-between;
+        gap: 2rem;
 
         @include tablet {
-          font-size: 1.1rem;
-          padding: .7rem 0.8rem;
-          margin-top: 0;
+          gap: 2rem;
+          justify-content: center;
+          align-items: center;
         }
 
         @include mobile {
-          font-size: 1rem;
-          padding: 0.7rem;
-          margin-top: 0;
+          gap: 0.5rem;
+          flex-direction: column;
         }
+
+        img {
+          border: 3px solid #f6e14e;
+          border-radius: 50%;
+
+          @include tablet {
+            width: 25%;
+          }
+
+          @include mobile {
+            width: 30%;
+            margin: auto;
+          }
+        }
+
+        .position {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          gap: 1rem;
+          color: #c28d0c;
+
+          @include mobile {
+            gap: 0.5rem;
+            margin: auto;
+            align-items: center;
+          }
+
+          h4 {
+            font-size: 1.3rem;
+          }
+        }
+      }
+
+      .contactMe {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center;
+        justify-content: center;
+
+        p {
+          font-size: 1.5rem;
+          color: #3d3d3d;
+
+          @include tablet {
+            font-size: 1.3em;
+          }
+
+          @include mobile {
+            font-size: 1.2em;
+          }
+        }
+
+        button {
+      display: flex;
+      width: fit-content;
+      margin: 1em 5rem 0 0;
+      padding: 0.9rem 1.3rem;
+      background-image: linear-gradient(to right, #888888 0%, #f5e14f 100%);
+      color: #3d3d3d;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+      font-size: 1rem;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      font-weight: 600;
+      border: none;
+      border-radius: 6.25rem;
+      cursor: pointer;
+      transition: background-image 0.1s ease;
+
+      &:hover {
+        transform: scale(1.1);
+        background-image: linear-gradient(to right, #f5e14f 0%, #888888 100%);
+      }
+
+      @include tablet {
+        font-size: 1rem;
+        width: fit-content;
+        margin: auto;
+
+        &:hover {
+          transform: scale(1);
+        }
+      }
+
+      @include mobile {
+        width: 65%;
+        font-size: 1rem;
+        margin: auto;
+
+        &:hover {
+          transform: scale(1);
+        }
+      }
+    }
       }
     }
   }

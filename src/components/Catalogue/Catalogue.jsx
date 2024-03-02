@@ -18,15 +18,15 @@ const Catalogue = () => {
   const isTabletOrMobile = useMediaQuery({ query: "(max-width: 900px)" });
 
   const [showSlider, setShowSlider] = useState(isTabletOrMobile);
- useEffect(() => {
-   setShowSlider(isTabletOrMobile);
- }, [isTabletOrMobile]);
+  useEffect(() => {
+    setShowSlider(isTabletOrMobile);
+  }, [isTabletOrMobile]);
 
   const settings = {
     dots: true,
     infinite: true,
     speed: 300,
-    autoplay: true, 
+    autoplay: true,
     autoplaySpeed: 3000,
     slidesToShow: 3,
     slidesToScroll: 1,
@@ -86,32 +86,33 @@ const Catalogue = () => {
         </div>
       ) : (
         <div className="pictures">
-            <div className="singlePictures">
-              <img src="/images/catalog1.JPG" alt="pictures" width={300} />
-            </div>
+          <div className="singlePictures">
+            <img src="/images/catalog1.JPG" alt="pictures" width={300} />
+          </div>
 
-            <div className="singlePictures">
-              <img
-                src="/images/catalogFolder/photoshoot.JPG"
-                alt="pictures"
-                width={290}
-              />
-            </div>
+          <div className="singlePictures">
+            <img
+              src="/images/catalogFolder/photoshoot.JPG"
+              alt="pictures"
+              width={290}
+            />
+          </div>
 
-            <div className="singlePictures">
-              <img src="/images/catalog3.JPG" alt="pictures" width={300} />
-            </div>
+          <div className="singlePictures">
+            <img src="/images/catalog3.JPG" alt="pictures" width={300} />
+          </div>
 
-            <div className="singlePictures">
-              <img src="/images/catalog4.JPG" alt="pictures" width={300} />
-            </div>
+          <div className="singlePictures">
+            <img src="/images/catalog4.JPG" alt="pictures" width={300} />
+          </div>
         </div>
       )}
 
       <Link to="/catalogue">
-        <div className="viewCatalog" onClick={scrollToTop}>
-          <button>
-            View Catalogue <FontAwesomeIcon icon={faArrowRight} />
+        <div className="viewCatalog">
+          <button onClick={scrollToTop}>
+            View Catalogue
+            <FontAwesomeIcon icon={faArrowRight} />
           </button>
         </div>
       </Link>

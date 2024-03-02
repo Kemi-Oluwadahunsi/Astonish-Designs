@@ -15,7 +15,13 @@ const About = () => {
   return (
     <div className="aboutContainer">
       <div className="leftImage">
-        <img src="/images/CEO.JPG" alt="CEO" width={500} />
+        <img
+          src="/images/aboutUsImage.jpg"
+          alt="CEO"
+          width={600}
+          height={600}
+          style={{ objectFit: "cover" }}
+        />
       </div>
       <div className="rightText">
         <h1>About Us</h1>
@@ -33,9 +39,11 @@ const About = () => {
           </p>
           <div className="readMoreButton" onClick={scrollToTop}>
             <Link to="/about">
-              <button className="readMore">
-                Read More <FontAwesomeIcon icon={faArrowRight} />
-              </button>
+              <div className="readMore">
+                <button>
+                  Read More <FontAwesomeIcon icon={faArrowRight} />
+                </button>
+              </div>
             </Link>
           </div>
         </div>

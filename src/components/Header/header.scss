@@ -1,7 +1,7 @@
 @import "../../App.scss";
 
 .header {
-  padding-top: 0.4rem;
+  padding: 0.5rem 0;
   background-color: rgba(47, 47, 47, 0.1);
 
   @include tablet {
@@ -45,8 +45,8 @@
           cursor: pointer;
 
           &:hover {
-            text-decoration: underline;
-            text-decoration-color: #f1cf1e;
+            text-decoration: underline overline;
+            text-decoration-color: #656565;
             text-decoration-thickness: 2px;
             text-underline-offset: 5px;
             transform: scale(1.1);
@@ -59,8 +59,8 @@
   button {
     display: flex;
     padding: 0.9rem 2rem;
-    background: #f1cf1e;
-    color: #2f2f2f;
+    background-color: #be9d24;
+    color: #fdfce9;
     justify-content: center;
     align-items: center;
     gap: 0.25rem;
@@ -71,9 +71,13 @@
     border: none;
     border-radius: 6.25rem;
     cursor: pointer;
+    -webkit-box-shadow: 0px 0px 29px 4px rgba(251, 249, 198, 0.7);
+    -moz-box-shadow: 0px 0px 29px 4px rgba(251, 249, 198, 0.7);
+    box-shadow: 0px 0px 29px 4px rgba(251, 249, 198, 0.7);
 
     &:hover {
       transform: scale(1.1);
+      background-color: #a58926;
     }
   }
 }
