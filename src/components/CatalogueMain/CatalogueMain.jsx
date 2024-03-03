@@ -81,7 +81,11 @@ const CatalogueMain = ({ showContact, toggleContact }) => {
             <div className="outerDiv">
               <h2>Ready To Wear</h2>
               <div className="innerDiv">
-                <img src="/images/catalogFolder/readyToWear2.JPG" alt="rtw" />
+                <img
+                  src="/images/catalogFolder/readyToWear2.JPG"
+                  alt="rtw"
+                  style={{ objectFit: "contain" }}
+                />
               </div>
             </div>
 
@@ -93,6 +97,7 @@ const CatalogueMain = ({ showContact, toggleContact }) => {
                     alt="rtw"
                     width={250}
                     height={315}
+                    style={{ objectFit: "contain" }}
                   />
                 </div>
                 <div className="stylePictures">
@@ -101,6 +106,7 @@ const CatalogueMain = ({ showContact, toggleContact }) => {
                     alt="rtw"
                     width={250}
                     height={315}
+                    style={{ objectFit: "contain" }}
                   />
                 </div>
 
@@ -110,6 +116,7 @@ const CatalogueMain = ({ showContact, toggleContact }) => {
                     alt="rtw"
                     width={250}
                     height={315}
+                    style={{ objectFit: "contain" }}
                   />
                 </div>
 
@@ -119,6 +126,7 @@ const CatalogueMain = ({ showContact, toggleContact }) => {
                     alt="rtw"
                     width={250}
                     height={315}
+                    style={{ objectFit: "contain" }}
                   />
                 </div>
 
@@ -128,6 +136,7 @@ const CatalogueMain = ({ showContact, toggleContact }) => {
                     alt="rtw"
                     width={250}
                     height={315}
+                    style={{ objectFit: "contain" }}
                   />
                 </div>
 
@@ -137,6 +146,7 @@ const CatalogueMain = ({ showContact, toggleContact }) => {
                     alt="rtw"
                     width={250}
                     height={315}
+                    style={{ objectFit: "contain" }}
                   />
                 </div>
 
@@ -144,8 +154,9 @@ const CatalogueMain = ({ showContact, toggleContact }) => {
                   <img
                     src="/images/readyToWear14.JPG"
                     alt="rtw"
-                    width={255}
+                    width={250}
                     height={315}
+                    style={{ objectFit: "contain" }}
                   />
                 </div>
 
@@ -155,6 +166,7 @@ const CatalogueMain = ({ showContact, toggleContact }) => {
                     alt="rtw"
                     width={250}
                     height={315}
+                    style={{ objectFit: "contain" }}
                   />
                 </div>
 
@@ -164,6 +176,7 @@ const CatalogueMain = ({ showContact, toggleContact }) => {
                     alt="rtw"
                     width={250}
                     height={315}
+                    style={{ objectFit: "contain" }}
                   />
                 </div>
               </Slider>
@@ -178,6 +191,7 @@ const CatalogueMain = ({ showContact, toggleContact }) => {
                 <img
                   src="/images/catalogFolder/specialOccassion.JPG"
                   alt="special"
+                  style={{ objectFit: "contain" }}
                 />
               </div>
             </div>
@@ -190,6 +204,7 @@ const CatalogueMain = ({ showContact, toggleContact }) => {
                     alt="speacial"
                     width={250}
                     height={315}
+                    style={{ objectFit: "contain" }}
                   />
                 </div>
 
@@ -199,6 +214,7 @@ const CatalogueMain = ({ showContact, toggleContact }) => {
                     alt="special"
                     width={250}
                     height={315}
+                    style={{ objectFit: "contain" }}
                   />
                 </div>
 
@@ -208,6 +224,7 @@ const CatalogueMain = ({ showContact, toggleContact }) => {
                     alt="special"
                     width={250}
                     height={315}
+                    style={{ objectFit: "contain" }}
                   />
                 </div>
 
@@ -217,6 +234,7 @@ const CatalogueMain = ({ showContact, toggleContact }) => {
                     alt="special"
                     width={250}
                     height={315}
+                    style={{ objectFit: "contain" }}
                   />
                 </div>
 
@@ -226,6 +244,7 @@ const CatalogueMain = ({ showContact, toggleContact }) => {
                     alt="special"
                     width={250}
                     height={315}
+                    style={{ objectFit: "contain" }}
                   />
                 </div>
 
@@ -235,6 +254,7 @@ const CatalogueMain = ({ showContact, toggleContact }) => {
                     alt="special"
                     width={250}
                     height={315}
+                    style={{ objectFit: "contain" }}
                   />
                 </div>
 
@@ -244,6 +264,7 @@ const CatalogueMain = ({ showContact, toggleContact }) => {
                     alt="special"
                     width={250}
                     height={315}
+                    style={{ objectFit: "contain" }}
                   />
                 </div>
 
@@ -253,6 +274,7 @@ const CatalogueMain = ({ showContact, toggleContact }) => {
                     alt="special"
                     width={250}
                     height={315}
+                    style={{ objectFit: "contain" }}
                   />
                 </div>
 
@@ -262,6 +284,7 @@ const CatalogueMain = ({ showContact, toggleContact }) => {
                     alt="special"
                     width={250}
                     height={315}
+                    style={{ objectFit: "contain" }}
                   />
                 </div>
               </Slider>
@@ -276,6 +299,7 @@ const CatalogueMain = ({ showContact, toggleContact }) => {
                 <img
                   src="/images/catalogFolder/photoshoot.JPG"
                   alt="photoshoot"
+                  style={{ objectFit: "contain" }}
                 />
               </div>
             </div>
@@ -288,6 +312,7 @@ const CatalogueMain = ({ showContact, toggleContact }) => {
                     alt="photoshoot"
                     width={250}
                     height={315}
+                    style={{ objectFit: "contain" }}
                   />
                 </div>
                 <div className="stylePictures">
@@ -296,6 +321,7 @@ const CatalogueMain = ({ showContact, toggleContact }) => {
                     alt="photoshoot"
                     width={250}
                     height={315}
+                    style={{ objectFit: "contain" }}
                   />
                 </div>
                 <div className="stylePictures">
@@ -304,6 +330,7 @@ const CatalogueMain = ({ showContact, toggleContact }) => {
                     alt="photoshoot"
                     width={250}
                     height={315}
+                    style={{ objectFit: "contain" }}
                   />
                 </div>
                 <div className="stylePictures">
@@ -312,6 +339,7 @@ const CatalogueMain = ({ showContact, toggleContact }) => {
                     alt="photoshoot"
                     width={250}
                     height={315}
+                    style={{ objectFit: "contain" }}
                   />
                 </div>
 
@@ -321,6 +349,7 @@ const CatalogueMain = ({ showContact, toggleContact }) => {
                     alt="photoshoot"
                     width={250}
                     height={315}
+                    style={{ objectFit: "contain" }}
                   />
                 </div>
 
@@ -330,6 +359,7 @@ const CatalogueMain = ({ showContact, toggleContact }) => {
                     alt="photoshoot"
                     width={250}
                     height={315}
+                    style={{ objectFit: "contain" }}
                   />
                 </div>
 
@@ -339,6 +369,7 @@ const CatalogueMain = ({ showContact, toggleContact }) => {
                     alt="photoshoot"
                     width={250}
                     height={315}
+                    style={{ objectFit: "contain" }}
                   />
                 </div>
 
@@ -348,6 +379,7 @@ const CatalogueMain = ({ showContact, toggleContact }) => {
                     alt="photoshoot"
                     width={250}
                     height={315}
+                    style={{ objectFit: "contain" }}
                   />
                 </div>
 
@@ -357,6 +389,7 @@ const CatalogueMain = ({ showContact, toggleContact }) => {
                     alt="photoshoot"
                     width={250}
                     height={315}
+                    style={{ objectFit: "contain" }}
                   />
                 </div>
               </Slider>
@@ -368,7 +401,11 @@ const CatalogueMain = ({ showContact, toggleContact }) => {
             <div className="outerDiv">
               <h2>Kid&apos;s Collections</h2>
               <div className="innerDiv">
-                <img src="/images/catalogFolder/catalog4.JPG" alt="" />
+                <img
+                  src="/images/catalogFolder/catalog4.JPG"
+                  alt=""
+                  style={{ objectFit: "contain" }}
+                />
               </div>
             </div>
 
@@ -380,6 +417,7 @@ const CatalogueMain = ({ showContact, toggleContact }) => {
                     alt="kidswear"
                     width={250}
                     height={315}
+                    style={{ objectFit: "contain" }}
                   />
                 </div>
                 <div className="stylePictures">
@@ -388,6 +426,7 @@ const CatalogueMain = ({ showContact, toggleContact }) => {
                     alt="kidswear"
                     width={250}
                     height={315}
+                    style={{ objectFit: "contain" }}
                   />
                 </div>
                 <div className="stylePictures">
@@ -396,6 +435,7 @@ const CatalogueMain = ({ showContact, toggleContact }) => {
                     alt="kidswear"
                     width={250}
                     height={315}
+                    style={{ objectFit: "contain" }}
                   />
                 </div>
                 <div className="stylePictures">
@@ -404,6 +444,7 @@ const CatalogueMain = ({ showContact, toggleContact }) => {
                     alt="kidswear"
                     width={250}
                     height={315}
+                    style={{ objectFit: "contain" }}
                   />
                 </div>
 
@@ -413,6 +454,7 @@ const CatalogueMain = ({ showContact, toggleContact }) => {
                     alt="kidswear"
                     width={250}
                     height={315}
+                    style={{ objectFit: "contain" }}
                   />
                 </div>
 
@@ -422,6 +464,7 @@ const CatalogueMain = ({ showContact, toggleContact }) => {
                     alt="kidswear"
                     width={250}
                     height={315}
+                    style={{ objectFit: "contain" }}
                   />
                 </div>
               </Slider>

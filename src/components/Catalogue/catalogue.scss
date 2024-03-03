@@ -195,7 +195,7 @@
       }
 
       @include tablet {
-        width: 30%;
+        width: fit-content;
         font-size: 1.1rem;
         margin: auto;
 
@@ -205,7 +205,7 @@
       }
 
       @include mobile {
-        width: 70%;
+        width: fit-content;
         font-size: 1rem;
         margin: auto;
 

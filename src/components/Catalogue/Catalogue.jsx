@@ -72,22 +72,38 @@ const Catalogue = () => {
                 src="/images/catalogFolder/photoshoot.JPG"
                 alt="pictures"
                 width={290}
+                style={{ objectFit: "contain" }}
               />
             </div>
 
             <div className="singlePictures">
-              <img src="/images/catalog3.JPG" alt="pictures" width={300} />
+              <img
+                src="/images/catalog3.JPG"
+                alt="pictures"
+                width={300}
+                style={{ objectFit: "contain" }}
+              />
             </div>
 
             <div className="singlePictures">
-              <img src="/images/catalog4.JPG" alt="pictures" width={300} />
+              <img
+                src="/images/catalog4.JPG"
+                alt="pictures"
+                width={300}
+                style={{ objectFit: "contain" }}
+              />
             </div>
           </Slider>
         </div>
       ) : (
         <div className="pictures">
           <div className="singlePictures">
-            <img src="/images/catalog1.JPG" alt="pictures" width={300} />
+            <img
+              src="/images/catalog1.JPG"
+              alt="pictures"
+              width={300}
+              style={{ objectFit: "contain" }}
+            />
           </div>
 
           <div className="singlePictures">
@@ -95,15 +111,26 @@ const Catalogue = () => {
               src="/images/catalogFolder/photoshoot.JPG"
               alt="pictures"
               width={290}
+              style={{ objectFit: "contain" }}
             />
           </div>
 
           <div className="singlePictures">
-            <img src="/images/catalog3.JPG" alt="pictures" width={300} />
+            <img
+              src="/images/catalog3.JPG"
+              alt="pictures"
+              width={300}
+              style={{ objectFit: "contain" }}
+            />
           </div>
 
           <div className="singlePictures">
-            <img src="/images/catalog4.JPG" alt="pictures" width={300} />
+            <img
+              src="/images/catalog4.JPG"
+              alt="pictures"
+              width={300}
+              style={{ objectFit: "contain" }}
+            />
           </div>
         </div>
       )}

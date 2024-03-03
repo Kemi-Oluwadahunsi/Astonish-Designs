@@ -34,7 +34,7 @@ const ScrollArrow = () => {
         style={{ display: isVisible ? "block" : "none" }}
         onClick={goTop}
       >
-        <FontAwesomeIcon icon={faArrowCircleUp} color="white" />
+        <FontAwesomeIcon icon={faArrowCircleUp} />
       </div>
       <a
         href="https://wa.me/+2348134473169"
@@ -42,7 +42,7 @@ const ScrollArrow = () => {
         target="_blank"
         rel="noopener noreferrer"
       >
-        <FontAwesomeIcon icon={faWhatsapp} color="white" />
+        <FontAwesomeIcon icon={faWhatsapp} />
       </a>
     </div>
   );

@@ -44,6 +44,7 @@ const AboutMajor = ({ showContact, toggleContact }) => {
                   alt="logo"
                   width={500}
                   className="logoAbout"
+                  style={{ objectFit: "contain" }}
                 />
                 <div className="welcomeText">
                   <h2>Welcome</h2>

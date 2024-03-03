@@ -56,7 +56,8 @@
         justify-content: center;
         align-items: center;
         font-size: 5rem;
-        color: #9b660d;
+        // color: #9b660d;
+        color: #be9d24;
         margin-top: 7rem;
 
         @include tablet {
@@ -71,11 +72,12 @@
       }
 
       p {
-        font-size: 1.2rem;
-        color: #9b660d;
+        font-size: 1.28rem;
+        color: #be9d24;
         font-family: "Helvetica";
         width: 60%;
         text-align: center;
+        line-height: 1.5em;
 
         @include tablet {
           font-size: 1rem;
@@ -115,7 +117,7 @@
       width: 100%;
       justify-content: space-between;
       padding: 2rem;
-      background-color: #f1eaa6;
+      background-color: #f6f6f6;
 
       @include tablet {
         flex-direction: column;
@@ -132,7 +134,7 @@
 
       .smallScreenTitle {
         font-size: 2rem;
-        color: #9b660d;
+        color: #3d3d3d;
         font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
           "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
         font-weight: 600;
@@ -155,7 +157,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        border: 10px solid #e1b511;
+        border: 5px solid #5d5d5d;
         gap: 1rem;
         flex-basis: 27%;
         width: fit-content;
@@ -173,7 +175,7 @@
 
         h2 {
           font-size: 2rem;
-          color: #9b660d;
+          color: #3d3d3d;
           font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
             "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
           font-weight: 600;
@@ -201,7 +203,7 @@
         gap: 1rem;
         width: 60%;
         flex-wrap: wrap;
-        background-color: #fcf9c5;
+        background-color: #e7e7e7;
         height: 30rem;
         padding: 0 1rem;
         margin-top: 2rem;
@@ -236,7 +238,6 @@
               height: 250px;
               width: 75%;
               margin: auto;
-              border: 1px solid #e1b511;
               border-top-right-radius: 15px;
               border-bottom-left-radius: 15px;
             }
@@ -246,7 +247,6 @@
               width: 80%;
               height: 250px;
               margin: auto;
-              border: 1px solid #e1b511;
               border-top-right-radius: 15px;
               border-bottom-left-radius: 15px;
             }
@@ -300,68 +300,69 @@
   .contactMe {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 2rem;
     align-items: center;
     justify-content: center;
+    margin: auto;
 
     p {
       font-size: 2rem;
-      color: #c28d0c;
+      color: #3d3d3d;
       font-weight: 600;
 
-      @include mobile {
+      @include tablet {
         font-size: 1.7rem;
         padding: 0 1rem;
+        gap: 1em;
       }
 
       @include mobile {
         font-size: 1.2rem;
         padding: 0 1rem;
+        gap: 1em;
       }
     }
 
     button {
       display: flex;
-      margin: auto;
-      margin-top: 1rem;
-      padding: 1rem;
-      background: rgba(225, 182, 17, 0.5);
-      color: #2f2f2f;
+      width: fit-content;
+      padding: 0.9rem 1.3rem;
+      background-image: linear-gradient(to right, #888888 0%, #f5e14f 100%);
+      color: #3d3d3d;
       justify-content: center;
       align-items: center;
-      gap: 0.5rem;
-      font-size: 1.2rem;
+      gap: 1rem;
+      font-size: 1rem;
       font-family: Verdana, Geneva, Tahoma, sans-serif;
-      font-style: normal;
-      font-weight: 400;
+      font-weight: 600;
       border: none;
       border-radius: 6.25rem;
       cursor: pointer;
+      transition: background-image 0.1s ease;
 
       &:hover {
-          transform: scale(1.1);
-          background-color: transparent;
-        color: #e1b511;
+        transform: scale(1.1);
+        background-image: linear-gradient(to right, #f5e14f 0%, #888888 100%);
+      }
 
-        @include tablet {
+      @include tablet {
+        font-size: 1rem;
+        width: fit-content;
+        margin: auto;
+
+        &:hover {
           transform: scale(1);
         }
-
-        @include mobile {
-          transform: scale(1);
-        }
-        }
-
-      @include mobile {
-        font-size: 1.1rem;
-        padding: 0.7rem 0.8rem;
-        margin-top: 0;
       }
 
       @include mobile {
+        width: fit-content;
         font-size: 1rem;
-        padding: 0.75rem;
-        margin-top: 0;
+        margin: auto;
+
+        &:hover {
+          transform: scale(1);
+        }
       }
     }
   }
