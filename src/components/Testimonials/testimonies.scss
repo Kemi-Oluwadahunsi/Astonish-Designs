@@ -116,7 +116,6 @@
     }
 
     .eachTestimony {
-      border-bottom-right-radius: 2rem;
       padding: 2rem 1rem;
       width: fit-content;
       display: flex;
@@ -125,6 +124,7 @@
       border: 2px solid #888888;
       border-top-left-radius: 2rem;
       border-bottom-right-radius: 2rem;
+      border-collapse: collapse;
 
       @include tablet {
         width: 45%;
