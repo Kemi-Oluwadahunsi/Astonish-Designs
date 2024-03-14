@@ -1,20 +1,73 @@
 import Header from "../Header/Header";
 import "./cataloguemain.scss";
-import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { useEffect, useState } from "react";
 import Contact from "../Contact/Contact";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import PropTypes from "prop-types";
 import Navbar from "../Navbar/Navbar";
+import Wears from "../Wears";
+
+// Modal component
+// Inside the Modal component
+const Modal = ({ showModal, setShowModal, imageSrc }) => {
+  console.log("Image Source:", imageSrc); // Log the image source
+  const handleCloseModal = () => {
+    setShowModal(false);
+  };
+
+  // Add event listener when the component mounts
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      // Check if the click is outside the modal content
+      if (!event.target.classList.contains("modal")) {
+        setShowModal(false); // Close the modal
+      }
+    };
+
+    // Add event listener
+    document.addEventListener("mousedown", handleClickOutside);
+
+    // Clean up the event listener when the component unmounts
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [showModal, setShowModal]);
+
+  return (
+    <div
+      className="modal"
+      style={{
+        display: showModal ? "block" : "none",
+      }}
+    >
+      <div
+        className="modal-content"
+      >
+        <FontAwesomeIcon
+          icon={faTimes}
+          className="times"
+          onClick={handleCloseModal}
+        />
+        <img
+          src={imageSrc} // Render the selected image
+          alt="Full size image"
+        />
+      </div>
+    </div>
+  );
+};
 
 
 const CatalogueMain = ({ showContact, toggleContact }) => {
-
   const [buttonText, setButtonText] = useState("Click to close");
   const [initialLoad, setInitialLoad] = useState(true);
+  const [selectedImage, setSelectedImage] = useState(null);
+  const [selectedImageSection, setSelectedImageSection] = useState(null);
+  const [showModal, setShowModal] = useState(false);
 
   const updateButtonText = (text) => {
     setButtonText(text);
@@ -26,38 +79,30 @@ const CatalogueMain = ({ showContact, toggleContact }) => {
     setInitialLoad(false);
   }, []);
 
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 300,
-    autoplay: true,
-    autoplaySpeed: 3000,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    prevArrow: <button className="slick-prev">Previous</button>,
-    nextArrow: <button className="slick-next">Next</button>,
-    responsive: [
-      {
-        breakpoint: 900,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
-        },
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
-    ],
-  };
-
   const scrollToContact = () => {
     const contactMeSection = document.getElementById("contactMe");
     contactMeSection.scrollIntoView({ behavior: "smooth" });
   };
+
+  const handleMouseEnter = (imageId, sectionId) => {
+    setSelectedImage(imageId);
+    setSelectedImageSection(sectionId);
+  };
+
+  const handleImageClick = (imageId, sectionId) => {
+    if (selectedImage === imageId && selectedImageSection === sectionId) {
+      // If the clicked image is the same as the currently selected one, toggle modal visibility
+      setShowModal((prev) => !prev);
+    } else {
+      // If a different image is clicked, set selectedImage and selectedImageSection
+      setSelectedImage(imageId);
+      setSelectedImageSection(sectionId);
+
+      // Ensure modal is opened
+      setShowModal(true);
+    }
+  };
+
 
   return (
     <>
@@ -76,400 +121,64 @@ const CatalogueMain = ({ showContact, toggleContact }) => {
         </div>
 
         <div className="collections">
-          <div className="readyToWear">
-            <h2 className="smallScreenTitle">Ready To Wear</h2>
-            <div className="outerDiv">
-              <h2>Ready To Wear</h2>
-              <div className="innerDiv">
-                <img
-                  src="/images/catalogFolder/readyToWear2.JPG"
-                  alt="rtw"
-                  style={{ objectFit: "contain" }}
-                />
+          {Wears.map((wearCategory) => (
+            <div className="allWears" key={wearCategory.id}>
+              <h2 className="smallScreenTitle">{wearCategory.smallTitle}</h2>
+              <div className="outerDiv">
+                <h2>{wearCategory.title}</h2>
+                <div className="innerDiv">
+                  <img
+                    src={wearCategory.innerDivImage}
+                    alt={wearCategory.title}
+                    style={{ objectFit: "contain" }}
+                  />
+                </div>
+              </div>
+              <div className="sideDiv">
+                <div className="stylePictures">
+                  {wearCategory.images.map((image) => (
+                    <div key={image.id} style={{ position: "relative" }}className="smallScreenImage">
+                      <span
+                        className="clickToViewText"
+                        style={{
+                          backgroundColor: "black",
+                          borderRadius: "20px",
+                          padding: "0.4rem 0.8rem",
+                          position: "absolute",
+                          bottom: "12px",
+                          left: "50%",
+                          transform: "translateX(-50%)",
+                          color: "white",
+                          cursor: "pointer",
+                          zIndex: "100",
+                          opacity:
+                            selectedImageSection === wearCategory.id &&
+                            selectedImage === image.id
+                              ? 1
+                              : 0,
+                        }}
+                      >
+                        Click to view
+                      </span>
+                      <span className="smallScreenView">Click to view</span>
+
+                      <img
+                        src={image.img}
+                        width={250}
+                        height={315}
+                        onMouseEnter={() =>
+                          handleMouseEnter(image.id, wearCategory.id)
+                        }
+                        onClick={() =>
+                          handleImageClick(image.id, wearCategory.id)
+                        }
+                      />
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
-
-            <div className="sideDiv">
-              <Slider {...settings}>
-                <div className="stylePictures">
-                  <img
-                    src="/images/ReadyToWear1.JPG"
-                    alt="rtw"
-                    width={250}
-                    height={315}
-                    style={{ objectFit: "contain" }}
-                  />
-                </div>
-                <div className="stylePictures">
-                  <img
-                    src="/images/readyToWear3.JPG"
-                    alt="rtw"
-                    width={250}
-                    height={315}
-                    style={{ objectFit: "contain" }}
-                  />
-                </div>
-
-                <div className="stylePictures">
-                  <img
-                    src="/images/readyToWear5.JPG"
-                    alt="rtw"
-                    width={250}
-                    height={315}
-                    style={{ objectFit: "contain" }}
-                  />
-                </div>
-
-                <div className="stylePictures">
-                  <img
-                    src="/images/readyToWear11.JPG"
-                    alt="rtw"
-                    width={250}
-                    height={315}
-                    style={{ objectFit: "contain" }}
-                  />
-                </div>
-
-                <div className="stylePictures">
-                  <img
-                    src="/images/white-jumpsuit.JPG"
-                    alt="rtw"
-                    width={250}
-                    height={315}
-                    style={{ objectFit: "contain" }}
-                  />
-                </div>
-
-                <div className="stylePictures">
-                  <img
-                    src="/images/readyToWear9.JPG"
-                    alt="rtw"
-                    width={250}
-                    height={315}
-                    style={{ objectFit: "contain" }}
-                  />
-                </div>
-
-                <div className="stylePictures">
-                  <img
-                    src="/images/readyToWear14.JPG"
-                    alt="rtw"
-                    width={250}
-                    height={315}
-                    style={{ objectFit: "contain" }}
-                  />
-                </div>
-
-                <div className="stylePictures">
-                  <img
-                    src="/images/readyToWear6.JPG"
-                    alt="rtw"
-                    width={250}
-                    height={315}
-                    style={{ objectFit: "contain" }}
-                  />
-                </div>
-
-                <div className="stylePictures">
-                  <img
-                    src="/images/readyToWearBlue.JPG"
-                    alt="rtw"
-                    width={250}
-                    height={315}
-                    style={{ objectFit: "contain" }}
-                  />
-                </div>
-              </Slider>
-            </div>
-          </div>
-
-          <div className="specialOccassions">
-            <h2 className="smallScreenTitle">Special Occassions</h2>
-            <div className="outerDiv">
-              <h2>Special Occassions</h2>
-              <div className="innerDiv">
-                <img
-                  src="/images/catalogFolder/specialOccassion.JPG"
-                  alt="special"
-                  style={{ objectFit: "contain" }}
-                />
-              </div>
-            </div>
-
-            <div className="sideDiv">
-              <Slider {...settings}>
-                <div className="stylePictures">
-                  <img
-                    src="/images/spacialOccassion2.JPG"
-                    alt="speacial"
-                    width={250}
-                    height={315}
-                    style={{ objectFit: "contain" }}
-                  />
-                </div>
-
-                <div className="stylePictures">
-                  <img
-                    src="/images/catalog1.JPG"
-                    alt="special"
-                    width={250}
-                    height={315}
-                    style={{ objectFit: "contain" }}
-                  />
-                </div>
-
-                <div className="stylePictures">
-                  <img
-                    src="/images/specialOccassion7.JPG"
-                    alt="special"
-                    width={250}
-                    height={315}
-                    style={{ objectFit: "contain" }}
-                  />
-                </div>
-
-                <div className="stylePictures">
-                  <img
-                    src="/images/specialOccassion8.JPG"
-                    alt="special"
-                    width={250}
-                    height={315}
-                    style={{ objectFit: "contain" }}
-                  />
-                </div>
-
-                <div className="stylePictures">
-                  <img
-                    src="/images/specialOccassion10.png"
-                    alt="special"
-                    width={250}
-                    height={315}
-                    style={{ objectFit: "contain" }}
-                  />
-                </div>
-
-                <div className="stylePictures">
-                  <img
-                    src="/images/specialOccassion12.JPG"
-                    alt="special"
-                    width={250}
-                    height={315}
-                    style={{ objectFit: "contain" }}
-                  />
-                </div>
-
-                <div className="stylePictures">
-                  <img
-                    src="/images/spacialOccassion3.JPG"
-                    alt="special"
-                    width={250}
-                    height={315}
-                    style={{ objectFit: "contain" }}
-                  />
-                </div>
-
-                <div className="stylePictures">
-                  <img
-                    src="/images/special-occassion.jpg"
-                    alt="special"
-                    width={250}
-                    height={315}
-                    style={{ objectFit: "contain" }}
-                  />
-                </div>
-
-                <div className="stylePictures">
-                  <img
-                    src="/images/specialOccassion5.JPG"
-                    alt="special"
-                    width={250}
-                    height={315}
-                    style={{ objectFit: "contain" }}
-                  />
-                </div>
-              </Slider>
-            </div>
-          </div>
-
-          <div className="photoshoots">
-            <h2 className="smallScreenTitle">Bespoke Outfits</h2>
-            <div className="outerDiv">
-              <h2>Bespoke Outfits</h2>
-              <div className="innerDiv">
-                <img
-                  src="/images/catalogFolder/photoshoot.JPG"
-                  alt="photoshoot"
-                  style={{ objectFit: "contain" }}
-                />
-              </div>
-            </div>
-
-            <div className="sideDiv">
-              <Slider {...settings}>
-                <div className="stylePictures">
-                  <img
-                    src="/images/photoshoot2.JPG"
-                    alt="photoshoot"
-                    width={250}
-                    height={315}
-                    style={{ objectFit: "contain" }}
-                  />
-                </div>
-                <div className="stylePictures">
-                  <img
-                    src="/images/photoshoot3.JPG"
-                    alt="photoshoot"
-                    width={250}
-                    height={315}
-                    style={{ objectFit: "contain" }}
-                  />
-                </div>
-                <div className="stylePictures">
-                  <img
-                    src="/images/photoshoot4.JPG"
-                    alt="photoshoot"
-                    width={250}
-                    height={315}
-                    style={{ objectFit: "contain" }}
-                  />
-                </div>
-                <div className="stylePictures">
-                  <img
-                    src="/images/photoshoot7.jpg"
-                    alt="photoshoot"
-                    width={250}
-                    height={315}
-                    style={{ objectFit: "contain" }}
-                  />
-                </div>
-
-                <div className="stylePictures">
-                  <img
-                    src="/images/specialOccassion13.JPG"
-                    alt="photoshoot"
-                    width={250}
-                    height={315}
-                    style={{ objectFit: "contain" }}
-                  />
-                </div>
-
-                <div className="stylePictures">
-                  <img
-                    src="/images/photoshootCat.JPG"
-                    alt="photoshoot"
-                    width={250}
-                    height={315}
-                    style={{ objectFit: "contain" }}
-                  />
-                </div>
-
-                <div className="stylePictures">
-                  <img
-                    src="/images/photoshoot12.JPG"
-                    alt="photoshoot"
-                    width={250}
-                    height={315}
-                    style={{ objectFit: "contain" }}
-                  />
-                </div>
-
-                <div className="stylePictures">
-                  <img
-                    src="/images/photoshoot13.JPG"
-                    alt="photoshoot"
-                    width={250}
-                    height={315}
-                    style={{ objectFit: "contain" }}
-                  />
-                </div>
-
-                <div className="stylePictures">
-                  <img
-                    src="/images/photoshoot11.JPG"
-                    alt="photoshoot"
-                    width={250}
-                    height={315}
-                    style={{ objectFit: "contain" }}
-                  />
-                </div>
-              </Slider>
-            </div>
-          </div>
-
-          <div className="kidsCollections">
-            <h2 className="smallScreenTitle">Kid&apos;s Collections</h2>
-            <div className="outerDiv">
-              <h2>Kid&apos;s Collections</h2>
-              <div className="innerDiv">
-                <img
-                  src="/images/catalogFolder/catalog4.JPG"
-                  alt=""
-                  style={{ objectFit: "contain" }}
-                />
-              </div>
-            </div>
-
-            <div className="sideDiv">
-              <Slider {...settings}>
-                <div className="stylePictures">
-                  <img
-                    src="/images/kidsCollection4.jpg"
-                    alt="kidswear"
-                    width={250}
-                    height={315}
-                    style={{ objectFit: "contain" }}
-                  />
-                </div>
-                <div className="stylePictures">
-                  <img
-                    src="/images/kidsCollection2.JPG"
-                    alt="kidswear"
-                    width={250}
-                    height={315}
-                    style={{ objectFit: "contain" }}
-                  />
-                </div>
-                <div className="stylePictures">
-                  <img
-                    src="/images/kidsCollection6.jpg"
-                    alt="kidswear"
-                    width={250}
-                    height={315}
-                    style={{ objectFit: "contain" }}
-                  />
-                </div>
-                <div className="stylePictures">
-                  <img
-                    src="/images/kidsCollection.JPG"
-                    alt="kidswear"
-                    width={250}
-                    height={315}
-                    style={{ objectFit: "contain" }}
-                  />
-                </div>
-
-                <div className="stylePictures">
-                  <img
-                    src="/images/kidsCollection5.jpg"
-                    alt="kidswear"
-                    width={250}
-                    height={315}
-                    style={{ objectFit: "contain" }}
-                  />
-                </div>
-
-                <div className="stylePictures">
-                  <img
-                    src="/images/kidsCollection8.jpg"
-                    alt="kidswear"
-                    width={250}
-                    height={315}
-                    style={{ objectFit: "contain" }}
-                  />
-                </div>
-              </Slider>
-            </div>
-          </div>
+          ))}
         </div>
 
         <div className="contactMe" id="contactMe">
@@ -488,11 +197,28 @@ const CatalogueMain = ({ showContact, toggleContact }) => {
           updateButtonText={updateButtonText}
         />
       )}
+      <Modal
+        showModal={showModal}
+        setShowModal={setShowModal}
+        imageSrc={
+          selectedImage
+            ? Wears[selectedImageSection - 1].images[selectedImage - 1].img
+            : null
+        }
+      />
     </>
   );
 };
+
 CatalogueMain.propTypes = {
   showContact: PropTypes.bool.isRequired,
   toggleContact: PropTypes.func.isRequired,
 };
+
+Modal.propTypes = {
+  showModal: PropTypes.bool.isRequired,
+  setShowModal: PropTypes.func.isRequired,
+  imageSrc: PropTypes.string.isRequired,
+};
+
 export default CatalogueMain;

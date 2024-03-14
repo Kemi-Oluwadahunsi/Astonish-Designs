@@ -45,7 +45,7 @@
         width: 3.5rem;
         height: 3.5rem;
         border-radius: 50%;
-        background-color: #c28e0c;
+        background-color: #fdfce9;
         padding: 0.5rem;
         display: flex;
         align-items: center;
@@ -58,15 +58,30 @@
         }
 
         button {
-          background-color: #c28e0c;
-          color: #fdfce9;
+          background-color: #fdfce9;
+          color: #3d3d3d;
           border: none;
+
+          .times {
+            width: 23px;
+            height: 23px;
+            border: none;
+            z-index: 10000;
+            position: fixed;
+            top: 3em;
+            right: 3em;
+
+            @include mobile {
+              top: 2.3em;
+              right: 1.8em;
+            }
+          }
         }
       }
     }
 
     .bg {
-      background-color: rgb(194, 142, 12);
+      background-color: #f6f6f6;
       position: absolute;
       top: 0;
       left: 0;
@@ -100,36 +115,19 @@
           font-size: 1.7rem;
           font-weight: 500;
           font-family: Verdana, Geneva, Tahoma, sans-serif;
-          color: #fdfce9;
+          color: #3d3d3d;
           cursor: pointer;
 
           @include mobile {
             font-size: 1.2rem;
-          }
-
-          &:hover {
-            text-decoration: underline;
-            text-decoration-color: #f1cf1e;
-            text-decoration-thickness: 2px;
-            transform: scale(1.1);
-
-            @include tablet {
-              text-decoration: none;
-              transform: none;
-            }
-
-            @include mobile {
-              text-decoration: none;
-              transform: none;
-            }
           }
         }
 
         button {
           display: flex;
           padding: 0.7rem 1.5rem;
-          background: #f1cf1e;
-          color: #2f2f2f;
+          background-image: linear-gradient(to right, #888888 0%, #f5e14f 100%);
+          color: #3d3d3d;
           justify-content: center;
           align-items: center;
           gap: 0.25rem;
@@ -155,7 +153,7 @@
         align-items: flex-end;
         justify-content: center;
         padding: 0 0 1rem 0;
-        color: #805113;
+        color: #4f4f4f;
 
         @include mobile {
           padding: 0 0 0.7rem 0;

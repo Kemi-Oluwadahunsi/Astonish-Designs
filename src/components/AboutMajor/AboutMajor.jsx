@@ -34,7 +34,7 @@ const AboutMajor = ({ showContact, toggleContact }) => {
       <div>
         <div className="aboutMajorBody">
           <Header scrollToContact={scrollToContact} isAboutPage={true} />
-          <Navbar scrollToContact={scrollToContact} />
+          <Navbar scrollToContact={scrollToContact} isAboutPage={true} />
 
           <div className="aboutText2">
             <div className="aboutMajorText">

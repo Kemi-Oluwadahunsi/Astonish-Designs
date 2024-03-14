@@ -11,7 +11,7 @@ import {
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
-const Navbar = ({ scrollToContact }) => {
+const Navbar = ({ scrollToContact, isAboutPage }) => {
   const [showMobileContent, setShowMobileContent] = useState(false);
 
   const toggleMobileContent = () => {
@@ -37,10 +37,17 @@ const Navbar = ({ scrollToContact }) => {
     };
   }, []);
 
+  const changeBackground = () => {
+    return {
+      backgroundColor: isAboutPage
+        ? "rgb(152, 152, 152)"
+        : "rgba(47, 47, 47, 0.1)",
+    };
+  };
   return (
     <>
       {/* navbar for phone-tab view */}
-      <div className="small-screens">
+      <div className="small-screens" style={changeBackground()}>
         <div className="navbar">
           <div className="nav">
             <div className="logo">
@@ -54,12 +61,9 @@ const Navbar = ({ scrollToContact }) => {
                   <FontAwesomeIcon
                     icon={faTimes}
                     style={{
-                      width: "23px",
-                      height: "23px",
-                      border: "none",
-                      zIndex: 10000,
-                      position: "fixed",
+                      
                     }}
+                    className="times"
                   />
                 ) : (
                   <FontAwesomeIcon
@@ -150,5 +154,6 @@ const Navbar = ({ scrollToContact }) => {
 };
 Navbar.propTypes = {
   scrollToContact: PropTypes.func.isRequired,
+  isAboutPage: PropTypes.bool.isRequired,
 };
 export default Navbar;

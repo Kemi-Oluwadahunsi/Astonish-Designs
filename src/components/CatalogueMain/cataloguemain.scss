@@ -1,4 +1,72 @@
 @import "../../App.scss";
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.9);
+  z-index: 9999999;
+
+  @include tablet {
+    top: 4%;
+    left: 0;
+    width: 80%;
+    height: auto;
+    transform: translate(0);
+  }
+  @include mobile {
+    top: 15%;
+    left: 0;
+    width: 100%;
+    height: auto;
+    transform: translate(0);
+  }
+
+  .modal-content {
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    height: fit-content;
+    width: fit-content;
+    margin: 0 auto;
+
+    @include mobile {
+      padding-top: 4em;
+    }
+
+    .times {
+      background-color: grey;
+      cursor: pointer;
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      color: white;
+      border-radius: 50%;
+      font-size: 2em;
+      padding: 0.2em 0.3em;
+
+      @include mobile {
+        padding: 0.1em 0.2em;
+        font-size: 1.5em;
+      }
+    }
+
+    img {
+      width: 62%;
+      height: auto;
+      object-fit: cover;
+
+      @include tablet {
+        width: 30em;
+      }
+
+      @include mobile {
+        width: 20em;
+      }
+    }
+  }
+}
 
 .catalogueMain {
   height: auto;
@@ -97,6 +165,7 @@
     flex-direction: column;
     gap: 12rem;
     width: screen;
+    position: relative;
 
     @include tablet {
       padding: 0;
@@ -108,16 +177,14 @@
       gap: 5rem;
     }
 
-    .readyToWear,
-    .specialOccassions,
-    .kidsCollections,
-    .photoshoots {
+    .allWears {
       display: flex;
       gap: 3rem;
       width: 100%;
       justify-content: space-between;
       padding: 2rem;
-      background-color: #f6f6f6;
+      // background-color: #f6f6f6;
+      // background-color: black;
 
       @include tablet {
         flex-direction: column;
@@ -228,29 +295,51 @@
         .stylePictures {
           width: fit-content;
           height: fit-content;
+          display: flex;
+          overflow-x: auto;
+          gap: 1rem;
 
-          img {
-            width: 100%;
-            padding: 0 10px;
+          // @include mobile {
+          //   gap: 0;
+          // }
 
-            @include tablet {
-              padding: 0;
-              height: 250px;
-              width: 75%;
-              margin: auto;
-              border-top-right-radius: 15px;
-              border-bottom-left-radius: 15px;
-            }
+          .smallScreenImage {
 
             @include mobile {
-              padding: 0;
-              width: 80%;
-              height: 250px;
-              margin: auto;
-              border-top-right-radius: 15px;
-              border-bottom-left-radius: 15px;
+              padding: 0 1rem;
+            }
+
+            .clickToViewText {
+              @include mobile {
+                display: none;
+              }
+            }
+
+            img {
+              object-fit: contain;
+              cursor: pointer;
+            }
+
+            .smallScreenView {
+              display: none;
+
+              @include mobile {
+                display: block;
+                background-color: black;
+                border-radius: 20px;
+                padding: .3em .6em;
+                position: absolute;
+                bottom: 12px;
+                left: 30%;
+                color: white;
+                z-index: 200;
+                font-size: 0.8em;
+
+                
+              }
             }
           }
+
         }
 
         .slick-slider {
@@ -289,10 +378,6 @@
 
         .slick-next {
           right: 0;
-
-          // @include mobile {
-          //   right: -10px;
-          // }
         }
       }
     }

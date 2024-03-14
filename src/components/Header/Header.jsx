@@ -6,7 +6,9 @@ const Header = ({scrollToContact, isAboutPage}) => {
 
   const changeBackground = () => {
      return {
-       backgroundColor: isAboutPage ? "#3d3d3d" : "rgba(47, 47, 47, 0.1)",
+       backgroundColor: isAboutPage
+         ? "black"
+         : "rgba(47, 47, 47, 0.1)",
      };
   }
   
@@ -43,6 +45,6 @@ const Header = ({scrollToContact, isAboutPage}) => {
 };
 Header.propTypes = {
   scrollToContact: PropTypes.func.isRequired,
-  isAboutPage: PropTypes.func.isRequired,
+  isAboutPage: PropTypes.bool.isRequired,
 };
 export default Header;

@@ -1,7 +1,6 @@
 @import "../../App.scss";
 
 .footer {
-  // background-color: rgba(101, 101, 101, 0.5);
   background-color: #3d3d3d;
   display: flex;
   flex-wrap: wrap;
@@ -116,7 +115,7 @@
 
           &:hover {
             text-decoration: underline;
-            text-decoration-color: #000000;
+            text-decoration-color: #989898;
             text-decoration-thickness: 2px;
             text-underline-offset: 5px;
 
@@ -157,7 +156,7 @@
 
           &:hover {
             text-decoration: underline;
-            text-decoration-color: #000000;
+            text-decoration-color: #989898;
             text-decoration-thickness: 2px;
             text-underline-offset: 5px;
 
