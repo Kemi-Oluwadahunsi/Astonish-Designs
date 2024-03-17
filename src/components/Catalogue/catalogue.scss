@@ -64,11 +64,20 @@
 
   .pictures {
     display: flex;
-    gap: 1rem;
+    // gap: 1rem;
     align-content: center;
     justify-content: center;
     background-color: #f6f6f6;
     padding: 3rem 0;
+
+    .singlePictures {
+      width: 18%;
+      img {
+        object-fit: contain;
+        width: 20rem;
+        height: 20rem;
+      }
+    }
 
     @include tablet {
       width: 100%;
