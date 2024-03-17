@@ -136,6 +136,15 @@ hr {
           }
         }
 
+        
+          @include tablet {
+            width: 70%;
+            padding: 1rem;
+            img {
+              display: none;
+            }
+          }
+
         @include mobile {
           width: 100%;
 
@@ -166,10 +175,6 @@ hr {
           @include laptop {
             display: none;
           }
-
-          @include tablet {
-            display: none;
-          }
         }
 
         .special-occ::before {
@@ -177,10 +182,6 @@ hr {
           margin: 5px 10px 0 0;
 
           @include laptop {
-            display: none;
-          }
-
-          @include tablet {
             display: none;
           }
         }
@@ -192,10 +193,6 @@ hr {
           @include laptop {
             display: none;
           }
-
-          @include tablet {
-            display: none;
-          }
         }
 
         .ready::before {
@@ -203,10 +200,6 @@ hr {
           margin: 5px 10px 0 0;
 
           @include laptop {
-            display: none;
-          }
-
-          @include tablet {
             display: none;
           }
         }
@@ -218,6 +211,7 @@ hr {
 
           @include tablet {
             font-size: 1rem;
+            line-height: 2;
           }
 
           @include mobile {
