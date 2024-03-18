@@ -58,26 +58,26 @@
         width: 45%;
       }
 
-      .slick-prev,
-      .slick-next {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        width: 1.5rem;
-        height: 1.5rem;
-        background-color: rgba(225, 181, 17, 0.5);
-        border: none;
-        cursor: pointer;
-        z-index: 1;
-      }
+      // .slick-prev,
+      // .slick-next {
+      //   position: absolute;
+      //   top: 50%;
+      //   transform: translateY(-50%);
+      //   width: 1.5rem;
+      //   height: 1.5rem;
+      //   background-color: rgba(225, 181, 17, 0.5);
+      //   border: none;
+      //   cursor: pointer;
+      //   z-index: 1;
+      // }
 
-      .slick-prev {
-        left: 0;
-      }
+      // .slick-prev {
+      //   left: 0;
+      // }
 
-      .slick-next {
-        right: 0;
-      }
+      // .slick-next {
+      //   right: 0;
+      // }
     }
 
     @include mobile {
@@ -96,26 +96,26 @@
         width: 90%;
       }
 
-      .slick-prev,
-      .slick-next {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        width: 1.5rem;
-        height: 1.5rem;
-        background-color: rgba(225, 181, 17, 0.5);
-        border: none;
-        cursor: pointer;
-        z-index: 1;
-      }
+      // .slick-prev,
+      // .slick-next {
+      //   position: absolute;
+      //   top: 50%;
+      //   transform: translateY(-50%);
+      //   width: 1.5rem;
+      //   height: 1.5rem;
+      //   background-color: rgba(225, 181, 17, 0.5);
+      //   border: none;
+      //   cursor: pointer;
+      //   z-index: 1;
+      // }
 
-      .slick-prev {
-        left: 0;
-      }
+      // .slick-prev {
+      //   left: 0;
+      // }
 
-      .slick-next {
-        right: 0;
-      }
+      // .slick-next {
+      //   right: 0;
+      // }
     }
 
     .eachTestimony {
