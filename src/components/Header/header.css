@@ -1,0 +1,124 @@
+@font-face {
+  font-family: "Helvetica Neue";
+  src: url("./assets//fonts/helvetica-neu.ttf") format("ttf");
+}
+@font-face {
+  font-family: "La Belle Aurore";
+  src: url("./assets//fonts/LaBelleAurore.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Coolvetica";
+  src: url("./assets//fonts/CoolveticaRg-Regular.woff2") format("woff2");
+}
+input,
+textarea {
+  font-family: "Helvetica Neue";
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "DM Sans", sans-serif;
+}
+
+html {
+  overflow-x: hidden;
+}
+
+body {
+  background-color: #ffffff;
+  color: #6d6d6d;
+  text-align: justify;
+  -webkit-hyphens: auto;
+          hyphens: auto;
+  word-spacing: -1px;
+  letter-spacing: 0.5px;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.header {
+  padding: 0.5rem 0;
+  background-color: rgba(47, 47, 47, 0.1);
+}
+@media screen and (min-width: 481px) and (max-width: 900px) {
+  .header {
+    display: none;
+  }
+  .header html {
+    scroll-snap-type: none;
+    scroll-snap-align: none;
+  }
+  .header #section {
+    height: 30rem;
+  }
+}
+@media (max-width: 480px) {
+  .header {
+    display: none;
+  }
+  .header html {
+    scroll-snap-type: none;
+    scroll-snap-align: none;
+  }
+}
+.header .navBody {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+}
+.header .navBody .logo img {
+  border-radius: 50%;
+}
+.header .navBody .navLinks {
+  width: 60%;
+  display: flex;
+  justify-content: center;
+}
+.header .navBody .navLinks ul {
+  display: flex;
+  justify-content: space-around;
+  width: 70%;
+}
+.header .navBody .navLinks ul li {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  font-size: 1.3rem;
+  font-weight: 500;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: #fdfce9;
+  cursor: pointer;
+}
+.header .navBody .navLinks ul li:hover {
+  text-decoration: underline overline;
+  text-decoration-color: #656565;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 5px;
+  transform: scale(1.1);
+}
+.header button {
+  display: flex;
+  padding: 0.9rem 2rem;
+  background-color: #be9d24;
+  color: #fdfce9;
+  justify-content: center;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 1.3rem;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  border: none;
+  border-radius: 6.25rem;
+  cursor: pointer;
+}
+.header button:hover {
+  transform: scale(1.1);
+  background-color: #a58926;
+}/*# sourceMappingURL=header.css.map */
