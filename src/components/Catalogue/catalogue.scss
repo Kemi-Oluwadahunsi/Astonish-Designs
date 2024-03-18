@@ -94,7 +94,7 @@
 
       .slick-slider {
         margin: 0 auto;
-        width: 100%;
+        width: 100vw;
       }
 
       .slick-prev,
@@ -122,6 +122,8 @@
     @include mobile {
       padding: 2rem 0;
       gap: 1em;
+      width: 100%;
+
       .singlePictures {
         width: fit-content;
 
@@ -177,7 +179,7 @@
       width: fit-content;
       margin-right: 5rem;
       padding: 0.9rem 1.3rem;
-      background-image: linear-gradient(to right, #888888 0%, #f5e14f 100%);;
+      background-image: linear-gradient(to right, #888888 0%, #f5e14f 100%);
       color: #3d3d3d;
       justify-content: center;
       align-items: center;
@@ -190,7 +192,6 @@
       border-radius: 6.25rem;
       cursor: pointer;
       transition: background-image 0.3s ease-in;
-      
 
       &:hover {
         transform: scale(1.1);
