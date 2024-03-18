@@ -28,8 +28,8 @@ const Catalogue = () => {
     speed: 300,
     autoplay: true,
     autoplaySpeed: 3000,
-    slidesToShow: 3,
-    slidesToScroll: 1,
+    // slidesToShow: 1,
+    // slidesToScroll: 1,
     prevArrow: <button className="slick-prev">Previous</button>,
     nextArrow: <button className="slick-next">Next</button>,
     responsive: [

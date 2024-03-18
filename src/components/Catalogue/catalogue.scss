@@ -64,7 +64,6 @@
 
   .pictures {
     display: flex;
-    // gap: 1rem;
     align-content: center;
     justify-content: center;
     background-color: #f6f6f6;
@@ -72,6 +71,7 @@
 
     .singlePictures {
       width: 18%;
+
       img {
         object-fit: contain;
         width: 20rem;
@@ -86,9 +86,9 @@
         width: fit-content;
 
         img {
-          width: 80%;
-          height: auto;
-          margin: auto;
+          width: fit-content;
+          height: 20rem;
+          margin: 0 auto;
         }
       }
 
@@ -121,6 +121,7 @@
 
     @include mobile {
       padding: 2rem 0;
+      gap: 1em;
       .singlePictures {
         width: fit-content;
 
