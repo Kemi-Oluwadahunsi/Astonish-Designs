@@ -60,66 +60,45 @@ const Catalogue = () => {
         </p>
       </div>
 
-      {showSlider ? (
-        <div className="pictures">
+      <div className="pictures">
+        {showSlider ? (
           <Slider {...settings}>
             <div className="singlePictures">
-              <img src="/images/catalog1.JPG" alt="pictures"/>
+              <img src="/images/catalog1.JPG" alt="pictures" />
             </div>
 
             <div className="singlePictures">
-              <img
-                src="/images/catalogFolder/photoshoot.JPG"
-                alt="pictures"
-              />
+              <img src="/images/catalogFolder/photoshoot.JPG" alt="pictures" />
             </div>
 
             <div className="singlePictures">
-              <img
-                src="/images/catalog3.JPG"
-                alt="pictures"
-              />
+              <img src="/images/catalog3.JPG" alt="pictures" />
             </div>
 
             <div className="singlePictures">
-              <img
-                src="/images/catalog4.JPG"
-                alt="pictures"
-              />
+              <img src="/images/catalog4.JPG" alt="pictures" />
             </div>
           </Slider>
-        </div>
-      ) : (
-        <div className="pictures">
-          <div className="singlePictures">
-            <img
-              src="/images/catalog1.JPG"
-              alt="pictures"
-            />
-          </div>
+        ) : (
+          <>
+            <div className="singlePictures">
+              <img src="/images/catalog1.JPG" alt="pictures" />
+            </div>
 
-          <div className="singlePictures">
-            <img
-              src="/images/catalogFolder/photoshoot.JPG"
-              alt="pictures"
-            />
-          </div>
+            <div className="singlePictures">
+              <img src="/images/catalogFolder/photoshoot.JPG" alt="pictures" />
+            </div>
 
-          <div className="singlePictures">
-            <img
-              src="/images/catalog3.JPG"
-              alt="pictures"
-            />
-          </div>
+            <div className="singlePictures">
+              <img src="/images/catalog3.JPG" alt="pictures" />
+            </div>
 
-          <div className="singlePictures">
-            <img
-              src="/images/catalog4.JPG"
-              alt="pictures"
-            />
-          </div>
-        </div>
-      )}
+            <div className="singlePictures">
+              <img src="/images/catalog4.JPG" alt="pictures" />
+            </div>
+          </>
+        )}
+      </div>
 
       <Link to="/catalogue">
         <div className="viewCatalog">
