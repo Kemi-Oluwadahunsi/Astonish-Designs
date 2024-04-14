@@ -10,7 +10,7 @@ import { animateScroll as scroll } from "react-scroll";
 import { useState, useRef, useEffect } from "react";
 import Navbar from "../Navbar/Navbar";
 import { motion, AnimatePresence } from "framer-motion";
-import SEO  from "../SEO";
+
 
 const Home = ({ showContact, toggleContact }) => {
   const [text, setText] = useState("");
@@ -46,12 +46,7 @@ const Home = ({ showContact, toggleContact }) => {
 
   return (
     <div className="mainBody">
-      <SEO
-        title="Astonish Designs"
-        description="Astonish Designs - Your destination for high-quality fashion. Explore our latest collections of designer clothing, trendy accessories, and stylish designs. Find the perfect ensemble for any occasion at Astonish Designs."
-        name="Astonish Designs"
-        type="Landing Page"
-      />
+      
       <div className="main">
         <Header scrollToContact={scrollToContact} isAboutPage={false} />
         <Navbar scrollToContact={scrollToContact} />
