@@ -154,6 +154,6 @@ const Navbar = ({ scrollToContact, isAboutPage }) => {
 };
 Navbar.propTypes = {
   scrollToContact: PropTypes.func.isRequired,
-  isAboutPage: PropTypes.bool.isRequired,
+  isAboutPage: PropTypes.bool,
 };
 export default Navbar;

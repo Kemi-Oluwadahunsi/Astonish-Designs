@@ -10,9 +10,10 @@ import { animateScroll as scroll } from "react-scroll";
 import { useState, useRef, useEffect } from "react";
 import Navbar from "../Navbar/Navbar";
 import { motion, AnimatePresence } from "framer-motion";
+import SEO  from "../SEO";
 
 const Home = ({ showContact, toggleContact }) => {
-   const [text, setText] = useState("");
+  const [text, setText] = useState("");
   const contactRef = useRef(null);
   const scrollToContact = () => {
     console.log("Scrolling to contact");
@@ -23,30 +24,34 @@ const Home = ({ showContact, toggleContact }) => {
     });
   };
 
+  const sentence = "A Style For Every Age";
 
-  const sentence = "A Style For Every Age"
+  useEffect(() => {
+    const typingAnimation = () => {
+      let index = 0;
+      const interval = setInterval(() => {
+        setText(sentence.slice(0, index));
+        index++;
+        if (index > sentence.length) {
+          clearInterval(interval);
+          setTimeout(typingAnimation, 5000);
+        }
+      }, 100);
 
-useEffect(() => {
-  const typingAnimation = () => {
-    let index = 0;
-    const interval = setInterval(() => {
-      setText(sentence.slice(0, index));
-      index++;
-      if (index > sentence.length) {
-        clearInterval(interval);
-        setTimeout(typingAnimation, 5000);
-      }
-    }, 100);
+      return () => clearInterval(interval);
+    };
 
-    return () => clearInterval(interval);
-  };
-
-  typingAnimation();
-}, []);
-
+    typingAnimation();
+  }, []);
 
   return (
     <div className="mainBody">
+      <SEO
+        title="Astonish Designs"
+        description="Astonish Designs - Your destination for high-quality fashion. Explore our latest collections of designer clothing, trendy accessories, and stylish designs. Find the perfect ensemble for any occasion at Astonish Designs."
+        name="Astonish Designs"
+        type="Landing Page"
+      />
       <div className="main">
         <Header scrollToContact={scrollToContact} isAboutPage={false} />
         <Navbar scrollToContact={scrollToContact} />

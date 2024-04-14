@@ -31,7 +31,7 @@ body {
   color: #6d6d6d;
   text-align: justify;
   -webkit-hyphens: auto;
-          hyphens: auto;
+  hyphens: auto;
   word-spacing: -1px;
   letter-spacing: 0.5px;
 }
@@ -121,4 +121,4 @@ a {
     scroll-snap-type: none;
     scroll-snap-align: none;
   }
-}/*# sourceMappingURL=scrollarrow.css.map */
+} /*# sourceMappingURL=scrollarrow.css.map */
