@@ -123,7 +123,7 @@ const CatalogueMain = ({ showContact, toggleContact }) => {
         <div className="collections">
           {Wears.map((wearCategory) => (
             <div className="allWears" key={wearCategory.id}>
-              <h2 className="smallScreenTitle">{wearCategory.smallTitle}</h2>
+              <h2 className="smallScreenTitle">{wearCategory.title}</h2>
               <div className="outerDiv">
                 <h2>{wearCategory.title}</h2>
                 <div className="innerDiv">
@@ -137,7 +137,7 @@ const CatalogueMain = ({ showContact, toggleContact }) => {
               <div className="sideDiv">
                 <div className="stylePictures">
                   {wearCategory.images.map((image) => (
-                    <div key={image.id} style={{ position: "relative" }}className="smallScreenImage">
+                    <div key={image.id} style={{ position: "relative" }} className="smallScreenImage">
                       <span
                         className="clickToViewText"
                         style={{

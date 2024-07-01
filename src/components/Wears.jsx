@@ -1,8 +1,101 @@
 const ReadyToWear = [
   {
     id: 1,
+    title: "Ross",
+    innerDivImage: "/images/ross/ross1.JPG",
+    images: [
+      {
+        id: 1,
+        img: "/images/ross/ross2.JPG",
+      },
+
+      {
+        id: 2,
+        img: "/images/ross/ross3.JPG",
+      },
+    ],
+  },
+
+  {
+    id: 2,
+    title: "Marie",
+    innerDivImage: "/images/marie/marie1.JPG",
+    images: [
+      {
+        id: 1,
+        img: "/images/marie/marie2.JPG",
+      },
+
+      {
+        id: 2,
+        img: "/images/marie/marie3.JPG",
+      },
+    ],
+  },
+
+  {
+    id: 3,
+    title: "Diane",
+    innerDivImage: "/images/diane/diane1.jpg",
+    images: [
+      {
+        id: 1,
+        img: "/images/diane/diane2.jpg",
+      },
+
+      {
+        id: 2,
+        img: "/images/diane/diane3.jpg",
+      },
+    ],
+  },
+
+  {
+    id: 4,
+    title: "Elora",
+    innerDivImage: "/images/elora/elora1.JPG",
+    images: [
+      {
+        id: 1,
+        img: "/images/elora/elora2.jpg",
+      },
+    ],
+  },
+
+  {
+    id: 5,
+    title: "Adele",
+    innerDivImage: "/images/adelle/adelle1.JPG",
+    images: [
+      {
+        id: 1,
+        img: "/images/adelle/adelle2.JPG",
+      },
+
+      {
+        id: 2,
+        img: "/images/adelle/adelle3.JPG",
+      },
+    ],
+  },
+
+  {
+    id: 6,
+    title: "Claire",
+    innerDivImage: "/images/claire/claire1.JPG",
+    images: [
+      {
+        id: 1,
+        img: "/images/claire/claire2.JPG",
+      },
+
+      
+    ],
+  },
+
+  {
+    id: 7,
     title: "Ready To Wear",
-    smallTitle: "Ready To Wear",
     innerDivImage: "/images/catalogFolder/readyToWear2.JPG",
     images: [
       {
@@ -53,9 +146,8 @@ const ReadyToWear = [
   },
 
   {
-    id: 2,
+    id: 8,
     title: "Special Occassions",
-    smallTitle: "Special Occassions",
     innerDivImage: "/images/catalogFolder/specialOccassion.JPG",
     images: [
       {
@@ -105,9 +197,8 @@ const ReadyToWear = [
     ],
   },
   {
-    id: 3,
+    id: 9,
     title: "Bespoke Outfits",
-    smallTitle: "Bespoke Outfits",
     innerDivImage: "/images/catalogFolder/photoshoot.JPG",
     images: [
       {
@@ -158,9 +249,8 @@ const ReadyToWear = [
   },
 
   {
-    id: 4,
+    id: 10,
     title: "Kid's Collections",
-    smallTitle: "Kid's Collections",
     innerDivImage: "/images/catalogFolder/catalog4.JPG",
     images: [
       {

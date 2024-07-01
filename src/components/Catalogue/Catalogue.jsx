@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import "./catalogue.scss"; 
+import "./catalogue.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
@@ -46,14 +46,17 @@ const Catalogue = () => {
             swipeable={true}
           >
             <div>
-              <img src="/images/catalog1.JPG" alt="pictures" />
+              <img src="/images/ross/ross2.JPG" alt="pictures" />
             </div>
-            <div>
-              <img src="/images/catalogFolder/photoshoot.JPG" alt="pictures" />
-            </div>
+
             <div>
               <img src="/images/catalog3.JPG" alt="pictures" />
             </div>
+
+            <div>
+              <img src="/images/adelle/adelle2.JPG" alt="pictures" />
+            </div>
+
             <div>
               <img src="/images/catalog4.JPG" alt="pictures" />
             </div>
@@ -61,15 +64,15 @@ const Catalogue = () => {
         ) : (
           <>
             <div className="singlePictures">
-              <img src="/images/catalog1.JPG" alt="pictures" />
-            </div>
-
-            <div className="singlePictures">
-              <img src="/images/catalogFolder/photoshoot.JPG" alt="pictures" />
+              <img src="/images/ross/ross1.JPG" alt="pictures" />
             </div>
 
             <div className="singlePictures">
               <img src="/images/catalog3.JPG" alt="pictures" />
+            </div>
+
+            <div className="singlePictures">
+              <img src="/images/adelle/adelle2.JPG" alt="pictures" />
             </div>
 
             <div className="singlePictures">
