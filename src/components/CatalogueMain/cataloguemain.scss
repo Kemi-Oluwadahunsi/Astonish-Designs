@@ -242,12 +242,13 @@
 
         .collectionName {
           position: absolute;
-          top: -3rem;
+          top: -2rem;
           left: 1rem;
+          font-size: 1.4rem;
           z-index: 9999;
           background: #888888;
           color: #fff;
-          padding: 0 .5em;
+          padding: 0.4rem 0.5em;
           border-radius: 4px;
         }
 
@@ -270,6 +271,32 @@
 
           img {
             height: 100%;
+          }
+        }
+
+        .colorCategoryWrapper {
+          position: absolute;
+          top: 30%;
+          left: 3%;
+          display: flex;
+          flex-direction: column;
+          gap: 1rem;
+          align-items: center;
+          justify-content: center;
+
+          p {
+            font-weight: 600;
+          }
+
+            .colorsByCategory {
+              width: 30px;
+              height: 30px;
+            }
+  
+
+          .colorsByCategory {
+            width: 30px;
+            height: 30px;
           }
         }
       }
@@ -315,7 +342,6 @@
           // }
 
           .smallScreenImage {
-
             @include mobile {
               padding: 0 1rem;
             }
@@ -338,19 +364,16 @@
                 display: block;
                 background-color: black;
                 border-radius: 20px;
-                padding: .3em .6em;
+                padding: 0.3em 0.6em;
                 position: absolute;
                 bottom: 12px;
                 left: 30%;
                 color: white;
                 z-index: 200;
                 font-size: 0.8em;
-
-                
               }
             }
           }
-
         }
 
         .slick-slider {

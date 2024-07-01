@@ -44,9 +44,7 @@ const Modal = ({ showModal, setShowModal, imageSrc }) => {
         display: showModal ? "block" : "none",
       }}
     >
-      <div
-        className="modal-content"
-      >
+      <div className="modal-content">
         <FontAwesomeIcon
           icon={faTimes}
           className="times"
@@ -60,7 +58,6 @@ const Modal = ({ showModal, setShowModal, imageSrc }) => {
     </div>
   );
 };
-
 
 const CatalogueMain = ({ showContact, toggleContact }) => {
   const [buttonText, setButtonText] = useState("Click to close");
@@ -103,7 +100,6 @@ const CatalogueMain = ({ showContact, toggleContact }) => {
     }
   };
 
-
   return (
     <>
       <div className="catalogueMain">
@@ -125,7 +121,9 @@ const CatalogueMain = ({ showContact, toggleContact }) => {
             <div className="allWears" key={wearCategory.id}>
               <h2 className="smallScreenTitle">{wearCategory.title}</h2>
               <div className="outerDiv">
-                <h2 className="collectionName">{wearCategory.collectionName}</h2>
+                <h2 className="collectionName">
+                  {wearCategory.collectionName}
+                </h2>
                 <h2>{wearCategory.title}</h2>
                 <div className="innerDiv">
                   <img
@@ -134,11 +132,28 @@ const CatalogueMain = ({ showContact, toggleContact }) => {
                     style={{ objectFit: "contain" }}
                   />
                 </div>
+
+                <div className="colorCategoryWrapper">
+                  <p>Pallete</p>
+                  {wearCategory.colors?.map((color) => (
+                    <div key={color.id} className="colorsWrapper">
+                      <div
+                        className="colorsByCategory"
+                        style={{ backgroundColor: color.color }}
+                      ></div>
+                    </div>
+                  ))}{" "}
+                </div>
               </div>
+
               <div className="sideDiv">
                 <div className="stylePictures">
                   {wearCategory.images.map((image) => (
-                    <div key={image.id} style={{ position: "relative" }} className="smallScreenImage">
+                    <div
+                      key={image.id}
+                      style={{ position: "relative" }}
+                      className="smallScreenImage"
+                    >
                       <span
                         className="clickToViewText"
                         style={{

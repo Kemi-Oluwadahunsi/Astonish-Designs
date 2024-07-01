@@ -20,6 +20,22 @@ const ReadyToWear = [
         img: "/images/ross/ross4.png",
       },
     ],
+    colors: [
+      {
+        id: 1,
+        color: "#ef6c40",
+      },
+
+      {
+        id: 2,
+        color: "#a27754",
+      },
+
+      {
+        id: 3,
+        color: "#503025",
+      },
+    ],
   },
 
   {
@@ -41,6 +57,23 @@ const ReadyToWear = [
       {
         id: 3,
         img: "/images/marie/marie1.JPG",
+      },
+    ],
+
+    colors: [
+      {
+        id: 1,
+        color: "#e59773",
+      },
+
+      {
+        id: 2,
+        color: "#fcbad6",
+      },
+
+      {
+        id: 3,
+        color: "#773827",
       },
     ],
   },
@@ -66,6 +99,23 @@ const ReadyToWear = [
         img: "/images/diane/diane4.png",
       },
     ],
+
+    colors: [
+      {
+        id: 1,
+        color: "#9d522a",
+      },
+
+      {
+        id: 2,
+        color: "#b46ec7",
+      },
+
+      {
+        id: 3,
+        color: "#eac8eb",
+      },
+    ],
   },
 
   {
@@ -87,6 +137,23 @@ const ReadyToWear = [
       {
         id: 3,
         img: "/images/elora/elora3.png",
+      },
+    ],
+
+    colors: [
+      {
+        id: 1,
+        color: "#c09465",
+      },
+
+      {
+        id: 2,
+        color: "#f7488d",
+      },
+
+      {
+        id: 3,
+        color: "#000000",
       },
     ],
   },
@@ -112,6 +179,23 @@ const ReadyToWear = [
         img: "/images/adelle/adelle1.JPG",
       },
     ],
+
+    colors: [
+      {
+        id: 1,
+        color: "#4e7d85",
+      },
+
+      {
+        id: 2,
+        color: "#cea088",
+      },
+
+      {
+        id: 3,
+        color: "#a55427",
+      },
+    ],
   },
 
   {
@@ -133,6 +217,23 @@ const ReadyToWear = [
       {
         id: 3,
         img: "/images/claire/claire4.png",
+      },
+    ],
+
+    colors: [
+      {
+        id: 1,
+        color: "#f4efec",
+      },
+
+      {
+        id: 2,
+        color: "#d38c4c",
+      },
+
+      {
+        id: 3,
+        color: "#734234",
       },
     ],
   },
