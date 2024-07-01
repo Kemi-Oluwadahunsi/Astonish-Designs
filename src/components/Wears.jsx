@@ -1,6 +1,7 @@
 const ReadyToWear = [
   {
     id: 1,
+    collectionName: "Amy SS24",
     title: "Ross",
     innerDivImage: "/images/ross/ross1.JPG",
     images: [
@@ -13,11 +14,17 @@ const ReadyToWear = [
         id: 2,
         img: "/images/ross/ross3.JPG",
       },
+
+      {
+        id: 3,
+        img: "/images/ross/ross4.png",
+      },
     ],
   },
 
   {
     id: 2,
+    collectionName: "Amy SS24",
     title: "Marie",
     innerDivImage: "/images/marie/marie1.JPG",
     images: [
@@ -30,11 +37,17 @@ const ReadyToWear = [
         id: 2,
         img: "/images/marie/marie3.JPG",
       },
+
+      {
+        id: 3,
+        img: "/images/marie/marie1.JPG",
+      },
     ],
   },
 
   {
     id: 3,
+    collectionName: "Amy SS24",
     title: "Diane",
     innerDivImage: "/images/diane/diane1.jpg",
     images: [
@@ -47,11 +60,17 @@ const ReadyToWear = [
         id: 2,
         img: "/images/diane/diane3.jpg",
       },
+
+      {
+        id: 3,
+        img: "/images/diane/diane4.png",
+      },
     ],
   },
 
   {
     id: 4,
+    collectionName: "Amy SS24",
     title: "Elora",
     innerDivImage: "/images/elora/elora1.JPG",
     images: [
@@ -59,11 +78,22 @@ const ReadyToWear = [
         id: 1,
         img: "/images/elora/elora2.jpg",
       },
+
+      {
+        id: 2,
+        img: "/images/elora/elora1.JPG",
+      },
+
+      {
+        id: 3,
+        img: "/images/elora/elora3.png",
+      },
     ],
   },
 
   {
     id: 5,
+    collectionName: "Amy SS24",
     title: "Adele",
     innerDivImage: "/images/adelle/adelle1.JPG",
     images: [
@@ -76,11 +106,17 @@ const ReadyToWear = [
         id: 2,
         img: "/images/adelle/adelle3.JPG",
       },
+
+      {
+        id: 3,
+        img: "/images/adelle/adelle1.JPG",
+      },
     ],
   },
 
   {
     id: 6,
+    collectionName: "Amy SS24",
     title: "Claire",
     innerDivImage: "/images/claire/claire1.JPG",
     images: [
@@ -89,7 +125,15 @@ const ReadyToWear = [
         img: "/images/claire/claire2.JPG",
       },
 
-      
+      {
+        id: 2,
+        img: "/images/claire/claire3.png",
+      },
+
+      {
+        id: 3,
+        img: "/images/claire/claire4.png",
+      },
     ],
   },
 

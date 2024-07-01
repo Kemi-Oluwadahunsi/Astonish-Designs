@@ -14,7 +14,7 @@ import Wears from "../Wears";
 // Modal component
 // Inside the Modal component
 const Modal = ({ showModal, setShowModal, imageSrc }) => {
-  console.log("Image Source:", imageSrc); // Log the image source
+  console.log("Image Source:", imageSrc);
   const handleCloseModal = () => {
     setShowModal(false);
   };
@@ -24,7 +24,7 @@ const Modal = ({ showModal, setShowModal, imageSrc }) => {
     const handleClickOutside = (event) => {
       // Check if the click is outside the modal content
       if (!event.target.classList.contains("modal")) {
-        setShowModal(false); // Close the modal
+        setShowModal(false);
       }
     };
 
@@ -125,6 +125,7 @@ const CatalogueMain = ({ showContact, toggleContact }) => {
             <div className="allWears" key={wearCategory.id}>
               <h2 className="smallScreenTitle">{wearCategory.title}</h2>
               <div className="outerDiv">
+                <h2 className="collectionName">{wearCategory.collectionName}</h2>
                 <h2>{wearCategory.title}</h2>
                 <div className="innerDiv">
                   <img
