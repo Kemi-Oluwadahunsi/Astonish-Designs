@@ -6,9 +6,6 @@ import { Link } from "react-router-dom";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { useMediaQuery } from "react-responsive";
-import ross2 from "../../../public/images/ross/ross2.webp";
-import ross1 from "../../../public/images/ross/ross1.webp";
-import catalog3 from "../../../public/images/catalog3.jpg";
 import adelle2 from "../../../public/images/adelle/adelle2.webp";
 import catalog4 from "../../../public/images/catalog4.jpg";
 
@@ -51,11 +48,11 @@ const Catalogue = () => {
             swipeable={true}
           >
             <div>
-              <img src={ross2} alt="pictures" />
+              <img src="/images/ross/ross2.webp" alt="pictures" />
             </div>
 
             <div>
-              <img src={catalog3} alt="pictures" />
+              <img src="/images/catalog3.jpg" alt="pictures" />
             </div>
 
             <div>
@@ -69,11 +66,11 @@ const Catalogue = () => {
         ) : (
           <>
             <div className="singlePictures">
-              <img src={ross1} alt="pictures" />
+              <img src="/images/ross/ross1.webp" alt="pictures" />
             </div>
 
             <div className="singlePictures">
-              <img src={catalog3} alt="pictures" />
+              <img src="/images/catalog3.jpg" alt="pictures" />
             </div>
 
             <div className="singlePictures">
