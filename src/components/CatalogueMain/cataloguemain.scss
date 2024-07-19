@@ -166,6 +166,7 @@
     gap: 12rem;
     width: screen;
     position: relative;
+    
 
     @include tablet {
       padding: 0;
@@ -174,7 +175,7 @@
 
     @include mobile {
       padding: 0;
-      gap: 5rem;
+      gap: 3rem;
     }
 
     .allWears {
@@ -182,9 +183,7 @@
       gap: 3rem;
       width: 100%;
       justify-content: space-between;
-      padding: 2rem;
-      // background-color: #f6f6f6;
-      // background-color: black;
+      padding: 2rem; 
 
       @include tablet {
         flex-direction: column;
@@ -209,14 +208,15 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        position: relative;
 
         @include laptop {
           display: none;
         }
 
         @include mobile {
-          display: block;
-          font-size: 1.5rem;
+          display: block; // block
+          font-size: 1.2rem;
         }
       }
 
@@ -250,6 +250,14 @@
           color: #fff;
           padding: 0.4rem 0.5em;
           border-radius: 4px;
+
+          @include tablet {
+            display: none;
+          }
+
+          @include mobile {
+            display: none;
+          }
         }
 
         h2 {
@@ -288,11 +296,10 @@
             font-weight: 600;
           }
 
-            .colorsByCategory {
-              width: 30px;
-              height: 30px;
-            }
-  
+          .colorsByCategory {
+            width: 30px;
+            height: 30px;
+          }
 
           .colorsByCategory {
             width: 30px;
@@ -344,6 +351,25 @@
           .smallScreenImage {
             @include mobile {
               padding: 0 1rem;
+              position: relative;
+            }
+
+            .collectionNameSmall {
+              display: none;
+
+              @include tablet {
+                display: block;
+                margin-left: 1rem;
+              }
+
+              @include mobile {
+                display: block;
+                position: absolute;
+                top: 1em;
+                color: #e7e7e7;
+                padding-left: 1em;
+                font-size: 0.95em;
+              }
             }
 
             .clickToViewText {

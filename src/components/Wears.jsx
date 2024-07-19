@@ -3,21 +3,21 @@ const ReadyToWear = [
     id: 1,
     collectionName: "Amy SS24",
     title: "Ross",
-    innerDivImage: "/images/ross/ross1.JPG",
+    innerDivImage: "/images/ross/ross1.webp",
     images: [
       {
         id: 1,
-        img: "/images/ross/ross2.JPG",
+        img: "/images/ross/ross2.webp",
       },
 
       {
         id: 2,
-        img: "/images/ross/ross3.JPG",
+        img: "/images/ross/ross3.webp",
       },
 
       {
         id: 3,
-        img: "/images/ross/ross4.png",
+        img: "/images/ross/ross4.webp",
       },
     ],
     colors: [
@@ -42,21 +42,21 @@ const ReadyToWear = [
     id: 2,
     collectionName: "Amy SS24",
     title: "Marie",
-    innerDivImage: "/images/marie/marie1.JPG",
+    innerDivImage: "/images/marie/marie1.webp",
     images: [
       {
         id: 1,
-        img: "/images/marie/marie2.JPG",
+        img: "/images/marie/marie2.webp",
       },
 
       {
         id: 2,
-        img: "/images/marie/marie3.JPG",
+        img: "/images/marie/marie3.webp",
       },
 
       {
         id: 3,
-        img: "/images/marie/marie1.JPG",
+        img: "/images/marie/marie1.webp",
       },
     ],
 
@@ -82,21 +82,21 @@ const ReadyToWear = [
     id: 3,
     collectionName: "Amy SS24",
     title: "Diane",
-    innerDivImage: "/images/diane/diane1.jpg",
+    innerDivImage: "/images/diane/diane1.webp",
     images: [
       {
         id: 1,
-        img: "/images/diane/diane2.jpg",
+        img: "/images/diane/diane2.webp",
       },
 
       {
         id: 2,
-        img: "/images/diane/diane3.jpg",
+        img: "/images/diane/diane3.webp",
       },
 
       {
         id: 3,
-        img: "/images/diane/diane4.png",
+        img: "/images/diane/diane4.webp",
       },
     ],
 
@@ -122,21 +122,21 @@ const ReadyToWear = [
     id: 4,
     collectionName: "Amy SS24",
     title: "Elora",
-    innerDivImage: "/images/elora/elora1.JPG",
+    innerDivImage: "/images/elora/elora1.webp",
     images: [
       {
         id: 1,
-        img: "/images/elora/elora2.jpg",
+        img: "/images/elora/elora2.webp",
       },
 
       {
         id: 2,
-        img: "/images/elora/elora1.JPG",
+        img: "/images/elora/elora1.webp",
       },
 
       {
         id: 3,
-        img: "/images/elora/elora3.png",
+        img: "/images/elora/elora3.webp",
       },
     ],
 
@@ -162,21 +162,21 @@ const ReadyToWear = [
     id: 5,
     collectionName: "Amy SS24",
     title: "Adele",
-    innerDivImage: "/images/adelle/adelle1.JPG",
+    innerDivImage: "/images/adelle/adelle1.webp",
     images: [
       {
         id: 1,
-        img: "/images/adelle/adelle2.JPG",
+        img: "/images/adelle/adelle2.webp",
       },
 
       {
         id: 2,
-        img: "/images/adelle/adelle3.JPG",
+        img: "/images/adelle/adelle3.webp",
       },
 
       {
         id: 3,
-        img: "/images/adelle/adelle1.JPG",
+        img: "/images/adelle/adelle1.webp",
       },
     ],
 
@@ -202,21 +202,21 @@ const ReadyToWear = [
     id: 6,
     collectionName: "Amy SS24",
     title: "Claire",
-    innerDivImage: "/images/claire/claire1.JPG",
+    innerDivImage: "/images/claire/claire1.webp",
     images: [
       {
         id: 1,
-        img: "/images/claire/claire2.JPG",
+        img: "/images/claire/claire2.webp",
       },
 
       {
         id: 2,
-        img: "/images/claire/claire3.png",
+        img: "/images/claire/claire3.webp",
       },
 
       {
         id: 3,
-        img: "/images/claire/claire4.png",
+        img: "/images/claire/claire4.webp",
       },
     ],
 

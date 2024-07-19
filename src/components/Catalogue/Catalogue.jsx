@@ -6,6 +6,11 @@ import { Link } from "react-router-dom";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { useMediaQuery } from "react-responsive";
+import ross2 from "../../../public/images/ross/ross2.webp";
+import ross1 from "../../../public/images/ross/ross1.webp";
+import catalog3 from "../../../public/images/catalog3.jpg";
+import adelle2 from "../../../public/images/adelle/adelle2.webp";
+import catalog4 from "../../../public/images/catalog4.jpg";
 
 const Catalogue = () => {
   const scrollToTop = () => {
@@ -46,37 +51,37 @@ const Catalogue = () => {
             swipeable={true}
           >
             <div>
-              <img src="/images/ross/ross2.JPG" alt="pictures" />
+              <img src={ross2} alt="pictures" />
             </div>
 
             <div>
-              <img src="/images/catalog3.JPG" alt="pictures" />
+              <img src={catalog3} alt="pictures" />
             </div>
 
             <div>
-              <img src="/images/adelle/adelle2.JPG" alt="pictures" />
+              <img src={adelle2} alt="pictures" />
             </div>
 
             <div>
-              <img src="/images/catalog4.JPG" alt="pictures" />
+              <img src={catalog4} alt="pictures" />
             </div>
           </Carousel>
         ) : (
           <>
             <div className="singlePictures">
-              <img src="/images/ross/ross1.JPG" alt="pictures" />
+              <img src={ross1} alt="pictures" />
             </div>
 
             <div className="singlePictures">
-              <img src="/images/catalog3.JPG" alt="pictures" />
+              <img src={catalog3} alt="pictures" />
             </div>
 
             <div className="singlePictures">
-              <img src="/images/adelle/adelle2.JPG" alt="pictures" />
+              <img src={adelle2} alt="pictures" />
             </div>
 
             <div className="singlePictures">
-              <img src="/images/catalog4.JPG" alt="pictures" />
+              <img src={catalog4} alt="pictures" />
             </div>
           </>
         )}
