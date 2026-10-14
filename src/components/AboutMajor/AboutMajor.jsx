@@ -4,25 +4,16 @@ import Header from "../Header/Header";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import Contact from "../Contact/Contact";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import PropTypes from "prop-types";
 import Navbar from "../Navbar/Navbar";
 
 const AboutMajor = ({ showContact, toggleContact }) => {
   const [buttonText, setButtonText] = useState("Click to close");
-  const [initialLoad, setInitialLoad] = useState(true);
 
   const updateButtonText = (text) => {
     setButtonText(text);
   };
-
-  // Check if it's the initial load or if the contact button has been toggled
-  const shouldShowContact = initialLoad ? false : showContact;
-
-  // Set initialLoad to false after the component has mounted
-  useEffect(() => {
-    setInitialLoad(false);
-  }, []);
 
   const scrollToContact = () => {
     const contactMeSection = document.getElementById("contactMe");
@@ -168,7 +159,7 @@ const AboutMajor = ({ showContact, toggleContact }) => {
                   <div className="contactMe" id="contactMe">
                     <p>Let&apos;s Make Your Dream Outfits Real!</p>
                     <button onClick={toggleContact} className="contactButton">
-                      {shouldShowContact ? "Contact Us Now" : buttonText}
+                      {showContact ? "Contact Us Now" : buttonText}
                       <FontAwesomeIcon icon={faArrowRight} />
                     </button>
                   </div>
@@ -178,7 +169,7 @@ const AboutMajor = ({ showContact, toggleContact }) => {
           </div>
         </div>
       </div>
-      {!shouldShowContact && (
+      {!showContact && (
         <Contact
           showContact={showContact}
           toggleContact={toggleContact}

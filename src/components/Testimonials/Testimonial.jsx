@@ -1,23 +1,21 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./testimonies.scss";
 import { useMediaQuery } from "react-responsive";
-import { useEffect, useState } from "react";
 import {
   faQuoteLeft,
   faQuoteRight,
   faStar,
 } from "@fortawesome/free-solid-svg-icons";
-import Slider from "react-slick";
+import SlickModule from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+
+// react-slick is CommonJS; under Vite 8 the default import can arrive as { default: Slider }
+const Slider = SlickModule.default ?? SlickModule;
 
 const Testimonial = () => {
   const isTabletOrMobile = useMediaQuery({ query: "(max-width: 900px)" });
 
-  const [showSlider, setShowSlider] = useState(isTabletOrMobile);
-  useEffect(() => {
-    setShowSlider(isTabletOrMobile);
-  }, [isTabletOrMobile]);
   let sliderSettings = {
     dots: true,
     infinite: true,
@@ -33,7 +31,7 @@ const Testimonial = () => {
     <div>
       <div className="testimonialContainer">
         <h2 className="testimonialTitle">What Our Clients Say</h2>
-        {showSlider ? (
+        {isTabletOrMobile ? (
           <div className="testimonies">
             <Slider {...sliderSettings}>
               <div className="eachTestimony testimony1">

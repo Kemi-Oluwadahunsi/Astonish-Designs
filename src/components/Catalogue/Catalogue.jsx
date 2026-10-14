@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import "./catalogue.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
@@ -18,11 +17,6 @@ const Catalogue = () => {
   };
 
   const isTabletOrMobile = useMediaQuery({ query: "(max-width: 900px)" });
-  const [showSlider, setShowSlider] = useState(isTabletOrMobile);
-
-  useEffect(() => {
-    setShowSlider(isTabletOrMobile);
-  }, [isTabletOrMobile]);
 
   return (
     <div className="catalogBody">
@@ -35,7 +29,7 @@ const Catalogue = () => {
       </div>
 
       <div className="pictures">
-        {showSlider ? (
+        {isTabletOrMobile ? (
           <Carousel
             showArrows={false}
             infiniteLoop={true}

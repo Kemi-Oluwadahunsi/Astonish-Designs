@@ -2,7 +2,7 @@ import Header from "../Header/Header";
 import "./cataloguemain.scss";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Contact from "../Contact/Contact";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
@@ -12,17 +12,10 @@ import Collections from "./Collections";
 
 const CatalogueMain = ({ showContact, toggleContact }) => {
   const [buttonText, setButtonText] = useState("Click to close");
-  const [initialLoad, setInitialLoad] = useState(true);
 
   const updateButtonText = (text) => {
     setButtonText(text);
   };
-
-  const shouldShowContact = initialLoad ? false : showContact;
-
-  useEffect(() => {
-    setInitialLoad(false);
-  }, []);
 
   const scrollToContact = () => {
     const contactMeSection = document.getElementById("contactMe");
@@ -50,13 +43,13 @@ const CatalogueMain = ({ showContact, toggleContact }) => {
         <div className="contactMe" id="contactMe">
           <p>Let&apos;s Make Your Dream Outfits Real!</p>
           <button onClick={toggleContact} className="contactButton">
-            {shouldShowContact ? "Contact Us Now" : buttonText}
+            {showContact ? "Contact Us Now" : buttonText}
             <FontAwesomeIcon icon={faArrowRight} />
           </button>
         </div>
       </div>
 
-      {!shouldShowContact && (
+      {!showContact && (
         <Contact
           showContact={showContact}
           toggleContact={toggleContact}
