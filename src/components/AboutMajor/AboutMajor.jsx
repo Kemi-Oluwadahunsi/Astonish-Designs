@@ -1,10 +1,35 @@
 import "./aboutmajor.scss";
+import Img from "../Img/Img";
 import Header from "../Header/Header";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowRight, faTimes } from "@fortawesome/free-solid-svg-icons";
+import {
+  faArrowRight,
+  faGem,
+  faLightbulb,
+  faTimes,
+  faTrophy,
+} from "@fortawesome/free-solid-svg-icons";
 import Contact from "../Contact/Contact";
 import { useEffect, useRef, useState } from "react";
 import Navbar from "../Navbar/Navbar";
+import PropTypes from "prop-types";
+
+// Without an icon the copy spans the full row; icon sides alternate via CSS.
+const StoryRow = ({ icon, children }) => (
+  <article className={icon ? "storyRow" : "storyRow storyRow--full"}>
+    {icon && (
+      <div className="storyIcon" aria-hidden="true">
+        <FontAwesomeIcon icon={icon} />
+      </div>
+    )}
+    <div className="storyText">{children}</div>
+  </article>
+);
+
+StoryRow.propTypes = {
+  icon: PropTypes.object,
+  children: PropTypes.node.isRequired,
+};
 
 const AboutMajor = () => {
   const [showContact, setShowContact] = useState(false);
@@ -29,12 +54,12 @@ const AboutMajor = () => {
 
       <div className="aboutText2">
         <section className="welcomeFirst">
-          <img
+          <Img
             src="/images/logoOriginal.jpg"
             alt="Astonish Designs logo"
-            width={500}
-            height={500}
+            sizes="(min-width: 768px) 400px, 80vw"
             className="logoAbout"
+            priority
           />
           <div className="welcomeText">
             <h1>Welcome</h1>
@@ -56,7 +81,7 @@ const AboutMajor = () => {
         </section>
 
         <section className="overallAstonish">
-          <article className="infoCard">
+          <StoryRow>
             <h2>About Astonish Designs (Our Story)</h2>
             <p>
               Astonish Designs, born amidst the lockdown of 2020, where
@@ -70,9 +95,9 @@ const AboutMajor = () => {
               in every stitch and detail, igniting passion and confidence in
               every wearer.
             </p>
-          </article>
+          </StoryRow>
 
-          <article className="infoCard">
+          <StoryRow icon={faLightbulb}>
             <h2>Our Philosophy</h2>
             <p>
               At Astonish Designs, we believe in the power of fashion to
@@ -86,9 +111,9 @@ const AboutMajor = () => {
               it&apos;s a movement towards self-expression, authenticity, and
               beauty in all its forms.
             </p>
-          </article>
+          </StoryRow>
 
-          <article className="infoCard">
+          <StoryRow icon={faGem}>
             <h2>Our Values</h2>
             <p>
               We prioritize a culture of innovation by encouraging our team to
@@ -98,9 +123,9 @@ const AboutMajor = () => {
               anchor our innovations in the core values and aesthetic that
               define Astonish Designs which is embracing diversity in age.
             </p>
-          </article>
+          </StoryRow>
 
-          <article className="infoCard">
+          <StoryRow icon={faTrophy}>
             <h2>Our Achievement</h2>
             <p>
               They say &quot;great things start small&quot;. Small businesses
@@ -110,7 +135,7 @@ const AboutMajor = () => {
               identity, and often engaging in community events and
               collaborations.
             </p>
-          </article>
+          </StoryRow>
         </section>
 
         <section className="theDesigner">
@@ -135,12 +160,10 @@ const AboutMajor = () => {
 
           <div className="lastPart">
             <div className="ceo">
-              <img
+              <Img
                 src="/images/CEOsmall.png"
                 alt="Esosa Igbinedion"
-                width={120}
-                height={120}
-                loading="lazy"
+                sizes="120px"
               />
               <div className="position">
                 <h3>Esosa I.</h3>

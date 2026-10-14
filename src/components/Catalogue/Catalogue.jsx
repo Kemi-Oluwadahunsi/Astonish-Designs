@@ -1,20 +1,16 @@
 import "./catalogue.scss";
+import Img from "../Img/Img";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
+import { getCollection } from "../../data/collections";
 
-const previews = [
-  { src: "/images/ross/ross1.webp", alt: "Ross collection look" },
-  { src: "/images/catalog3.JPG", alt: "Astonish Designs catalogue look" },
-  { src: "/images/adelle/adelle2.webp", alt: "Adelle collection look" },
-  { src: "/images/catalog4.JPG", alt: "Astonish Designs catalogue look" },
-];
+// First entry is the tall feature tile; the rest fill the smaller grid cells.
+const previews = ["special-occasions", "ross", "bespoke", "kids", "ready-to-wear"].map(
+  getCollection
+);
 
 const Catalogue = () => {
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
-
   return (
     <section className="catalogBody">
       <div className="catalogTitle">
@@ -25,22 +21,26 @@ const Catalogue = () => {
         </p>
       </div>
 
-      <div className="pictures">
-        {previews.map(({ src, alt }) => (
-          <figure className="singlePicture" key={src}>
-            <img
-              src={src}
-              alt={alt}
-              width={400}
-              height={500}
-              loading="lazy"
-              decoding="async"
-            />
-          </figure>
+      <ul className="pictures">
+        {previews.map(({ slug, title, cover }, i) => (
+          <li className="singlePicture" key={slug}>
+            <Link to={`/catalogue/${slug}`}>
+              <Img
+                src={cover}
+                alt=""
+                sizes={
+                  i === 0
+                    ? "(min-width: 768px) 40vw, 100vw"
+                    : "(min-width: 1024px) 25vw, 50vw"
+                }
+              />
+              <span>{title}</span>
+            </Link>
+          </li>
         ))}
-      </div>
+      </ul>
 
-      <Link to="/catalogue" className="viewCatalog" onClick={scrollToTop}>
+      <Link to="/catalogue" className="viewCatalog">
         View Catalogue
         <FontAwesomeIcon icon={faArrowRight} />
       </Link>

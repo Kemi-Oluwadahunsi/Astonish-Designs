@@ -5,21 +5,9 @@ import {
   faLocationDot,
   faPhone,
 } from "@fortawesome/free-solid-svg-icons";
-import {
-  faFacebookSquare,
-  faInstagram,
-  faLinkedin,
-  faXTwitter,
-} from "@fortawesome/free-brands-svg-icons";
 import { forwardRef, useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
-
-const socials = [
-  { href: "https://www.instagram.com/astonishdesigns", icon: faInstagram, label: "Instagram" },
-  { href: "https://www.facebook.com/officialastonishdesigns", icon: faFacebookSquare, label: "Facebook" },
-  { href: "https://www.facebook.com/officialastonishdesigns", icon: faXTwitter, label: "X (Twitter)" },
-  { href: "https://www.facebook.com/officialastonishdesigns", icon: faLinkedin, label: "LinkedIn" },
-];
+import { socials } from "../../data/socials";
 
 const initialForm = { name: "", email: "", message: "" };
 

@@ -1,16 +1,13 @@
 @use "../../styles/abstracts" as *;
 
 .header {
+  @include fixed-bar(header--scrolled);
   display: none;
-  position: relative;
-  z-index: 50;
-  background-color: rgba(20, 20, 20, 0.25);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  z-index: 950;
 
-  &--solid {
-    background-color: $dark;
+  // No dark hero behind it: keep the frosted surface on from the start
+  &--solid::before {
+    opacity: 1;
   }
 
   @include up(lg) {
@@ -23,7 +20,7 @@
     align-items: center;
     justify-content: space-between;
     gap: 2rem;
-    padding-block: 0.75rem;
+    height: var(--header-h);
   }
 
   .logo img {

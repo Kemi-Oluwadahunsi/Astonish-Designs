@@ -5,8 +5,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: clamp(2rem, 5vw, 3.5rem);
-  padding-top: clamp(4rem, 10vw, 8rem);
+  gap: $space-block;
+  padding-top: $space-section;
 
   .catalogTitle {
     display: flex;
@@ -22,22 +22,54 @@
     }
   }
 
+  // Asymmetric lookbook: one tall feature tile + four supporting tiles
   .pictures {
+    list-style: none;
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: clamp(0.75rem, 2vw, 1.5rem);
+    grid-template-areas:
+      "feature feature"
+      "a b"
+      "c d";
+    gap: $space-stack;
     width: 100%;
 
-    @include up(lg) {
-      grid-template-columns: repeat(4, minmax(0, 1fr));
+    @include up(md) {
+      grid-template-areas:
+        "feature a"
+        "feature b"
+        "c d";
     }
+
+    @include up(lg) {
+      grid-template-columns: minmax(0, 1.35fr) repeat(2, minmax(0, 1fr));
+      grid-template-areas:
+        "feature a b"
+        "feature c d";
+    }
+
+    > :nth-child(1) { grid-area: feature; }
+    > :nth-child(2) { grid-area: a; }
+    > :nth-child(3) { grid-area: b; }
+    > :nth-child(4) { grid-area: c; }
+    > :nth-child(5) { grid-area: d; }
   }
 
   .singlePicture {
-    margin: 0;
+    position: relative;
     overflow: hidden;
     border-radius: $radius;
     background-color: $surface;
+
+    a {
+      display: block;
+      height: 100%;
+
+      &:focus-visible {
+        outline: 2px solid $gold;
+        outline-offset: 3px;
+      }
+    }
 
     img {
       width: 100%;
@@ -47,9 +79,38 @@
       transition: transform 0.8s $ease;
     }
 
+    span {
+      position: absolute;
+      inset: auto 0 0;
+      padding: 2.5rem 1rem 1rem;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+      color: #fff;
+      font-family: $font-display;
+      font-size: clamp(1.2rem, 1rem + 0.8vw, 1.6rem);
+      font-weight: 600;
+      line-height: 1.1;
+    }
+
     @include hover {
       img {
         transform: scale(1.05);
+      }
+    }
+  }
+
+  // Feature tile fills both rows beside it (tablet/desktop)
+  .singlePicture:first-child {
+    @include up(md) {
+      img {
+        position: absolute;
+        inset: 0;
+        height: 100%;
+        aspect-ratio: auto;
+      }
+
+      span {
+        padding: 4rem 1.5rem 1.5rem;
+        font-size: clamp(1.8rem, 1.2rem + 1.5vw, 2.6rem);
       }
     }
   }

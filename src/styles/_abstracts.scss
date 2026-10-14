@@ -19,10 +19,16 @@ $shadow: 0 10px 30px -12px rgba(0, 0, 0, 0.25);
 $ease: cubic-bezier(0.22, 1, 0.36, 1);
 
 $font-body: "DM Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+$font-display: "Cormorant Garamond", Georgia, "Times New Roman", serif;
 $font-script: "La Belle Aurore", cursive;
 
 $gutter: clamp(1rem, 4vw, 4rem);
 $container: 1280px;
+
+// Vertical rhythm
+$space-section: clamp(4rem, 10vw, 8rem); // between major page sections
+$space-block: clamp(2rem, 5vw, 3.5rem); // between a section heading and its content
+$space-stack: clamp(1rem, 2.5vw, 1.5rem); // between items inside a group
 
 $breakpoints: (
   sm: 480px,
@@ -58,10 +64,12 @@ $breakpoints: (
 }
 
 @mixin section-title {
-  font-size: clamp(2rem, 1.2rem + 3.5vw, 4rem);
-  line-height: 1.1;
+  font-family: $font-display;
+  font-size: clamp(2.25rem, 1.3rem + 4vw, 4.5rem);
+  font-weight: 600;
+  line-height: 1.05;
   color: $gold-deep;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.005em;
   text-align: center;
 }
 
@@ -109,5 +117,96 @@ $breakpoints: (
   &:focus-visible {
     outline: 2px solid $gold;
     outline-offset: 3px;
+  }
+}
+
+// WhatsApp-green variant of the primary button
+@mixin btn-whatsapp {
+  @include btn-primary;
+  background-image: none;
+  background-color: #25d366;
+  color: #0b2e17;
+
+  @include hover {
+    background-color: #20bd5a;
+  }
+}
+
+// Outline button for dark backgrounds
+@mixin btn-ghost {
+  @include btn-primary;
+  background-image: none;
+  background-color: transparent;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.45);
+  color: #fff;
+
+  @include hover {
+    background-color: rgba(255, 255, 255, 0.08);
+    box-shadow: inset 0 0 0 1px $gold-soft;
+  }
+}
+
+// "Palette" label followed by colour dots (ul > li)
+@mixin palette($label-color: $muted) {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+
+  span {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: $label-color;
+  }
+
+  ul {
+    list-style: none;
+    display: flex;
+    gap: 0.4rem;
+  }
+
+  li {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    box-shadow: inset 0 0 0 1px rgba(127, 127, 127, 0.35);
+  }
+}
+
+// Fixed top bar that fades in a frosted surface when `$scrolled-class` is applied.
+// Blur lives on ::before: backdrop-filter on the bar would trap fixed children (mobile menu).
+@mixin fixed-bar($scrolled-class) {
+  position: fixed;
+  inset: 0 0 auto;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background-color: rgba(20, 20, 20, 0.92);
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.18);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.35s $ease;
+
+    @supports ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+      background-color: rgba(20, 20, 20, 0.6);
+      backdrop-filter: blur(14px) saturate(140%);
+      -webkit-backdrop-filter: blur(14px) saturate(140%);
+    }
+  }
+
+  &.#{$scrolled-class}::before {
+    opacity: 1;
+  }
+
+  .logo img {
+    transition: transform 0.35s $ease;
+  }
+
+  &.#{$scrolled-class} .logo img {
+    transform: scale(0.84);
   }
 }

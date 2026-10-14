@@ -1,6 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import "./about.scss";
+import Img from "../Img/Img";
 import { Link } from "react-router-dom";
 
 const About = () => {
@@ -9,15 +10,12 @@ const About = () => {
   };
 
   return (
-    <section className="aboutContainer">
+    <section className="aboutContainer" id="about">
       <div className="leftImage">
-        <img
+        <Img
           src="/images/aboutUsImage.jpg"
           alt="Astonish Designs creative director"
-          width={600}
-          height={600}
-          loading="lazy"
-          decoding="async"
+          sizes="(min-width: 768px) 45vw, 92vw"
         />
       </div>
       <div className="rightText">

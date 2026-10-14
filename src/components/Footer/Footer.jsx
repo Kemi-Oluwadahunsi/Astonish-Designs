@@ -1,19 +1,8 @@
 import { Link } from "react-router-dom";
 import "./footer.scss";
+import Img from "../Img/Img";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faFacebookSquare,
-  faInstagram,
-  faLinkedin,
-  faXTwitter,
-} from "@fortawesome/free-brands-svg-icons";
-
-const socials = [
-  { href: "https://www.instagram.com/astonishdesigns", icon: faInstagram, label: "Instagram" },
-  { href: "https://www.facebook.com/officialastonishdesigns", icon: faFacebookSquare, label: "Facebook" },
-  { href: "https://www.facebook.com/officialastonishdesigns", icon: faXTwitter, label: "X (Twitter)" },
-  { href: "https://www.facebook.com/officialastonishdesigns", icon: faLinkedin, label: "LinkedIn" },
-];
+import { socials } from "../../data/socials";
 
 const Footer = () => {
   const scrollToTop = () => {
@@ -24,12 +13,12 @@ const Footer = () => {
     <footer className="footer">
       <div className="firstFooter">
         <div className="brandCol">
-          <img
+          <Img
             src="/images/logoOriginal.jpg"
             alt="Astonish Designs logo"
+            sizes="88px"
             width={88}
             height={88}
-            loading="lazy"
           />
           <p>A Style For Every Age.</p>
         </div>

@@ -5,9 +5,10 @@ import Catalogue from "../Catalogue/Catalogue";
 import Testimonial from "../Testimonials/Testimonial";
 import Contact from "../Contact/Contact";
 import Header from "../Header/Header";
-import { animateScroll as scroll } from "react-scroll";
 import { useState, useRef, useEffect } from "react";
 import Navbar from "../Navbar/Navbar";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 
 const sentence = "A Style For Every Age";
 
@@ -16,11 +17,7 @@ const Home = () => {
   const contactRef = useRef(null);
 
   const scrollToContact = () => {
-    scroll.scrollTo(contactRef.current.offsetTop, {
-      duration: 800,
-      offset: -50,
-      smooth: "easeInOutQuad",
-    });
+    contactRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
   useEffect(() => {
@@ -63,6 +60,10 @@ const Home = () => {
             </p>
           </div>
         </div>
+        <a href="#about" className="scrollCue" aria-label="Scroll to About section">
+          <span aria-hidden="true">Scroll</span>
+          <FontAwesomeIcon icon={faChevronDown} />
+        </a>
       </section>
 
       <About />

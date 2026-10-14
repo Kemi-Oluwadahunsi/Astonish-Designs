@@ -3,13 +3,14 @@
 .aboutMajorBody {
   display: flex;
   flex-direction: column;
+  padding-top: var(--header-h);
 
   .aboutText2 {
     @include container;
     display: flex;
     flex-direction: column;
-    gap: clamp(3rem, 8vw, 6rem);
-    padding-block: clamp(2rem, 6vw, 5rem);
+    gap: $space-section;
+    padding-block: $space-block;
   }
 
   .aboutText2 p {
@@ -75,18 +76,68 @@
   }
 
   .overallAstonish {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr));
-    gap: clamp(1rem, 2.5vw, 1.75rem);
+    display: flex;
+    flex-direction: column;
+    gap: $space-section;
+  }
 
-    .infoCard {
+  // Alternating rows: icon tile one side, copy the other
+  .storyRow {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: $space-stack;
+    align-items: center;
+
+    @include up(md) {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 3fr);
+      gap: $space-block;
+
+      &:nth-child(even) {
+        grid-template-columns: minmax(0, 3fr) minmax(0, 1fr);
+
+        .storyIcon {
+          order: 2;
+        }
+      }
+    }
+
+    &.storyRow--full {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    .storyIcon {
+      display: grid;
+      place-items: center;
+      width: 4.5rem;
+      aspect-ratio: 1;
+      border: 1px solid rgba($gold, 0.35);
+      border-radius: $radius;
+      background: linear-gradient(135deg, rgba($gold, 0.18), rgba($gold, 0.04));
+      color: $gold-deep;
+      font-size: 1.75rem;
+
+      @include up(md) {
+        width: min(100%, 14rem);
+        justify-self: center;
+        font-size: clamp(3rem, 5vw, 4.5rem);
+      }
+    }
+
+    .storyText {
       display: flex;
       flex-direction: column;
-      gap: 1rem;
-      padding: clamp(1.5rem, 3.5vw, 2.5rem);
-      background-color: $surface;
-      border-radius: $radius;
-      border-top: 3px solid $gold;
+      gap: $space-stack;
+
+      h2 {
+        padding-bottom: 0.75rem;
+        border-bottom: 2px solid $gold;
+        align-self: flex-start;
+      }
+    }
+
+    &.storyRow--full .storyText h2 {
+      align-self: center;
+      text-align: center;
     }
   }
 
@@ -102,6 +153,11 @@
       max-width: 75ch;
       margin-inline: auto;
       text-align: center;
+
+      p {
+        text-align: justify;
+        hyphens: auto;
+      }
 
       .designerHeader {
         @include section-title;
@@ -142,7 +198,7 @@
         color: $ink;
 
         h3 {
-          font-size: 1.25rem;
+          font-size: 1.5rem;
         }
 
         span {

@@ -3,6 +3,7 @@ import "./scrollarrow.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useState } from "react";
 import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
+import { whatsappUrl } from "../../data/whatsapp";
 
 const ScrollArrow = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -21,7 +22,7 @@ const ScrollArrow = () => {
   return (
     <div className="scroll-buttons">
       <a
-        href="https://wa.me/2348134473169"
+        href={whatsappUrl()}
         className="fab fab--whatsapp"
         target="_blank"
         rel="noopener noreferrer"

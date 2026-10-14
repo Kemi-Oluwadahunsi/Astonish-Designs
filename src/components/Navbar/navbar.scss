@@ -1,13 +1,11 @@
 @use "../../styles/abstracts" as *;
 
 .small-screens {
-  position: relative;
+  @include fixed-bar(small-screens--scrolled);
   z-index: 1000;
-  width: 100%;
-  background-color: rgba(20, 20, 20, 0.25);
 
-  &--solid {
-    background-color: $dark;
+  &--solid::before {
+    opacity: 1;
   }
 
   @include up(lg) {
@@ -18,8 +16,8 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0.85rem $gutter;
-    padding-top: max(0.85rem, env(safe-area-inset-top));
+    height: var(--header-h);
+    padding: env(safe-area-inset-top, 0px) $gutter 0;
   }
 
   .logo img {

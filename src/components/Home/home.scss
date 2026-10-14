@@ -2,11 +2,28 @@
 
 .mainBody {
   .main {
+    position: relative;
     display: flex;
     flex-direction: column;
-    min-height: clamp(30rem, 92svh, 56rem);
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.45)),
-      url(/images/hero-back2.jpg) center / cover no-repeat;
+    min-height: 30rem;
+    min-height: max(30rem, 100vh);
+    min-height: max(30rem, 100svh);
+    padding-top: var(--header-h);
+    $hero-shade: linear-gradient(to bottom, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.45));
+    background: $hero-shade, url(/images/hero-back2-1280.webp) center / cover no-repeat;
+    background-image: $hero-shade,
+      image-set(
+        url(/images/hero-back2-1920.avif) type("image/avif"),
+        url(/images/hero-back2-1920.webp) type("image/webp")
+      );
+
+    @include down(md) {
+      background-image: $hero-shade,
+        image-set(
+          url(/images/hero-back2-1280.avif) type("image/avif"),
+          url(/images/hero-back2-1280.webp) type("image/webp")
+        );
+    }
 
     .mainContent {
       flex: 1;
@@ -26,13 +43,16 @@
       display: flex;
       flex-direction: column;
       color: $gold;
-      font-size: clamp(3.25rem, 0.5rem + 13vw, 12rem);
-      line-height: 0.95;
-      letter-spacing: -0.02em;
+      font-family: $font-display;
+      font-size: clamp(3.5rem, 0.5rem + 14vw, 13rem);
+      font-weight: 500;
+      line-height: 0.9;
+      letter-spacing: -0.015em;
       white-space: nowrap;
 
       .design {
         margin-left: 0.6em;
+        font-style: italic;
       }
     }
 
@@ -43,8 +63,10 @@
       margin-top: clamp(1rem, 3vh, 2rem);
       padding-left: 30%;
       color: $cream;
-      font-family: "Helvetica Neue", $font-body;
-      font-size: clamp(1.1rem, 0.7rem + 2.4vw, 3rem);
+      font-family: $font-display;
+      font-style: italic;
+      font-weight: 500;
+      font-size: clamp(1.35rem, 0.8rem + 2.8vw, 3.5rem);
 
       @include down(sm) {
         padding-left: 12%;
@@ -60,6 +82,57 @@
       background-color: $gold;
       animation: blink 1s steps(1) infinite;
     }
+
+    .scrollCue {
+      position: absolute;
+      left: 50%;
+      bottom: max(1.25rem, env(safe-area-inset-bottom));
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.35rem;
+      min-width: 48px;
+      padding: 0.5rem;
+      color: $cream;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      opacity: 0.85;
+      transform: translateX(-50%);
+      transition: color 0.25s $ease, opacity 0.25s $ease;
+
+      svg {
+        font-size: 1rem;
+        color: $gold;
+        animation: nudge 1.8s $ease infinite;
+      }
+
+      @include hover {
+        opacity: 1;
+        color: $gold;
+      }
+
+      &:focus-visible {
+        outline: 2px solid $gold;
+        outline-offset: 4px;
+        border-radius: $radius-sm;
+      }
+
+      @media (max-height: 560px) {
+        display: none;
+      }
+    }
+  }
+}
+
+@keyframes nudge {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(6px);
   }
 }
 

@@ -3,15 +3,29 @@
 .catalogueMain {
   display: flex;
   flex-direction: column;
-  gap: clamp(3rem, 8vw, 6rem);
-  padding-bottom: clamp(3rem, 8vw, 6rem);
+  gap: $space-section;
+  padding-bottom: $space-section;
 
   .subHeader {
     display: flex;
     flex-direction: column;
     min-height: clamp(24rem, 60svh, 34rem);
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.75)),
-      url("/images/cataloguemain1.jpg") center / cover no-repeat;
+    padding-top: var(--header-h);
+    $sub-shade: linear-gradient(to bottom, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.75));
+    background: $sub-shade, url("/images/cataloguemain1-1000.webp") center / cover no-repeat;
+    background-image: $sub-shade,
+      image-set(
+        url("/images/cataloguemain1-1000.avif") type("image/avif"),
+        url("/images/cataloguemain1-1000.webp") type("image/webp")
+      );
+
+    @include down(md) {
+      background-image: $sub-shade,
+        image-set(
+          url("/images/cataloguemain1-640.avif") type("image/avif"),
+          url("/images/cataloguemain1-640.webp") type("image/webp")
+        );
+    }
 
     .catalogueMainTitle {
       @include container;
@@ -25,8 +39,8 @@
       text-align: center;
 
       h1 {
-        font-size: clamp(2.5rem, 1.5rem + 5vw, 5rem);
-        line-height: 1.05;
+        font-size: clamp(2.75rem, 1.5rem + 6vw, 5.75rem);
+        line-height: 1;
         color: $gold;
       }
 
@@ -41,206 +55,110 @@
   }
 
   .collections {
-    @include container;
     display: flex;
     flex-direction: column;
-    gap: clamp(3rem, 8vw, 6rem);
+    gap: $space-block;
   }
 
-  .collection {
+  // Full-bleed editorial band: image flush to one viewport edge, copy on the other.
+  // Sides alternate per collection.
+  .band {
     display: grid;
     grid-template-columns: minmax(0, 1fr);
-    gap: 1.25rem;
+    background-color: $dark;
+    color: $cream;
 
     @include up(md) {
-      grid-template-columns: minmax(220px, 0.32fr) minmax(0, 1fr);
-      gap: clamp(1.25rem, 3vw, 2.5rem);
-      align-items: stretch;
+      grid-template-columns: minmax(0, 9fr) minmax(0, 11fr);
+      min-height: clamp(28rem, 78svh, 46rem);
     }
   }
 
-  .feature {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-
+  .band:nth-child(even) {
     @include up(md) {
-      padding: 1.25rem;
-      border: 1px solid $line;
-      border-radius: $radius;
-      background-color: #fff;
-    }
+      grid-template-columns: minmax(0, 11fr) minmax(0, 9fr);
 
-    .featureHead {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      flex-wrap: wrap;
-
-      @include up(md) {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.4rem;
-      }
-
-      h2 {
-        font-size: clamp(1.5rem, 1.1rem + 1.5vw, 2.25rem);
-        line-height: 1.1;
-        color: $ink;
-      }
-    }
-
-    .tag {
-      order: 2;
-      padding: 0.3rem 0.7rem;
-      border-radius: $radius-pill;
-      background-color: $dark;
-      color: $gold-soft;
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-
-      @include up(md) {
-        order: 0;
-      }
-    }
-
-    .featureImage {
-      display: none;
-      padding: 0;
-      border: none;
-      border-radius: $radius-sm;
-      overflow: hidden;
-      background-color: $surface;
-      cursor: zoom-in;
-
-      @include up(md) {
-        display: block;
-      }
-
-      img {
-        width: 100%;
-        aspect-ratio: 3 / 4;
-        object-fit: cover;
-        object-position: top;
-        transition: transform 0.8s $ease;
-      }
-
-      @include hover {
-        img {
-          transform: scale(1.04);
-        }
-      }
-    }
-
-    .palette {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-
-      span {
-        font-size: 0.75rem;
-        font-weight: 700;
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-        color: $muted;
-      }
-
-      ul {
-        list-style: none;
-        display: flex;
-        gap: 0.4rem;
-      }
-
-      li {
-        width: 22px;
-        height: 22px;
-        border-radius: 50%;
-        box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.12);
+      .bandMedia {
+        order: 2;
       }
     }
   }
 
-  // Horizontal, swipeable lookbook row
-  .gallery {
-    list-style: none;
-    display: grid;
-    grid-auto-flow: column;
-    grid-auto-columns: clamp(11.5rem, 42vw, 17rem);
-    gap: clamp(0.75rem, 1.5vw, 1.25rem);
-    align-content: center;
-    overflow-x: auto;
-    overscroll-behavior-x: contain;
-    scroll-snap-type: x mandatory;
-    padding-bottom: 0.75rem;
-    scrollbar-width: thin;
-    scrollbar-color: $gold transparent;
-
-    @include up(md) {
-      grid-auto-columns: clamp(12rem, 24vw, 17rem);
-      padding: 1rem;
-      border-radius: $radius;
-      background-color: $surface;
-    }
-
-    li {
-      scroll-snap-align: start;
-    }
-  }
-
-  .galleryItem {
+  .bandMedia {
     position: relative;
     display: block;
-    width: 100%;
-    padding: 0;
-    border: none;
-    border-radius: $radius-sm;
     overflow: hidden;
-    background-color: #eee;
-    cursor: zoom-in;
+    background-color: #2a2a2a;
 
     img {
       width: 100%;
       aspect-ratio: 4 / 5;
+      max-height: 75svh;
       object-fit: cover;
       object-position: top;
-      transition: transform 0.8s $ease;
-    }
+      transition: transform 1s $ease;
 
-    .viewHint {
-      position: absolute;
-      left: 50%;
-      bottom: 0.75rem;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      padding: 0.35rem 0.8rem;
-      border-radius: $radius-pill;
-      background-color: rgba(0, 0, 0, 0.7);
-      color: #fff;
-      font-size: 0.8rem;
-      transform: translateX(-50%);
-      transition: opacity 0.3s $ease;
-      backdrop-filter: blur(4px);
-    }
-
-    @media (hover: hover) and (pointer: fine) {
-      .viewHint {
-        opacity: 0;
-      }
-
-      &:hover,
-      &:focus-visible {
-        img {
-          transform: scale(1.05);
-        }
-
-        .viewHint {
-          opacity: 1;
-        }
+      @include up(md) {
+        position: absolute;
+        inset: 0;
+        height: 100%;
+        aspect-ratio: auto;
+        max-height: none;
       }
     }
+
+    @include hover {
+      img {
+        transform: scale(1.03);
+      }
+    }
+  }
+
+  .bandText {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 1.1rem;
+    padding: clamp(2rem, 6vw, 5rem) $gutter;
+
+    @include up(md) {
+      max-width: 34rem;
+      padding-inline: clamp(2rem, 6vw, 5.5rem);
+    }
+
+    h2 {
+      font-size: clamp(2.5rem, 1.6rem + 3.5vw, 4.75rem);
+      line-height: 1;
+      color: $gold;
+    }
+
+    p {
+      max-width: 42ch;
+      font-size: clamp(1rem, 0.95rem + 0.3vw, 1.15rem);
+      line-height: 1.7;
+      color: rgba($cream, 0.85);
+    }
+
+    .palette {
+      @include palette(rgba($cream, 0.6));
+    }
+
+    .bandLink {
+      @include btn-primary;
+      margin-top: 0.5rem;
+    }
+  }
+
+  .tag {
+    padding: 0.3rem 0.7rem;
+    border-radius: $radius-pill;
+    background-color: rgba($gold-soft, 0.12);
+    color: $gold-soft;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
   }
 
   > .contactMe {
@@ -265,65 +183,6 @@
 
   > .contactContainer {
     animation: contactIn 0.5s $ease;
-  }
-}
-
-.modal {
-  position: fixed;
-  inset: 0;
-  z-index: 2000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: max(3.5rem, env(safe-area-inset-top)) 1rem
-    max(1rem, env(safe-area-inset-bottom));
-  background-color: rgba(0, 0, 0, 0.9);
-  animation: modalIn 0.25s ease-out;
-  cursor: zoom-out;
-
-  .modalImage {
-    max-width: min(92vw, 900px);
-    max-height: 85svh;
-    width: auto;
-    height: auto;
-    object-fit: contain;
-    border-radius: $radius-sm;
-    cursor: default;
-    animation: modalImageIn 0.35s $ease;
-  }
-
-  .modalClose {
-    position: absolute;
-    top: max(0.75rem, env(safe-area-inset-top));
-    right: max(0.75rem, env(safe-area-inset-right));
-    display: grid;
-    place-items: center;
-    width: 48px;
-    height: 48px;
-    border: none;
-    border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.15);
-    color: #fff;
-    font-size: 1.4rem;
-    cursor: pointer;
-    transition: background-color 0.2s;
-
-    &:hover {
-      background-color: rgba(255, 255, 255, 0.3);
-    }
-  }
-}
-
-@keyframes modalIn {
-  from {
-    opacity: 0;
-  }
-}
-
-@keyframes modalImageIn {
-  from {
-    opacity: 0;
-    transform: scale(0.96);
   }
 }
 

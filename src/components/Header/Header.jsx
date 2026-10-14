@@ -1,13 +1,18 @@
 import { Link, NavLink } from "react-router-dom";
 import "./header.scss";
+import Img from "../Img/Img";
 import PropTypes from "prop-types";
+import useScrolled from "../../hooks/useScrolled";
 
 const Header = ({ scrollToContact, isAboutPage = false }) => {
+  const scrolled = useScrolled();
+  const modifiers = `${isAboutPage ? " header--solid" : ""}${scrolled ? " header--scrolled" : ""}`;
+
   return (
-    <header className={`header ${isAboutPage ? "header--solid" : ""}`}>
+    <header className={`header${modifiers}`}>
       <nav className="navBody" aria-label="Main">
         <Link to="/" className="logo" aria-label="Astonish Designs home">
-          <img src="/images/Logo.jpg" alt="Astonish Designs logo" width={72} height={72} />
+          <Img src="/images/Logo.jpg" alt="Astonish Designs logo" sizes="72px" width={72} height={72} loading="eager" />
         </Link>
 
         <ul className="navLinks">

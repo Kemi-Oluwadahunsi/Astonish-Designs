@@ -1,5 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./testimonies.scss";
+import Img from "../Img/Img";
 import {
   faQuoteLeft,
   faQuoteRight,
@@ -40,13 +41,13 @@ const Testimonial = () => {
       <ul className="testimonies" aria-label="Client testimonials">
         {testimonies.map(({ image, name, quote }) => (
           <li className="eachTestimony" key={name}>
-            <img
+            <Img
               src={image}
               alt=""
+              sizes="88px"
               width={88}
               height={88}
               className="testImage"
-              loading="lazy"
             />
             <blockquote className="testimony">
               <FontAwesomeIcon icon={faQuoteLeft} className="quote" />

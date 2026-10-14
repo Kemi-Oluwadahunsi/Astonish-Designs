@@ -1,25 +1,16 @@
 import "./navbar.scss";
+import Img from "../Img/Img";
 import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
-import {
-  faFacebookSquare,
-  faInstagram,
-  faLinkedin,
-  faXTwitter,
-} from "@fortawesome/free-brands-svg-icons";
 import { Link, NavLink } from "react-router-dom";
 import PropTypes from "prop-types";
-
-const socials = [
-  { href: "https://www.instagram.com/astonishdesigns", icon: faInstagram, label: "Instagram" },
-  { href: "https://www.facebook.com/officialastonishdesigns", icon: faFacebookSquare, label: "Facebook" },
-  { href: "https://www.facebook.com/officialastonishdesigns", icon: faXTwitter, label: "X (Twitter)" },
-  { href: "https://www.facebook.com/officialastonishdesigns", icon: faLinkedin, label: "LinkedIn" },
-];
+import { socials } from "../../data/socials";
+import useScrolled from "../../hooks/useScrolled";
 
 const Navbar = ({ scrollToContact, isAboutPage = false }) => {
   const [open, setOpen] = useState(false);
+  const scrolled = useScrolled();
   const close = () => setOpen(false);
 
   useEffect(() => {
@@ -37,10 +28,14 @@ const Navbar = ({ scrollToContact, isAboutPage = false }) => {
   }, [open]);
 
   return (
-    <div className={`small-screens ${isAboutPage ? "small-screens--solid" : ""}`}>
+    <div
+      className={`small-screens${isAboutPage ? " small-screens--solid" : ""}${
+        scrolled ? " small-screens--scrolled" : ""
+      }`}
+    >
       <div className="nav">
         <Link to="/" className="logo" onClick={close} aria-label="Astonish Designs home">
-          <img src="/images/Logo.jpg" alt="Astonish Designs logo" width={56} height={56} />
+          <Img src="/images/Logo.jpg" alt="Astonish Designs logo" sizes="56px" width={56} height={56} loading="eager" />
         </Link>
         <button
           type="button"

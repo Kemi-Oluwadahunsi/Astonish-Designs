@@ -1,4 +1,5 @@
 import "./services.scss";
+import Img from "../Img/Img";
 
 const services = [
   {
@@ -40,7 +41,7 @@ const Services = () => {
           <div className="services">
             {services.map(({ icon, title, text }) => (
               <article className="serviceCard" key={title}>
-                <img src={icon} alt="" className="icon" width={56} height={56} loading="lazy" />
+                <Img src={icon} alt="" className="icon" sizes="56px" width={56} height={56} />
                 <h3>{title}</h3>
                 <p>{text}</p>
               </article>
@@ -48,13 +49,10 @@ const Services = () => {
           </div>
 
           <div className="serviceImage">
-            <img
+            <Img
               src="/images/servicesImagesLeft.jpeg"
               alt="Astonish Designs outfit"
-              width={500}
-              height={650}
-              loading="lazy"
-              decoding="async"
+              sizes="30vw"
             />
           </div>
         </div>
