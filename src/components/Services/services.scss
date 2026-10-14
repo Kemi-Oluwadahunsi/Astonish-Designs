@@ -53,11 +53,12 @@
     background-color: $surface;
     border: 1px solid transparent;
     border-radius: $radius;
-    transition: transform 0.35s $ease, box-shadow 0.35s $ease,
+    transition: translate 0.35s $ease, box-shadow 0.35s $ease,
       border-color 0.35s $ease;
 
+    // `translate` (not `transform`) so it composes with the Reveal animation.
     @include hover {
-      transform: translateY(-4px);
+      translate: 0 -4px;
       box-shadow: $shadow;
       border-color: $line;
     }

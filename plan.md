@@ -47,12 +47,12 @@ Goal: the header sits transparent over the hero, then becomes solid with a blur 
 
 Goal: subtle, fast entrance animations that feel premium without slowing the site.
 
-- [ ] Create a reusable `<Reveal>` component (`motion.div`, `whileInView`, `viewport={{ once: true, amount: 0.2 }}`)
-- [ ] Respect `prefers-reduced-motion` via `useReducedMotion()` (render static content)
-- [ ] Apply to section titles, service cards (staggered), catalogue previews, testimonials, about blocks
-- [ ] Keep durations around 0.4–0.6s, small offsets (12–24px), opacity + transform only
-- [ ] Use `LazyMotion` + `domAnimation` to keep the bundle small
-- [ ] Check there's no layout shift and no animation on content already in view at load
+- [x] Create a reusable `<Reveal>` component (`motion.div`, `whileInView`, `viewport={{ once: true, amount: 0.2 }}`) — `src/components/Reveal/Reveal.jsx`, with `as`, `delay` and `y` props so lists keep their `li`/`article` semantics
+- [x] Respect `prefers-reduced-motion` via `useReducedMotion()` (render static content)
+- [x] Apply to section titles, service cards (staggered), catalogue previews, testimonials, about blocks — plus About page story rows and catalogue bands. Card hover lifts moved to the CSS `translate` property so they don't fight the motion transform
+- [x] Keep durations around 0.4–0.6s, small offsets (12–24px), opacity + transform only — 0.5s, 20px, 80ms stagger
+- [x] Use `LazyMotion` + `domAnimation` to keep the bundle small — features load async (`src/motionFeatures.js`, 18 KB gzip chunk)
+- [x] Check there's no layout shift and no animation on content already in view at load — anything on screen at mount renders as a plain element (decided in a layout effect, before paint)
 
 ## 5. Image optimisation
 
@@ -80,31 +80,31 @@ Goal: give each collection or look its own shareable page and an easy route to p
 - [x] Link CatalogueMain feature panels to their detail pages
 - [x] "Enquire on WhatsApp" button with a pre-filled message, e.g. `https://wa.me/2348134473169?text=Hi, I'm interested in <look> from <collection>` — collection, per-look and lightbox; helper in `src/data/whatsapp.js`
 - [x] 404 handling for unknown slugs (catch-all route + friendly NotFound page) — plus `public/_redirects` so Netlify serves deep links
-- [ ] Per-page meta tags (depends on task 7) — title + description only so far
-- [x] Update `sitemap.xml` with the new URLs — note it lives in the project root, so it isn't deployed yet (task 7)
+- [x] Per-page meta tags (depends on task 7) — via `<Seo>`, with a per-collection OG image
+- [x] Update `sitemap.xml` with the new URLs — moved to `public/` in task 7 so it deploys
 
 ## 7. SEO and social sharing meta
 
 Goal: correct titles and descriptions per page, plus rich previews when links are shared.
 
-- [ ] Create a `<Seo title description image path />` component using `react-helmet-async`
-- [ ] Add unique titles/descriptions for `/`, `/about`, `/catalogue` (and detail pages)
-- [ ] Open Graph tags: `og:title`, `og:description`, `og:image` (1200×630), `og:url`, `og:type`
-- [ ] Twitter card tags (`summary_large_image`)
-- [ ] Canonical URL per page
-- [ ] JSON-LD `Organization` / `ClothingStore` schema on the home page
-- [ ] Verify `sitemap.xml` URLs + add `robots.txt` to `public/`
-- [ ] Test with an OG preview tool (e.g. opengraph.xyz) after deploy
+- [x] Create a `<Seo title description image path />` component using `react-helmet-async` — `src/components/Seo/Seo.jsx`, site URL in `src/data/site.js` (`https://astonish-designs.netlify.app`)
+- [x] Add unique titles/descriptions for `/`, `/about`, `/catalogue` (and detail pages) — 404 gets `noindex`
+- [x] Open Graph tags: `og:title`, `og:description`, `og:image` (1200×630), `og:url`, `og:type` — images in `public/og/` (default + one per collection)
+- [x] Twitter card tags (`summary_large_image`)
+- [x] Canonical URL per page
+- [x] JSON-LD `Organization` / `ClothingStore` schema on the home page
+- [x] Verify `sitemap.xml` URLs + add `robots.txt` to `public/` — index.html keeps crawler defaults (marked `data-seo-default`, removed by `main.jsx` so there are no duplicates)
+- [ ] Test with an OG preview tool (e.g. opengraph.xyz) after deploy — note: Facebook/WhatsApp/X don't run JS, so they will see the index.html defaults on every URL; per-page previews need prerendering
 
 ## 8. Route-based code splitting
 
 Goal: a smaller first download, so the home page loads faster.
 
-- [ ] Lazy-load `AboutMajor` and `CatalogueMain` with `React.lazy` + `<Suspense>`
-- [ ] Add a lightweight page fallback (brand-coloured skeleton/spinner)
+- [x] Lazy-load `AboutMajor` and `CatalogueMain` with `React.lazy` + `<Suspense>` — also `CollectionPage` and `NotFound`; loaders in `src/routes.js`
+- [x] Add a lightweight page fallback (brand-coloured skeleton/spinner) — cream page with a gold loading line (`.routeFallback`)
 - [x] Add scroll-to-top on route change (`ScrollRestoration` or a small `useEffect` on `location`) — `src/components/ScrollToTop.jsx`
-- [ ] Optionally prefetch the catalogue chunk on hover/focus of "View Catalogue"
-- [ ] Compare `dist/assets` JS sizes before/after (currently ~403 KB / 123 KB gzip in a single chunk)
+- [x] Optionally prefetch the catalogue chunk on hover/focus of "View Catalogue" — and the collection chunk on the home preview tiles
+- [x] Compare `dist/assets` JS sizes before/after (currently ~403 KB / 123 KB gzip in a single chunk) — before this task 417 KB / 132 KB gzip; now main chunk 437 KB / 141 KB gzip (includes the framer-motion core from task 4) + route chunks of 1–6 KB + 18 KB gzip motion features loaded async. Home hero preload is now only added on `/`, fixing the unused-preload warning on deep links
 
 ## 9. Content fixes + dependency cleanup (quick wins)
 

@@ -13,17 +13,19 @@ import Contact from "../Contact/Contact";
 import { useEffect, useRef, useState } from "react";
 import Navbar from "../Navbar/Navbar";
 import PropTypes from "prop-types";
+import Reveal from "../Reveal/Reveal";
+import Seo from "../Seo/Seo";
 
 // Without an icon the copy spans the full row; icon sides alternate via CSS.
 const StoryRow = ({ icon, children }) => (
-  <article className={icon ? "storyRow" : "storyRow storyRow--full"}>
+  <Reveal as="article" className={icon ? "storyRow" : "storyRow storyRow--full"}>
     {icon && (
       <div className="storyIcon" aria-hidden="true">
         <FontAwesomeIcon icon={icon} />
       </div>
     )}
     <div className="storyText">{children}</div>
-  </article>
+  </Reveal>
 );
 
 StoryRow.propTypes = {
@@ -49,6 +51,11 @@ const AboutMajor = () => {
 
   return (
     <main className="aboutMajorBody">
+      <Seo
+        title="About Us"
+        description="Meet Astonish Designs and creative director Esosa Igbinedion: our story since 2020, our philosophy, values and the 'A Style for Every Age' motto."
+        path="/about"
+      />
       <Header scrollToContact={scrollToContact} isAboutPage />
       <Navbar scrollToContact={scrollToContact} isAboutPage />
 
@@ -139,7 +146,7 @@ const AboutMajor = () => {
         </section>
 
         <section className="theDesigner">
-          <div className="designerHead">
+          <Reveal className="designerHead">
             <h2 className="designerHeader">About The Designer</h2>
             <p>
               Esosa Igbinedion is a passionate fashion maven who embarked on her
@@ -156,9 +163,9 @@ const AboutMajor = () => {
               she&apos;s a community weaver, crafting a legacy one stitch at a
               time.
             </p>
-          </div>
+          </Reveal>
 
-          <div className="lastPart">
+          <Reveal className="lastPart">
             <div className="ceo">
               <Img
                 src="/images/CEOsmall.png"
@@ -184,7 +191,7 @@ const AboutMajor = () => {
                 <FontAwesomeIcon icon={showContact ? faTimes : faArrowRight} />
               </button>
             </div>
-          </div>
+          </Reveal>
         </section>
       </div>
 

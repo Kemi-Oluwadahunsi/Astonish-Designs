@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight, faTimes } from "@fortawesome/free-solid-svg-icons";
 import Navbar from "../Navbar/Navbar";
 import Collections from "./Collections";
+import Seo from "../Seo/Seo";
 
 const CatalogueMain = () => {
   const [showContact, setShowContact] = useState(false);
@@ -25,6 +26,11 @@ const CatalogueMain = () => {
 
   return (
     <main className="catalogueMain">
+      <Seo
+        title="Catalogue"
+        description="Browse every Astonish Designs collection: bespoke pieces, ready-to-wear, special occasion outfits and kids' wear, with colour palettes and full lookbooks."
+        path="/catalogue"
+      />
       <div className="subHeader">
         <Header scrollToContact={scrollToContact} />
         <Navbar scrollToContact={scrollToContact} />

@@ -3,6 +3,7 @@ import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import "./about.scss";
 import Img from "../Img/Img";
 import { Link } from "react-router-dom";
+import Reveal from "../Reveal/Reveal";
 
 const About = () => {
   const scrollToTop = () => {
@@ -11,14 +12,14 @@ const About = () => {
 
   return (
     <section className="aboutContainer" id="about">
-      <div className="leftImage">
+      <Reveal className="leftImage">
         <Img
           src="/images/aboutUsImage.jpg"
           alt="Astonish Designs creative director"
           sizes="(min-width: 768px) 45vw, 92vw"
         />
-      </div>
-      <div className="rightText">
+      </Reveal>
+      <Reveal className="rightText" delay={0.1}>
         <h2>About Us</h2>
         <p>
           Astonish Designs stands at the forefront of fashion, championing
@@ -34,7 +35,7 @@ const About = () => {
         <Link to="/about" className="readMore" onClick={scrollToTop}>
           Read More <FontAwesomeIcon icon={faArrowRight} />
         </Link>
-      </div>
+      </Reveal>
     </section>
   );
 };

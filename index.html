@@ -4,6 +4,26 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <meta name="theme-color" content="#1f1f1f" />
+    <!-- Hero background is the LCP on the homepage; fetch it early. Only on "/",
+         so deep links don't download (and warn about) an unused image. Kept above
+         the stylesheet so this inline script doesn't wait for CSS. -->
+    <script>
+      if (location.pathname === "/") {
+        [
+          ["/images/hero-back2-1920.avif", "(min-width: 768px)"],
+          ["/images/hero-back2-1280.avif", "(max-width: 767.98px)"],
+        ].forEach(function (entry) {
+          var link = document.createElement("link");
+          link.rel = "preload";
+          link.as = "image";
+          link.type = "image/avif";
+          link.href = entry[0];
+          link.media = entry[1];
+          link.fetchPriority = "high";
+          document.head.appendChild(link);
+        });
+      }
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -14,69 +34,41 @@
       name="google-site-verification"
       content="pAaNb-rApnCW9cZjy06mquUrtl0YtkjYQ-D2B7VKZ-s"
     />
-    <title>Astonish Designs</title>
+    <title>Astonish Designs | A Style For Every Age</title>
     <link rel="icon" type="image/png" href="/favicon.png" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-    <!-- Hero background is the LCP on the homepage; fetch it before CSS is parsed -->
-    <link
-      rel="preload"
-      as="image"
-      type="image/avif"
-      href="/images/hero-back2-1920.avif"
-      media="(min-width: 768px)"
-      fetchpriority="high"
-    />
-    <link
-      rel="preload"
-      as="image"
-      type="image/avif"
-      href="/images/hero-back2-1280.avif"
-      media="(max-width: 767.98px)"
-      fetchpriority="high"
-    />
 
-    <!-- Meta tags for SEO -->
+    <!-- Defaults for crawlers that don't run JS. main.jsx removes these
+         once the app mounts and <Seo> renders per-page values. -->
     <meta
       name="description"
-      content="Astonish Designs - Your destination for high-quality fashion. Explore our latest collections of designer clothing, trendy accessories, and stylish designs, find the perfect ensemble for any occasion at Astonish Designs."
+      content="Astonish Designs is a Nigerian fashion house making bespoke, ready-to-wear and special occasion outfits. A style for every age."
+      data-seo-default
     />
-
-    <meta
-      name="keywords"
-      content="Astonish Designs, fashion, high-quality, clothing, luxury fashion, designer clothing, bespoke fashion, stylish apparel, trendy fashion, fashion trends, premium clothing, fashion accessories, women's fashion, men's fashion, fashion boutique, fashion brand"
-    />
-
+    <link rel="canonical" href="https://astonish-designs.netlify.app/" data-seo-default />
     <meta name="author" content="Esosa Igbinedion" />
 
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content="website" data-seo-default />
+    <meta property="og:site_name" content="Astonish Designs" data-seo-default />
+    <meta property="og:title" content="Astonish Designs | A Style For Every Age" data-seo-default />
     <meta
-      property="og:url"
-      content="https://www.facebook.com/officialastonishdesigns"
+      property="og:description"
+      content="Astonish Designs is a Nigerian fashion house making bespoke, ready-to-wear and special occasion outfits. A style for every age."
+      data-seo-default
     />
-    <meta property="og:title" content="Astonish Designs" />
-    <meta property="og:description" content="Astonish Designs - Your destination for high-quality fashion. Explore our latest collections of designer clothing, trendy accessories, and stylish designs, find the perfect ensemble for any occasion at Astonish Designs." />
-    <meta property="og:image" content="https://res.cloudinary.com/dee9teadk/image/upload/v1713113497/logoOriginal_jbbv2u.jpg" />
+    <meta property="og:url" content="https://astonish-designs.netlify.app/" data-seo-default />
+    <meta property="og:image" content="https://astonish-designs.netlify.app/og/default.jpg" data-seo-default />
+    <meta property="og:image:width" content="1200" data-seo-default />
+    <meta property="og:image:height" content="630" data-seo-default />
 
-    <!-- Instagram -->
-    <meta property="insta:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" data-seo-default />
+    <meta name="twitter:title" content="Astonish Designs | A Style For Every Age" data-seo-default />
     <meta
-      property="insta:url"
-      content="https://www.instagram.com/astonishdesigns"
+      name="twitter:description"
+      content="Astonish Designs is a Nigerian fashion house making bespoke, ready-to-wear and special occasion outfits. A style for every age."
+      data-seo-default
     />
-    <meta property="insta:title" content="Astonish Designs" />
-    <meta property="insta:description" content="Astonish Designs - Your destination for high-quality fashion. Explore our latest collections of designer clothing, trendy accessories, and stylish designs, find the perfect ensemble for any occasion at Astonish Designs." />
-    <meta property="insta:image" content="https://res.cloudinary.com/dee9teadk/image/upload/v1713113497/logoOriginal_jbbv2u.jpg" />
-
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta
-      property="twitter:url"
-      content="https://www.astonish-desings.com.ng"
-    />
-    <meta property="twitter:title" content="Astonish Designs" />
-    <meta property="twitter:description" content="Astonish Designs - Your destination for high-quality fashion. Explore our latest collections of designer clothing, trendy accessories, and stylish designs, find the perfect ensemble for any occasion at Astonish Designs." />
-    <meta property="twitter:image" content="https://res.cloudinary.com/dee9teadk/image/upload/v1713113497/logoOriginal_jbbv2u.jpg" />
+    <meta name="twitter:image" content="https://astonish-designs.netlify.app/og/default.jpg" data-seo-default />
   </head>
 
   <body>

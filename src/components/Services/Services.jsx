@@ -1,5 +1,6 @@
 import "./services.scss";
 import Img from "../Img/Img";
+import Reveal from "../Reveal/Reveal";
 
 const services = [
   {
@@ -29,22 +30,22 @@ const Services = () => {
     <>
       <hr className="sectionDivider" />
       <section className="serviceSection">
-        <div className="firstDiv">
+        <Reveal className="firstDiv">
           <h2>Our Services</h2>
           <p className="serviceParagraph">
             Explore our diverse range of services meticulously tailored to meet
             your every fashion need.
           </p>
-        </div>
+        </Reveal>
 
         <div className="serviceWrap">
           <div className="services">
-            {services.map(({ icon, title, text }) => (
-              <article className="serviceCard" key={title}>
+            {services.map(({ icon, title, text }, i) => (
+              <Reveal as="article" className="serviceCard" key={title} delay={i * 0.08}>
                 <Img src={icon} alt="" className="icon" sizes="56px" width={56} height={56} />
                 <h3>{title}</h3>
                 <p>{text}</p>
-              </article>
+              </Reveal>
             ))}
           </div>
 

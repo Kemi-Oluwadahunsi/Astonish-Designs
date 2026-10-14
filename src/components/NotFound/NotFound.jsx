@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
+import Seo from "../Seo/Seo";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import Header from "../Header/Header";
@@ -12,10 +12,12 @@ const scrollToContact = () => {
 
 const NotFound = () => (
   <main className="notFound">
-    <Helmet>
-      <title>Page not found | Astonish Designs</title>
-      <meta name="robots" content="noindex" />
-    </Helmet>
+    <Seo
+      title="Page not found"
+      description="This page doesn't exist. Browse the Astonish Designs catalogue or head back home."
+      path="/404"
+      noindex
+    />
 
     <Header scrollToContact={scrollToContact} />
     <Navbar scrollToContact={scrollToContact} />

@@ -9,8 +9,26 @@ import { useState, useRef, useEffect } from "react";
 import Navbar from "../Navbar/Navbar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
+import Seo from "../Seo/Seo";
+import { socials } from "../../data/socials";
+import { WHATSAPP_NUMBER } from "../../data/whatsapp";
+import { SITE_NAME, SITE_URL } from "../../data/site";
 
 const sentence = "A Style For Every Age";
+
+const storeSchema = {
+  "@context": "https://schema.org",
+  "@type": "ClothingStore",
+  name: SITE_NAME,
+  slogan: sentence,
+  url: `${SITE_URL}/`,
+  logo: `${SITE_URL}/images/logooriginal-640.webp`,
+  image: `${SITE_URL}/og/default.jpg`,
+  telephone: `+${WHATSAPP_NUMBER}`,
+  founder: { "@type": "Person", name: "Esosa Igbinedion" },
+  foundingDate: "2020",
+  sameAs: socials.map((s) => s.href),
+};
 
 const Home = () => {
   const [text, setText] = useState("");
@@ -45,6 +63,12 @@ const Home = () => {
 
   return (
     <main className="mainBody">
+      <Seo
+        description="Astonish Designs is a Nigerian fashion house making bespoke, ready-to-wear and special occasion outfits. A style for every age."
+        path="/"
+      >
+        <script type="application/ld+json">{JSON.stringify(storeSchema)}</script>
+      </Seo>
       <section className="main">
         <Header scrollToContact={scrollToContact} />
         <Navbar scrollToContact={scrollToContact} />

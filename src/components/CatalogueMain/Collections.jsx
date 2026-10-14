@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import collections from "../../data/collections";
 import Img from "../Img/Img";
+import Reveal from "../Reveal/Reveal";
 import "./cataloguemain.scss";
 
 const Collections = () => (
@@ -10,7 +11,8 @@ const Collections = () => (
     {collections.map((collection) => {
       const href = `/catalogue/${collection.slug}`;
       return (
-        <section
+        <Reveal
+          as="section"
           className="collection band"
           key={collection.slug}
           aria-labelledby={`${collection.slug}-title`}
@@ -44,7 +46,7 @@ const Collections = () => (
               <FontAwesomeIcon icon={faArrowRight} />
             </Link>
           </div>
-        </section>
+        </Reveal>
       );
     })}
   </div>

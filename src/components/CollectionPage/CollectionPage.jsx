@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
+import Seo from "../Seo/Seo";
 import PropTypes from "prop-types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight, faExpand, faTimes } from "@fortawesome/free-solid-svg-icons";
@@ -58,10 +58,12 @@ const CollectionView = ({ collection }) => {
 
   return (
     <main className="collectionPage">
-      <Helmet>
-        <title>{`${title} | Astonish Designs`}</title>
-        <meta name="description" content={description} />
-      </Helmet>
+      <Seo
+        title={/collection/i.test(title) ? title : `${title} Collection`}
+        description={description}
+        path={`/catalogue/${slug}`}
+        image={`/og/${slug}.jpg`}
+      />
 
       <section className="collectionHero">
         <Header scrollToContact={scrollToContact} />

@@ -1,6 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./testimonies.scss";
 import Img from "../Img/Img";
+import Reveal from "../Reveal/Reveal";
 import {
   faQuoteLeft,
   faQuoteRight,
@@ -37,10 +38,12 @@ const testimonies = [
 const Testimonial = () => {
   return (
     <section className="testimonialContainer">
-      <h2 className="testimonialTitle">What Our Clients Say</h2>
+      <Reveal as="h2" className="testimonialTitle">
+        What Our Clients Say
+      </Reveal>
       <ul className="testimonies" aria-label="Client testimonials">
-        {testimonies.map(({ image, name, quote }) => (
-          <li className="eachTestimony" key={name}>
+        {testimonies.map(({ image, name, quote }, i) => (
+          <Reveal as="li" className="eachTestimony" key={name} delay={i * 0.08}>
             <Img
               src={image}
               alt=""
@@ -60,7 +63,7 @@ const Testimonial = () => {
               ))}
             </div>
             <h3>{name}</h3>
-          </li>
+          </Reveal>
         ))}
       </ul>
     </section>
