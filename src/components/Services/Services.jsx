@@ -1,10 +1,33 @@
 import "./services.scss";
 
+const services = [
+  {
+    icon: "/images/scissors.png",
+    title: "Custom Clothing Design",
+    text: "Astonish Designs specializes in creating one-of-a-kind, bespoke garments tailored to individual preferences and measurements. Clients can expect a personalized experience that reflects their unique style.",
+  },
+  {
+    icon: "/images/special-occassion.png",
+    title: "Special Occasion Outfits",
+    text: "For weddings, parties, and special events, Astonish Designs crafts exquisite outfits that make a statement. Each design is meticulously crafted to align with the client's vision and the specific theme.",
+  },
+  {
+    icon: "/images/age-inclusive.png",
+    title: "Age-Inclusive Collections",
+    text: "Astonish Designs embraces diversity by curating fashion collections that cater to various age groups. Each collection is thoughtfully designed to celebrate different styles and preferences, ensuring inclusivity in every piece.",
+  },
+  {
+    icon: "/images/ready-to-wear.png",
+    title: "Ready-To-Wear Outfits",
+    text: "Our Ready-To-Wear Outfits are meticulously designed, ensuring each piece is not only on-trend but also effortlessly chic. From casual day looks to sophisticated evening attire, we have range of outfits to suit every occasion and style preference.",
+  },
+];
+
 const Services = () => {
   return (
     <>
-      <hr />
-      <div className="serviceSection">
+      <hr className="sectionDivider" />
+      <section className="serviceSection">
         <div className="firstDiv">
           <h2>Our Services</h2>
           <p className="serviceParagraph">
@@ -15,82 +38,27 @@ const Services = () => {
 
         <div className="serviceWrap">
           <div className="services">
-            <div className="div1">
-              <img
-                src="/images/scissors.png"
-                alt="scissors"
-                width={130}
-                className="icon scissors"
-              />
-              <h2 className="smallScissors">Custom Clothing Design</h2>
-              <p>
-                Astonish Designs specializes in creating one-of-a-kind, bespoke
-                garments tailored to individual preferences and measurements.
-                Clients can expect a personalized experience that reflects their
-                unique style.
-              </p>
-            </div>
-
-            <div className="div3">
-              <img
-                src="/images/special-occassion.png"
-                alt="special-occassion"
-                width={80}
-                className="icon"
-              />
-              <h2 className="special-occ">Special Occasion Outfits</h2>
-              <p>
-                For weddings, parties, and special events, Astonish Designs
-                crafts exquisite outfits that make a statement. Each design is
-                meticulously crafted to align with the client&apos;s vision and
-                the specific theme.
-              </p>
-            </div>
-
-            <div className="div5">
-              <img
-                src="/images/age-inclusive.png"
-                alt="age-inclusive"
-                width={100}
-                className="icon"
-              />
-              <h2 className="age-inc">Age-Inclusive Collections</h2>
-              <p>
-                Astonish Designs embraces diversity by curating fashion
-                collections that cater to various age groups. Each collection is
-                thoughtfully designed to celebrate different styles and
-                preferences, ensuring inclusivity in every piece.
-              </p>
-            </div>
-
-            <div className="div6">
-              <img
-                src="/images/ready-to-wear.png"
-                alt="readytowear"
-                width={100}
-                className="icon"
-              />
-              <h2 className="ready">Ready-To-Wear Outfits</h2>
-              <p>
-                Our Ready-To-Wear Outfits are meticulously designed, ensuring
-                each piece is not only on-trend but also effortlessly chic. From
-                casual day looks to sophisticated evening attire, we have range
-                of outfits to suit every occasion and style preference.
-              </p>
-            </div>
+            {services.map(({ icon, title, text }) => (
+              <article className="serviceCard" key={title}>
+                <img src={icon} alt="" className="icon" width={56} height={56} loading="lazy" />
+                <h3>{title}</h3>
+                <p>{text}</p>
+              </article>
+            ))}
           </div>
 
           <div className="serviceImage">
             <img
               src="/images/servicesImagesLeft.jpeg"
-              alt="services"
+              alt="Astonish Designs outfit"
               width={500}
               height={650}
-              style={{ objectFit: "cover" }}
+              loading="lazy"
+              decoding="async"
             />
           </div>
         </div>
-      </div>
+      </section>
     </>
   );
 };

@@ -1,50 +1,40 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import "./header.scss";
 import PropTypes from "prop-types";
 
-const Header = ({scrollToContact, isAboutPage}) => {
-
-  const changeBackground = () => {
-     return {
-       backgroundColor: isAboutPage
-         ? "black"
-         : "rgba(47, 47, 47, 0.1)",
-     };
-  }
-  
+const Header = ({ scrollToContact, isAboutPage = false }) => {
   return (
-    <>
-      <div className="header" style={changeBackground()}>
-        <div className="navBody">
-          <div className="logo">
-            <Link to="/">
-              <img src="/images/Logo.jpg" alt="Logo" width={100} />
-            </Link>
-          </div>
-          <div className="navLinks">
-            <ul>
-              <Link to="/">
-                <li>Home</li>
-              </Link>
+    <header className={`header ${isAboutPage ? "header--solid" : ""}`}>
+      <nav className="navBody" aria-label="Main">
+        <Link to="/" className="logo" aria-label="Astonish Designs home">
+          <img src="/images/Logo.jpg" alt="Astonish Designs logo" width={72} height={72} />
+        </Link>
 
-              <Link to="/about">
-                <li>About Us</li>
-              </Link>
+        <ul className="navLinks">
+          <li>
+            <NavLink to="/" end>
+              Home
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/about">About Us</NavLink>
+          </li>
+          <li>
+            <button type="button" onClick={scrollToContact}>
+              Contact
+            </button>
+          </li>
+        </ul>
 
-              <li onClick={scrollToContact}>Contact</li>
-            </ul>
-          </div>
-
-          <Link to="/catalogue">
-            <button>Catalogue</button>
-          </Link>
-        </div>
-      </div>
-    </>
+        <Link to="/catalogue" className="ctaButton">
+          Catalogue
+        </Link>
+      </nav>
+    </header>
   );
 };
 Header.propTypes = {
   scrollToContact: PropTypes.func.isRequired,
-  isAboutPage: PropTypes.bool.isRequired,
+  isAboutPage: PropTypes.bool,
 };
 export default Header;

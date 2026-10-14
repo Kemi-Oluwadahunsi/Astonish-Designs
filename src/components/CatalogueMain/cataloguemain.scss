@@ -1,514 +1,335 @@
-@import "../../App.scss";
-.modal {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: rgba(0, 0, 0, 0.9);
-  z-index: 9999999;
-
-  @include tablet {
-    top: 4%;
-    left: 0;
-    width: 80%;
-    height: auto;
-    transform: translate(0);
-  }
-  @include mobile {
-    top: 15%;
-    left: 0;
-    width: 100%;
-    height: auto;
-    transform: translate(0);
-  }
-
-  .modal-content {
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    text-align: center;
-    height: fit-content;
-    width: fit-content;
-    margin: 0 auto;
-
-    @include mobile {
-      padding-top: 4em;
-    }
-
-    .times {
-      background-color: grey;
-      cursor: pointer;
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      color: white;
-      border-radius: 50%;
-      font-size: 2em;
-      padding: 0.2em 0.3em;
-
-      @include mobile {
-        padding: 0.1em 0.2em;
-        font-size: 1.5em;
-      }
-    }
-
-    img {
-      width: 62%;
-      height: auto;
-      object-fit: cover;
-
-      @include tablet {
-        width: 30em;
-      }
-
-      @include mobile {
-        width: 20em;
-      }
-    }
-  }
-}
+@use "../../styles/abstracts" as *;
 
 .catalogueMain {
-  height: auto;
   display: flex;
   flex-direction: column;
-  gap: 5rem;
-  padding-bottom: 3rem;
-
-  @include tablet {
-    gap: 3rem;
-  }
-
-  @include mobile {
-    gap: 3rem;
-  }
+  gap: clamp(3rem, 8vw, 6rem);
+  padding-bottom: clamp(3rem, 8vw, 6rem);
 
   .subHeader {
-    background: linear-gradient(
-        to bottom,
-        rgba(0, 0, 0, 0.9),
-        rgba(0, 0, 0, 0.9)
-      ),
-      url("/images/cataloguemain1.jpg");
-    height: 33rem;
-    background-repeat: no-repeat;
-    background-size: cover;
-
-    @include tablet {
-      height: 26rem;
-    }
-
-    @include mobile {
-      height: 23rem;
-    }
+    display: flex;
+    flex-direction: column;
+    min-height: clamp(24rem, 60svh, 34rem);
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.75)),
+      url("/images/cataloguemain1.jpg") center / cover no-repeat;
 
     .catalogueMainTitle {
+      @include container;
+      flex: 1;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       gap: 1rem;
-
-      @include tablet {
-        padding: 0 2rem;
-        width: 100%;
-      }
-
-      @include mobile {
-        padding: 0 2rem;
-        width: 100%;
-      }
+      padding-block: 2rem 3rem;
+      text-align: center;
 
       h1 {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: 5rem;
-        // color: #9b660d;
-        color: #be9d24;
-        margin-top: 7rem;
-
-        @include tablet {
-          font-size: 4rem;
-          margin-top: 3rem;
-        }
-
-        @include mobile {
-          font-size: 2.5rem;
-          margin-top: 3rem;
-        }
+        font-size: clamp(2.5rem, 1.5rem + 5vw, 5rem);
+        line-height: 1.05;
+        color: $gold;
       }
 
       p {
-        font-size: 1.28rem;
-        color: #be9d24;
-        font-family: "Helvetica";
-        width: 60%;
-        text-align: center;
-        line-height: 1.5em;
-
-        @include tablet {
-          font-size: 1rem;
-          width: 100%;
-        }
-
-        @include mobile {
-          font-size: 0.9rem;
-          width: 100%;
-        }
+        max-width: 60ch;
+        font-size: clamp(0.95rem, 0.85rem + 0.5vw, 1.25rem);
+        line-height: 1.6;
+        color: $cream;
+        opacity: 0.9;
       }
     }
   }
 
   .collections {
+    @include container;
     display: flex;
     flex-direction: column;
-    gap: 12rem;
-    width: screen;
-    position: relative;
-    
+    gap: clamp(3rem, 8vw, 6rem);
+  }
 
-    @include tablet {
-      padding: 0;
-      gap: 7rem;
+  .collection {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.25rem;
+
+    @include up(md) {
+      grid-template-columns: minmax(220px, 0.32fr) minmax(0, 1fr);
+      gap: clamp(1.25rem, 3vw, 2.5rem);
+      align-items: stretch;
+    }
+  }
+
+  .feature {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    @include up(md) {
+      padding: 1.25rem;
+      border: 1px solid $line;
+      border-radius: $radius;
+      background-color: #fff;
     }
 
-    @include mobile {
-      padding: 0;
-      gap: 3rem;
-    }
-
-    .allWears {
+    .featureHead {
       display: flex;
-      gap: 3rem;
+      align-items: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+
+      @include up(md) {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.4rem;
+      }
+
+      h2 {
+        font-size: clamp(1.5rem, 1.1rem + 1.5vw, 2.25rem);
+        line-height: 1.1;
+        color: $ink;
+      }
+    }
+
+    .tag {
+      order: 2;
+      padding: 0.3rem 0.7rem;
+      border-radius: $radius-pill;
+      background-color: $dark;
+      color: $gold-soft;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+
+      @include up(md) {
+        order: 0;
+      }
+    }
+
+    .featureImage {
+      display: none;
+      padding: 0;
+      border: none;
+      border-radius: $radius-sm;
+      overflow: hidden;
+      background-color: $surface;
+      cursor: zoom-in;
+
+      @include up(md) {
+        display: block;
+      }
+
+      img {
+        width: 100%;
+        aspect-ratio: 3 / 4;
+        object-fit: cover;
+        object-position: top;
+        transition: transform 0.8s $ease;
+      }
+
+      @include hover {
+        img {
+          transform: scale(1.04);
+        }
+      }
+    }
+
+    .palette {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+
+      span {
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: $muted;
+      }
+
+      ul {
+        list-style: none;
+        display: flex;
+        gap: 0.4rem;
+      }
+
+      li {
+        width: 22px;
+        height: 22px;
+        border-radius: 50%;
+        box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.12);
+      }
+    }
+  }
+
+  // Horizontal, swipeable lookbook row
+  .gallery {
+    list-style: none;
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: clamp(11.5rem, 42vw, 17rem);
+    gap: clamp(0.75rem, 1.5vw, 1.25rem);
+    align-content: center;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 0.75rem;
+    scrollbar-width: thin;
+    scrollbar-color: $gold transparent;
+
+    @include up(md) {
+      grid-auto-columns: clamp(12rem, 24vw, 17rem);
+      padding: 1rem;
+      border-radius: $radius;
+      background-color: $surface;
+    }
+
+    li {
+      scroll-snap-align: start;
+    }
+  }
+
+  .galleryItem {
+    position: relative;
+    display: block;
+    width: 100%;
+    padding: 0;
+    border: none;
+    border-radius: $radius-sm;
+    overflow: hidden;
+    background-color: #eee;
+    cursor: zoom-in;
+
+    img {
       width: 100%;
-      justify-content: space-between;
-      padding: 2rem; 
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      object-position: top;
+      transition: transform 0.8s $ease;
+    }
 
-      @include tablet {
-        flex-direction: column;
-        padding: 1rem;
-        gap: 0;
-        height: 400px;
+    .viewHint {
+      position: absolute;
+      left: 50%;
+      bottom: 0.75rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.35rem 0.8rem;
+      border-radius: $radius-pill;
+      background-color: rgba(0, 0, 0, 0.7);
+      color: #fff;
+      font-size: 0.8rem;
+      transform: translateX(-50%);
+      transition: opacity 0.3s $ease;
+      backdrop-filter: blur(4px);
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      .viewHint {
+        opacity: 0;
       }
 
-      @include mobile {
-        flex-direction: column;
-        padding: 1rem;
-        gap: 0;
-      }
-
-      .smallScreenTitle {
-        font-size: 2rem;
-        color: #3d3d3d;
-        font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-          "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-        font-weight: 600;
-        margin: auto;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        position: relative;
-
-        @include laptop {
-          display: none;
+      &:hover,
+      &:focus-visible {
+        img {
+          transform: scale(1.05);
         }
 
-        @include mobile {
-          display: block; // block
-          font-size: 1.2rem;
-        }
-      }
-
-      .outerDiv {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        border: 5px solid #5d5d5d;
-        gap: 1rem;
-        flex-basis: 27%;
-        width: fit-content;
-        padding: 2rem 0 0 0;
-        height: 33rem;
-        position: relative;
-
-        @include tablet {
-          display: none;
-        }
-
-        @include mobile {
-          display: none;
-        }
-
-        .collectionName {
-          position: absolute;
-          top: -2rem;
-          left: 1rem;
-          font-size: 1.4rem;
-          z-index: 9999;
-          background: #888888;
-          color: #fff;
-          padding: 0.4rem 0.5em;
-          border-radius: 4px;
-
-          @include tablet {
-            display: none;
-          }
-
-          @include mobile {
-            display: none;
-          }
-        }
-
-        h2 {
-          font-size: 2rem;
-          color: #3d3d3d;
-          font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-            "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-          font-weight: 600;
-          position: absolute;
-          top: 10px;
-        }
-
-        .innerDiv {
-          width: fit-content;
-          height: 30rem;
-          position: relative;
-          left: 4rem;
-          top: 2.4rem;
-
-          img {
-            height: 100%;
-          }
-        }
-
-        .colorCategoryWrapper {
-          position: absolute;
-          top: 30%;
-          left: 3%;
-          display: flex;
-          flex-direction: column;
-          gap: 1rem;
-          align-items: center;
-          justify-content: center;
-
-          p {
-            font-weight: 600;
-          }
-
-          .colorsByCategory {
-            width: 30px;
-            height: 30px;
-          }
-
-          .colorsByCategory {
-            width: 30px;
-            height: 30px;
-          }
-        }
-      }
-
-      .sideDiv {
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
-        gap: 1rem;
-        width: 60%;
-        flex-wrap: wrap;
-        background-color: #e7e7e7;
-        height: 30rem;
-        padding: 0 1rem;
-        margin-top: 2rem;
-
-        @include tablet {
-          margin-top: 0;
-          gap: 0.5rem;
-          width: 100%;
-          height: 23rem;
-          background-color: transparent;
-        }
-
-        @include mobile {
-          margin-top: 0;
-          margin: auto;
-          gap: 0;
-          width: 90%;
-          height: 18rem;
-          background-color: transparent;
-        }
-
-        .stylePictures {
-          width: fit-content;
-          height: fit-content;
-          display: flex;
-          overflow-x: auto;
-          gap: 1rem;
-
-          // @include mobile {
-          //   gap: 0;
-          // }
-
-          .smallScreenImage {
-            @include mobile {
-              padding: 0 1rem;
-              position: relative;
-            }
-
-            .collectionNameSmall {
-              display: none;
-
-              @include tablet {
-                display: block;
-                margin-left: 1rem;
-              }
-
-              @include mobile {
-                display: block;
-                position: absolute;
-                top: 1em;
-                color: #e7e7e7;
-                padding-left: 1em;
-                font-size: 0.95em;
-              }
-            }
-
-            .clickToViewText {
-              @include mobile {
-                display: none;
-              }
-            }
-
-            img {
-              object-fit: contain;
-              cursor: pointer;
-            }
-
-            .smallScreenView {
-              display: none;
-
-              @include mobile {
-                display: block;
-                background-color: black;
-                border-radius: 20px;
-                padding: 0.3em 0.6em;
-                position: absolute;
-                bottom: 12px;
-                left: 30%;
-                color: white;
-                z-index: 200;
-                font-size: 0.8em;
-              }
-            }
-          }
-        }
-
-        .slick-slider {
-          margin: 0 auto;
-          width: 100%;
-        }
-
-        .slick-dots {
-          bottom: -20px;
-        }
-
-        .slick-dots li {
-          margin: 0 1px;
-        }
-        .slick-prev,
-        .slick-next {
-          position: absolute;
-          top: 50%;
-          transform: translateY(-50%);
-          width: 2.5rem;
-          height: 2.5rem;
-          background-color: rgba(225, 181, 17, 0.7);
-          border: none;
-          cursor: pointer;
-          z-index: 1;
-
-          @include mobile {
-            width: 1.5rem;
-            height: 1.5rem;
-          }
-        }
-
-        .slick-prev {
-          left: 0;
-        }
-
-        .slick-next {
-          right: 0;
+        .viewHint {
+          opacity: 1;
         }
       }
     }
   }
-  .contactMe {
+
+  > .contactMe {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
     align-items: center;
-    justify-content: center;
-    margin: auto;
+    gap: 1.25rem;
+    padding-inline: $gutter;
+    text-align: center;
+    scroll-margin-top: 2rem;
 
     p {
-      font-size: 2rem;
-      color: #3d3d3d;
+      font-size: clamp(1.25rem, 1rem + 1.2vw, 2rem);
       font-weight: 600;
-
-      @include tablet {
-        font-size: 1.7rem;
-        padding: 0 1rem;
-        gap: 1em;
-      }
-
-      @include mobile {
-        font-size: 1.2rem;
-        padding: 0 1rem;
-        gap: 1em;
-      }
+      color: $ink;
     }
 
-    button {
-      display: flex;
-      width: fit-content;
-      padding: 0.9rem 1.3rem;
-      background-image: linear-gradient(to right, #888888 0%, #f5e14f 100%);
-      color: #3d3d3d;
-      justify-content: center;
-      align-items: center;
-      gap: 1rem;
-      font-size: 1rem;
-      font-family: Verdana, Geneva, Tahoma, sans-serif;
-      font-weight: 600;
-      border: none;
-      border-radius: 6.25rem;
-      cursor: pointer;
-      transition: background-image 0.1s ease;
-
-      &:hover {
-        transform: scale(1.1);
-        background-image: linear-gradient(to right, #f5e14f 0%, #888888 100%);
-      }
-
-      @include tablet {
-        font-size: 1rem;
-        width: fit-content;
-        margin: auto;
-
-        &:hover {
-          transform: scale(1);
-        }
-      }
-
-      @include mobile {
-        width: fit-content;
-        font-size: 1rem;
-        margin: auto;
-
-        &:hover {
-          transform: scale(1);
-        }
-      }
+    .contactButton {
+      @include btn-primary;
     }
+  }
+
+  > .contactContainer {
+    animation: contactIn 0.5s $ease;
+  }
+}
+
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: max(3.5rem, env(safe-area-inset-top)) 1rem
+    max(1rem, env(safe-area-inset-bottom));
+  background-color: rgba(0, 0, 0, 0.9);
+  animation: modalIn 0.25s ease-out;
+  cursor: zoom-out;
+
+  .modalImage {
+    max-width: min(92vw, 900px);
+    max-height: 85svh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border-radius: $radius-sm;
+    cursor: default;
+    animation: modalImageIn 0.35s $ease;
+  }
+
+  .modalClose {
+    position: absolute;
+    top: max(0.75rem, env(safe-area-inset-top));
+    right: max(0.75rem, env(safe-area-inset-right));
+    display: grid;
+    place-items: center;
+    width: 48px;
+    height: 48px;
+    border: none;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.15);
+    color: #fff;
+    font-size: 1.4rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.3);
+    }
+  }
+}
+
+@keyframes modalIn {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes modalImageIn {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+}
+
+@keyframes contactIn {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
   }
 }

@@ -2,24 +2,21 @@ import "./catalogue.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
-import { Carousel } from "react-responsive-carousel";
-import "react-responsive-carousel/lib/styles/carousel.min.css";
-import { useMediaQuery } from "react-responsive";
-import adelle2 from "../../../public/images/adelle/adelle2.webp";
-import catalog4 from "../../../public/images/catalog4.jpg";
+
+const previews = [
+  { src: "/images/ross/ross1.webp", alt: "Ross collection look" },
+  { src: "/images/catalog3.JPG", alt: "Astonish Designs catalogue look" },
+  { src: "/images/adelle/adelle2.webp", alt: "Adelle collection look" },
+  { src: "/images/catalog4.JPG", alt: "Astonish Designs catalogue look" },
+];
 
 const Catalogue = () => {
   const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  const isTabletOrMobile = useMediaQuery({ query: "(max-width: 900px)" });
-
   return (
-    <div className="catalogBody">
+    <section className="catalogBody">
       <div className="catalogTitle">
         <h2>Catalogue</h2>
         <p>
@@ -29,64 +26,25 @@ const Catalogue = () => {
       </div>
 
       <div className="pictures">
-        {isTabletOrMobile ? (
-          <Carousel
-            showArrows={false}
-            infiniteLoop={true}
-            autoPlay={true}
-            interval={3000}
-            showStatus={false}
-            showThumbs={false}
-            stopOnHover={true}
-            emulateTouch={true}
-            swipeable={true}
-          >
-            <div>
-              <img src="/images/ross/ross2.webp" alt="pictures" />
-            </div>
-
-            <div>
-              <img src="/images/catalog3.jpg" alt="pictures" />
-            </div>
-
-            <div>
-              <img src={adelle2} alt="pictures" />
-            </div>
-
-            <div>
-              <img src={catalog4} alt="pictures" />
-            </div>
-          </Carousel>
-        ) : (
-          <>
-            <div className="singlePictures">
-              <img src="/images/ross/ross1.webp" alt="pictures" />
-            </div>
-
-            <div className="singlePictures">
-              <img src="/images/catalog3.jpg" alt="pictures" />
-            </div>
-
-            <div className="singlePictures">
-              <img src={adelle2} alt="pictures" />
-            </div>
-
-            <div className="singlePictures">
-              <img src={catalog4} alt="pictures" />
-            </div>
-          </>
-        )}
+        {previews.map(({ src, alt }) => (
+          <figure className="singlePicture" key={src}>
+            <img
+              src={src}
+              alt={alt}
+              width={400}
+              height={500}
+              loading="lazy"
+              decoding="async"
+            />
+          </figure>
+        ))}
       </div>
 
-      <Link to="/catalogue">
-        <div className="viewCatalog">
-          <button onClick={scrollToTop}>
-            View Catalogue
-            <FontAwesomeIcon icon={faArrowRight} />
-          </button>
-        </div>
+      <Link to="/catalogue" className="viewCatalog" onClick={scrollToTop}>
+        View Catalogue
+        <FontAwesomeIcon icon={faArrowRight} />
       </Link>
-    </div>
+    </section>
   );
 };
 

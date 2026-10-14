@@ -8,148 +8,98 @@ import {
   faLinkedin,
   faXTwitter,
 } from "@fortawesome/free-brands-svg-icons";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import PropTypes from "prop-types";
 
-const Navbar = ({ scrollToContact, isAboutPage }) => {
-  const [showMobileContent, setShowMobileContent] = useState(false);
+const socials = [
+  { href: "https://www.instagram.com/astonishdesigns", icon: faInstagram, label: "Instagram" },
+  { href: "https://www.facebook.com/officialastonishdesigns", icon: faFacebookSquare, label: "Facebook" },
+  { href: "https://www.facebook.com/officialastonishdesigns", icon: faXTwitter, label: "X (Twitter)" },
+  { href: "https://www.facebook.com/officialastonishdesigns", icon: faLinkedin, label: "LinkedIn" },
+];
 
-  const toggleMobileContent = () => {
-    setShowMobileContent(!showMobileContent);
-  };
-
-  const closeMobileContent = () => {
-    setShowMobileContent(false);
-  };
+const Navbar = ({ scrollToContact, isAboutPage = false }) => {
+  const [open, setOpen] = useState(false);
+  const close = () => setOpen(false);
 
   useEffect(() => {
-    const handleClickOutside = (event) => {
-      const navbar = document.querySelector(".small-screens");
-      if (navbar && !navbar.contains(event.target)) {
-        closeMobileContent();
-      }
-    };
-
-    document.addEventListener("click", handleClickOutside);
-
+    if (!open) return;
+    const onKey = (e) => e.key === "Escape" && setOpen(false);
+    const onResize = () => window.innerWidth >= 1024 && setOpen(false);
+    document.body.style.overflow = "hidden";
+    document.addEventListener("keydown", onKey);
+    window.addEventListener("resize", onResize);
     return () => {
-      document.removeEventListener("click", handleClickOutside);
+      document.body.style.overflow = "";
+      document.removeEventListener("keydown", onKey);
+      window.removeEventListener("resize", onResize);
     };
-  }, []);
+  }, [open]);
 
-  const changeBackground = () => {
-    return {
-      backgroundColor: isAboutPage
-        ? "rgb(152, 152, 152)"
-        : "rgba(47, 47, 47, 0.1)",
-    };
-  };
   return (
-    <>
-      {/* navbar for phone-tab view */}
-      <div className="small-screens" style={changeBackground()}>
-        <div className="navbar">
-          <div className="nav">
-            <div className="logo">
-              <Link to="/">
-                <img src="/images/Logo.jpg" alt="Logo" width={100} />
-              </Link>
-            </div>
-            <div className="toggleButton">
-              <button onClick={toggleMobileContent}>
-                {showMobileContent ? (
-                  <FontAwesomeIcon
-                    icon={faTimes}
-                    style={{
-                      
-                    }}
-                    className="times"
-                  />
-                ) : (
-                  <FontAwesomeIcon
-                    icon={faBars}
-                    style={{ width: "23px", height: "23px" }}
-                  />
-                )}
-              </button>
-            </div>
-          </div>
-
-          <div className={`bg ${showMobileContent ? "visible" : "hidden"}`}>
-            <ul className="navigationItems">
-              <Link to="/" onClick={closeMobileContent}>
-                <li>Home</li>
-              </Link>
-
-              <Link to="/about" onClick={closeMobileContent}>
-                <li>About Us</li>
-              </Link>
-
-              <li
-                onClick={() => {
-                  scrollToContact();
-                  closeMobileContent();
-                }}
-              >
-                Contact
-              </li>
-
-              <Link to="/catalogue" onClick={closeMobileContent}>
-                <button>Catalogue</button>
-              </Link>
-            </ul>
-
-            <div className="socialIcons">
-              <ul>
-                <li onClick={closeMobileContent}>
-                  <a
-                    href="https://www.instagram.com/astonishdesigns"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="instagram"
-                  >
-                    <FontAwesomeIcon icon={faInstagram} />
-                  </a>
-                </li>
-
-                <li onClick={closeMobileContent}>
-                  <a
-                    href="https://www.facebook.com/officialastonishdesigns"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="facebook"
-                  >
-                    <FontAwesomeIcon icon={faFacebookSquare} />
-                  </a>
-                </li>
-
-                <li onClick={closeMobileContent}>
-                  <a
-                    href="https://www.facebook.com/officialastonishdesigns"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="xTwitter"
-                  >
-                    <FontAwesomeIcon icon={faXTwitter} />
-                  </a>
-                </li>
-
-                <li onClick={closeMobileContent}>
-                  <a
-                    href="https://www.facebook.com/officialastonishdesigns"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="linkedin"
-                  >
-                    <FontAwesomeIcon icon={faLinkedin} />
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
+    <div className={`small-screens ${isAboutPage ? "small-screens--solid" : ""}`}>
+      <div className="nav">
+        <Link to="/" className="logo" onClick={close} aria-label="Astonish Designs home">
+          <img src="/images/Logo.jpg" alt="Astonish Designs logo" width={56} height={56} />
+        </Link>
+        <button
+          type="button"
+          className="toggleButton"
+          onClick={() => setOpen((o) => !o)}
+          aria-expanded={open}
+          aria-controls="mobile-menu"
+          aria-label={open ? "Close menu" : "Open menu"}
+        >
+          <FontAwesomeIcon icon={open ? faTimes : faBars} />
+        </button>
       </div>
-    </>
+
+      <div
+        id="mobile-menu"
+        className={`menu ${open ? "is-open" : ""}`}
+        aria-hidden={!open}
+        inert={!open}
+      >
+        <ul className="navigationItems">
+          <li>
+            <NavLink to="/" end onClick={close}>
+              Home
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/about" onClick={close}>
+              About Us
+            </NavLink>
+          </li>
+          <li>
+            <button
+              type="button"
+              onClick={() => {
+                close();
+                scrollToContact();
+              }}
+            >
+              Contact
+            </button>
+          </li>
+          <li>
+            <Link to="/catalogue" className="menuCta" onClick={close}>
+              Catalogue
+            </Link>
+          </li>
+        </ul>
+
+        <ul className="socialIcons">
+          {socials.map(({ href, icon, label }) => (
+            <li key={label}>
+              <a href={href} target="_blank" rel="noreferrer" aria-label={label} onClick={close}>
+                <FontAwesomeIcon icon={icon} />
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
   );
 };
 Navbar.propTypes = {

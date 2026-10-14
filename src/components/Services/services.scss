@@ -1,237 +1,98 @@
-@import "../../App.scss";
+@use "../../styles/abstracts" as *;
 
-hr {
-  height: .3rem;
-  background-color: #3d3d3d;
-  width: 100%;
-  margin: 5rem 0;
-
-  @include tablet {
-    height: 0.4rem;
-    margin: 3rem 0;
-  }
-
-  @include mobile {
-    height: 0.3rem;
-    margin: 2rem 0;
-  }
+.sectionDivider {
+  @include container;
+  height: 1px;
+  border: none;
+  background: linear-gradient(to right, transparent, $line 15%, $gold 50%, $line 85%, transparent);
+  margin-block: clamp(3rem, 8vw, 6rem);
 }
 
 .serviceSection {
-  width: 100%;
-  padding: 0 4rem;
+  @include container;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 5rem;
-  height: fit-content;
-
-  @include tablet {
-    padding: 0 2rem;
-    gap: 4rem;
-  }
-
-  @include mobile {
-    padding: 0 2rem;
-    gap: 4rem;
-  }
+  gap: clamp(2rem, 5vw, 4rem);
 
   .firstDiv {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
-    text-align: center;
-    align-items: center;
-    justify-content: center;
-
-    @include tablet {
-      gap: 0.5em;
-    }
-
-    @include mobile {
-      gap: 0.5em;
-    }
+    gap: 0.75rem;
 
     h2 {
-      font-size: 4rem;
-      color: #9a670e;
-
-      @include tablet {
-        font-size: 3rem;
-      }
-
-      @include mobile {
-        font-size: 2.5rem;
-      }
+      @include section-title;
     }
 
     .serviceParagraph {
-      font-size: 1.4rem;
-      font-weight: 300;
-      font-style: normal;
-
-      @include tablet {
-        font-size: 1rem;
-        line-height: 1.3rem;
-      }
-
-      @include mobile {
-        font-size: 0.9rem;
-        line-height: 1.3rem;
-      }
+      @include section-lead;
     }
   }
 
   .serviceWrap {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: clamp(1.25rem, 3vw, 2rem);
+    align-items: stretch;
+
+    @include up(xl) {
+      grid-template-columns: minmax(0, 1fr) minmax(280px, 0.45fr);
+    }
+  }
+
+  .services {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+    gap: clamp(1rem, 2.5vw, 1.75rem);
+  }
+
+  .serviceCard {
     display: flex;
-    justify-content: space-around;
-    gap: 1rem;
-    width: fit-content;
-    height: fit-content;
+    flex-direction: column;
+    gap: 0.85rem;
+    padding: clamp(1.25rem, 3vw, 2rem);
+    background-color: $surface;
+    border: 1px solid transparent;
+    border-radius: $radius;
+    transition: transform 0.35s $ease, box-shadow 0.35s $ease,
+      border-color 0.35s $ease;
 
-    @include tablet {
+    @include hover {
+      transform: translateY(-4px);
+      box-shadow: $shadow;
+      border-color: $line;
+    }
+
+    .icon {
+      width: clamp(40px, 6vw, 56px);
+      height: clamp(40px, 6vw, 56px);
+      object-fit: contain;
+    }
+
+    h3 {
+      font-size: clamp(1.15rem, 0.9rem + 1vw, 1.6rem);
+      font-weight: 600;
+      color: #454545;
+    }
+
+    p {
+      font-size: clamp(0.95rem, 0.9rem + 0.2vw, 1.05rem);
+      line-height: 1.75;
+    }
+  }
+
+  .serviceImage {
+    display: none;
+    overflow: hidden;
+    border-radius: $radius;
+
+    @include up(xl) {
       display: block;
     }
 
-    @include mobile {
-      display: block;
-      height: auto;
-    }
-
-    .services {
-      display: flex;
-      flex: 1;
-      width: fit-content;
-      flex-wrap: wrap;
-      gap: 2em;
-      justify-content: space-evenly;
-
-      @include mobile {
-        flex-direction: column;
-        gap: 2rem;
-      }
-
-      .div1,
-      .div3,
-      .div5,
-      .div6 {
-        width: 48%;
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-        background-color: #f6f6f6;
-        height: fit-content;
-        padding: 1em;
-        border-radius: 5px;
-
-        @include tablet {
-          gap: 0.7rem;
-
-          img {
-            width: 10%;
-          }
-          .scissors {
-            height: 15%;
-          }
-        }
-
-        
-          @include tablet {
-            width: 70%;
-            padding: 1rem;
-            img {
-              display: none;
-            }
-          }
-
-        @include mobile {
-          width: 100%;
-
-          img {
-            display: none;
-          }
-        }
-
-        h2 {
-          font-size: 2rem;
-          font-weight: 500;
-          color: #454545;
-          text-align: start;
-
-          @include tablet {
-            font-size: 1.5rem;
-          }
-
-          @include mobile {
-            font-size: 1.15rem;
-          }
-        }
-
-        .smallScissors::before {
-          content: url(/images/Icons/scissors-1.png);
-          margin: 5px 10px 0 0;
-
-          @include laptop {
-            display: none;
-          }
-        }
-
-        .special-occ::before {
-          content: url(/images/Icons/special-occassion-1.png);
-          margin: 5px 10px 0 0;
-
-          @include laptop {
-            display: none;
-          }
-        }
-
-        .age-inc::before {
-          content: url(/images/Icons/age-inclusive-1.png);
-          margin: 5px 10px 0 0;
-
-          @include laptop {
-            display: none;
-          }
-        }
-
-        .ready::before {
-          content: url(/images/Icons/ready-to-wear-1.png);
-          margin: 5px 10px 0 0;
-
-          @include laptop {
-            display: none;
-          }
-        }
-
-        p {
-          line-height: 1.5;
-          letter-spacing: 1px;
-          padding: 0 .5em;
-
-          @include tablet {
-            font-size: 1rem;
-            line-height: 2;
-          }
-
-          @include mobile {
-            font-size: 0.9rem;
-          }
-        }
-      }
-    }
-
-    .serviceImage {
-      width: fit-content;
-      height: fit-content;
-
-      @include tablet {
-        display: none;
-      }
-
-      @include mobile {
-        display: none;
-      }
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
   }
 }

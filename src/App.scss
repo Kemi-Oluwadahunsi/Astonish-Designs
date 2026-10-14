@@ -1,45 +1,81 @@
-$primary-color: #ffffff;
+@use "./styles/abstracts" as *;
 
 @font-face {
   font-family: "Helvetica Neue";
-  src: url("./assets//fonts/helvetica-neu.ttf") format("ttf");
+  src: url("./assets/Fonts/helvetica-neu.ttf") format("truetype");
+  font-display: swap;
 }
 
 @font-face {
   font-family: "La Belle Aurore";
-  src: url("./assets//fonts/LaBelleAurore.woff2") format("woff2");
+  src: url("./assets/Fonts/LaBelleAurore.woff2") format("woff2"),
+    url("./assets/Fonts/LaBelleAurore.woff") format("woff");
+  font-display: swap;
 }
 
 @font-face {
   font-family: "Coolvetica";
-  src: url("./assets//fonts/CoolveticaRg-Regular.woff2") format("woff2");
+  src: url("./assets/Fonts/CoolveticaRg-Regular.woff2") format("woff2"),
+    url("./assets/Fonts/CoolveticaRg-Regular.woff") format("woff");
+  font-display: swap;
 }
 
-input,
-textarea {
-  font-family: "Helvetica Neue";
-}
-
-* {
+*,
+*::before,
+*::after {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: "DM Sans", sans-serif;
 }
 
 html {
-  overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  scroll-behavior: smooth;
 }
 
 body {
   background-color: #ffffff;
-  color: #6d6d6d;
-  text-align: justify;
-  hyphens: auto;
-  word-spacing: -1px;
-  letter-spacing: 0.5px;
-  max-width: 1600px;
-  margin: auto;
+  color: $text;
+  font-family: $font-body;
+  line-height: 1.6;
+  letter-spacing: 0.2px;
+  overflow-x: clip;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+img,
+picture,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+img {
+  height: auto;
+}
+
+input,
+textarea,
+button,
+select {
+  font: inherit;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  line-height: 1.15;
+  overflow-wrap: break-word;
+  text-wrap: balance;
+}
+
+p {
+  overflow-wrap: break-word;
+  text-wrap: pretty;
 }
 
 a {
@@ -47,32 +83,29 @@ a {
   color: inherit;
 }
 
-@mixin mobile {
-  @media (max-width: 480px) {
-    @content;
-    html {
-      scroll-snap-type: none;
-      scroll-snap-align: none;
-    }
-  }
+ul {
+  list-style: none;
 }
 
-@mixin tablet {
-  @media screen and (min-width: 481px) and (max-width: 900px) {
-    @content;
-    html {
-      scroll-snap-type: none;
-      scroll-snap-align: none;
-    }
-
-    #section {
-      height: 30rem;
-    }
-  }
+button {
+  cursor: pointer;
 }
 
-@mixin laptop {
-  @media (min-width: 900px) {
-    @content;
+:focus-visible {
+  outline: 2px solid $gold;
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }
