@@ -1,0 +1,212 @@
+@use "sass:map";
+
+// Brand palette
+$gold: #be9d24;
+$gold-deep: #9b660d;
+$gold-soft: #f5e14f;
+$cream: #fdfce9;
+$ink: #2b2b2b;
+$text: #5a5a5a;
+$muted: #8a8a8a;
+$surface: #f6f5f1;
+$line: #e4e1d8;
+$dark: #1f1f1f;
+
+$radius-sm: 6px;
+$radius: 14px;
+$radius-pill: 999px;
+$shadow: 0 10px 30px -12px rgba(0, 0, 0, 0.25);
+$ease: cubic-bezier(0.22, 1, 0.36, 1);
+
+$font-body: "DM Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+$font-display: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+$font-script: "La Belle Aurore", cursive;
+
+$gutter: clamp(1rem, 4vw, 4rem);
+$container: 1280px;
+
+// Vertical rhythm
+$space-section: clamp(4rem, 10vw, 8rem); // between major page sections
+$space-block: clamp(2rem, 5vw, 3.5rem); // between a section heading and its content
+$space-stack: clamp(1rem, 2.5vw, 1.5rem); // between items inside a group
+
+$breakpoints: (
+  sm: 480px,
+  md: 768px,
+  lg: 1024px,
+  xl: 1280px,
+);
+
+@mixin down($bp) {
+  @media (max-width: (map.get($breakpoints, $bp) - 0.02px)) {
+    @content;
+  }
+}
+
+@mixin up($bp) {
+  @media (min-width: map.get($breakpoints, $bp)) {
+    @content;
+  }
+}
+
+// Hover effects only on devices that really hover (avoids sticky hover on touch)
+@mixin hover {
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      @content;
+    }
+  }
+}
+
+@mixin container {
+  width: min(100% - 2 * #{$gutter}, #{$container});
+  margin-inline: auto;
+}
+
+@mixin section-title {
+  font-family: $font-display;
+  font-size: clamp(2.25rem, 1.3rem + 4vw, 4.5rem);
+  font-weight: 600;
+  line-height: 1.05;
+  color: $gold-deep;
+  letter-spacing: -0.005em;
+  text-align: center;
+}
+
+@mixin section-lead {
+  font-size: clamp(0.95rem, 0.85rem + 0.5vw, 1.3rem);
+  font-weight: 300;
+  line-height: 1.6;
+  text-align: center;
+  max-width: 60ch;
+  margin-inline: auto;
+}
+
+@mixin btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  min-height: 48px;
+  padding: 0.85rem 1.6rem;
+  border: none;
+  border-radius: $radius-pill;
+  background-image: linear-gradient(to right, #888888, $gold-soft, #888888);
+  background-size: 200% 100%;
+  background-position: 0 0;
+  color: #3d3d3d;
+  font: 600 1rem/1 $font-body;
+  cursor: pointer;
+  transition: background-position 0.4s $ease, transform 0.25s $ease,
+    box-shadow 0.25s $ease;
+
+  svg {
+    transition: transform 0.25s $ease;
+  }
+
+  @include hover {
+    background-position: 100% 0;
+    transform: translateY(-2px);
+    box-shadow: $shadow;
+
+    svg {
+      transform: translateX(4px);
+    }
+  }
+
+  &:focus-visible {
+    outline: 2px solid $gold;
+    outline-offset: 3px;
+  }
+}
+
+// WhatsApp-green variant of the primary button
+@mixin btn-whatsapp {
+  @include btn-primary;
+  background-image: none;
+  background-color: #25d366;
+  color: #0b2e17;
+
+  @include hover {
+    background-color: #20bd5a;
+  }
+}
+
+// Outline button for dark backgrounds
+@mixin btn-ghost {
+  @include btn-primary;
+  background-image: none;
+  background-color: transparent;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.45);
+  color: #fff;
+
+  @include hover {
+    background-color: rgba(255, 255, 255, 0.08);
+    box-shadow: inset 0 0 0 1px $gold-soft;
+  }
+}
+
+// "Palette" label followed by colour dots (ul > li)
+@mixin palette($label-color: $muted) {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+
+  span {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: $label-color;
+  }
+
+  ul {
+    list-style: none;
+    display: flex;
+    gap: 0.4rem;
+  }
+
+  li {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    box-shadow: inset 0 0 0 1px rgba(127, 127, 127, 0.35);
+  }
+}
+
+// Fixed top bar that fades in a frosted surface when `$scrolled-class` is applied.
+// Blur lives on ::before: backdrop-filter on the bar would trap fixed children (mobile menu).
+@mixin fixed-bar($scrolled-class) {
+  position: fixed;
+  inset: 0 0 auto;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background-color: rgba(20, 20, 20, 0.92);
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.18);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.35s $ease;
+
+    @supports ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+      background-color: rgba(20, 20, 20, 0.6);
+      backdrop-filter: blur(14px) saturate(140%);
+      -webkit-backdrop-filter: blur(14px) saturate(140%);
+    }
+  }
+
+  &.#{$scrolled-class}::before {
+    opacity: 1;
+  }
+
+  .logo img {
+    transition: transform 0.35s $ease;
+  }
+
+  &.#{$scrolled-class} .logo img {
+    transform: scale(0.84);
+  }
+}

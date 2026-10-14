@@ -1,183 +1,121 @@
-@import "../../App.scss";
+@use "../../styles/abstracts" as *;
 
 .catalogBody {
-  padding: 6rem 0 4rem 0;
+  @include container;
   display: flex;
   flex-direction: column;
-  gap: 3rem;
-
-  @include tablet {
-    padding: 4rem 0;
-    gap: 2rem;
-  }
-
-  @include mobile {
-    padding: 4rem 0;
-    gap: 2rem;
-  }
+  align-items: center;
+  gap: $space-block;
+  padding-top: $space-section;
 
   .catalogTitle {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
-    text-align: center;
-    align-items: center;
-    justify-content: center;
-
-    @include tablet {
-      padding: 0 2rem;
-    }
-
-    @include mobile {
-      padding: 0 2rem;
-    }
+    gap: 0.75rem;
 
     h2 {
-      font-size: 4rem;
-      color: #9a670e;
-
-      @include tablet {
-        font-size: 3rem;
-      }
-
-      @include mobile {
-        font-size: 2.5rem;
-      }
+      @include section-title;
     }
 
     p {
-      font-size: 1.4rem;
-      font-weight: 300;
-      font-style: normal;
+      @include section-lead;
+    }
+  }
 
-      @media screen and (max-width: 900px) {
-        font-size: 1rem;
-        line-height: 1.3rem;
+  // Asymmetric lookbook: one tall feature tile + four supporting tiles
+  .pictures {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-areas:
+      "feature feature"
+      "a b"
+      "c d";
+    gap: $space-stack;
+    width: 100%;
+
+    @include up(md) {
+      grid-template-areas:
+        "feature a"
+        "feature b"
+        "c d";
+    }
+
+    @include up(lg) {
+      grid-template-columns: minmax(0, 1.35fr) repeat(2, minmax(0, 1fr));
+      grid-template-areas:
+        "feature a b"
+        "feature c d";
+    }
+
+    > :nth-child(1) { grid-area: feature; }
+    > :nth-child(2) { grid-area: a; }
+    > :nth-child(3) { grid-area: b; }
+    > :nth-child(4) { grid-area: c; }
+    > :nth-child(5) { grid-area: d; }
+  }
+
+  .singlePicture {
+    position: relative;
+    overflow: hidden;
+    border-radius: $radius;
+    background-color: $surface;
+
+    a {
+      display: block;
+      height: 100%;
+
+      &:focus-visible {
+        outline: 2px solid $gold;
+        outline-offset: 3px;
       }
+    }
 
-      @media screen and (max-width: 480px) {
-        font-size: 0.9rem;
-        line-height: 1.3rem;
+    img {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      object-position: top;
+      transition: transform 0.8s $ease;
+    }
+
+    span {
+      position: absolute;
+      inset: auto 0 0;
+      padding: 2.5rem 1rem 1rem;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+      color: #fff;
+      font-family: $font-display;
+      font-size: clamp(1.2rem, 1rem + 0.8vw, 1.6rem);
+      font-weight: 600;
+      line-height: 1.1;
+    }
+
+    @include hover {
+      img {
+        transform: scale(1.05);
       }
     }
   }
 
-  .pictures {
-    display: flex;
-    align-content: center;
-    justify-content: center;
-    background-color: #f6f6f6;
-    padding: 3rem 0;
-
-    .singlePictures {
-      width: fit-content;
-
+  // Feature tile fills both rows beside it (tablet/desktop)
+  .singlePicture:first-child {
+    @include up(md) {
       img {
-        object-fit: contain;
-        width: 20rem;
-        height: 20rem;
-
-        @include tablet {
-          width: fit-content;
-          height: 15rem;
-          margin: 0 auto;
-        }
-
-        @include mobile {
-          width: 10rem;
-          height: 10rem;
-          margin: 0 auto;
-        }
-      }
-    }
-
-    @include tablet {
-      width: 100%;
-
-      .singlePictures {
-        width: fit-content;
+        position: absolute;
+        inset: 0;
+        height: 100%;
+        aspect-ratio: auto;
       }
 
-      .carousel-root {
-        margin: 0 auto;
-        width: 50%;
+      span {
+        padding: 4rem 1.5rem 1.5rem;
+        font-size: clamp(1.8rem, 1.2rem + 1.5vw, 2.6rem);
       }
-    }
-
-    @include mobile {
-      padding: 3rem;
-      gap: 1em;
-      width: 100%;
-
-      .singlePictures {
-        width: fit-content;
-        height: 15rem;
-      }
-
-      .carousel-root {
-        margin: 0 auto;
-        width: 80%;
-      }
-
     }
   }
 
   .viewCatalog {
-    display: flex;
-    justify-content: end;
-
-    @media screen and (max-width: 900px) {
-      justify-content: center;
-    }
-
-    @media screen and (max-width: 480px) {
-      justify-content: center;
-    }
-
-    button {
-      display: flex;
-      width: fit-content;
-      margin-right: 5rem;
-      padding: 0.9rem 1.3rem;
-      background-image: linear-gradient(to right, #888888 0%, #f5e14f 100%);
-      color: #3d3d3d;
-      justify-content: center;
-      align-items: center;
-      gap: 1rem;
-      font-size: 1rem;
-      font-family: Verdana, Geneva, Tahoma, sans-serif;
-      font-style: normal;
-      font-weight: 600;
-      border: none;
-      border-radius: 6.25rem;
-      cursor: pointer;
-      transition: background-image 0.3s ease-in;
-
-      &:hover {
-        transform: scale(1.1);
-        background-image: linear-gradient(to right, #f5e14f 0%, #888888 100%);
-        transition: background-image 0.3s ease-in;
-      }
-
-      @media screen and (max-width: 900px) {
-        width: fit-content;
-        font-size: 1.1rem;
-        margin: auto;
-
-        &:hover {
-          transform: scale(1);
-        }
-      }
-
-      @media screen and (max-width: 480px) {
-        width: fit-content;
-        font-size: 1rem;
-        margin: auto;
-
-        &:hover {
-          transform: scale(1);
-        }
-      }
-    }
+    @include btn-primary;
   }
 }

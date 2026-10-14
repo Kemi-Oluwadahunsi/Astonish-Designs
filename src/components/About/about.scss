@@ -1,143 +1,68 @@
-@import "../../App.scss";
+@use "../../styles/abstracts" as *;
 
 .aboutContainer {
-  height: fit-content;
-  display: flex;
-  padding: 5rem 8rem 0 8rem;
-  justify-content: space-between;
+  @include container;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(2rem, 5vw, 5rem);
+  align-items: center;
+  padding-top: clamp(3rem, 8vw, 6rem);
 
-  @include tablet {
-    flex-direction: column;
-    padding: 1rem 2rem;
-    width: 100%;
-    height: auto;
-  }
-
-  @include mobile {
-    flex-direction: column;
-    padding: 1rem 2rem;
-    width: 100%;
-    height: auto;
+  @include up(md) {
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1fr);
   }
 
   .leftImage {
-    width: 50%;
+    overflow: hidden;
+    border-radius: $radius;
+    box-shadow: $shadow;
 
-    @include tablet {
-      display: none;
+    img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      object-position: top;
+      transition: transform 0.8s $ease;
+
+      @include up(md) {
+        aspect-ratio: 4 / 5;
+      }
     }
 
-    @include mobile {
-      display: none;
+    @include hover {
+      img {
+        transform: scale(1.04);
+      }
     }
   }
 
   .rightText {
-    width: 45%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 2rem;
-    gap: 3rem;
+    gap: clamp(1.25rem, 3vw, 2.5rem);
 
-    @include tablet {
-      width: 100%;
-      gap: 1.5rem;
+    @include up(md) {
+      align-items: flex-start;
     }
 
-    @include mobile {
-      width: 100%;
-      gap: 1rem;
-    }
+    h2 {
+      @include section-title;
 
-    h1 {
-      font-size: 4rem;
-      color: #9b660d;
-
-      @include tablet {
-        font-size: 3rem;
-      }
-
-      @include mobile {
-        font-size: 2.5rem;
+      @include up(md) {
+        text-align: left;
       }
     }
 
-    .textAbout {
-      font-size: 1.2rem;
-      line-height: 2rem;
-      font-weight: 500;
-      font-style: normal;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      gap: 2rem;
-      color: #6d6d6d;
-
-      @include tablet {
-        font-size: 1rem;
-        line-height: 1.7rem;
-        letter-spacing: 1px;
-        text-wrap: balance;
-      }
-
-      @include mobile {
-        font-size: 0.9rem;
-        line-height: 1.5rem;
-        letter-spacing: 1px;
-        text-wrap: balance;
-      }
+    p {
+      font-size: clamp(1rem, 0.9rem + 0.35vw, 1.2rem);
+      line-height: 1.85;
+      font-weight: 400;
+      max-width: 62ch;
     }
 
     .readMore {
-      display: flex;
-      align-items: flex-end;
-      justify-content: center;
-    }
-
-    button {
-      display: flex;
-      width: fit-content;
-      margin-right: 5rem;
-      padding: 0.9rem 1.3rem;
-      background-image: linear-gradient(to right, #888888 0%, #f5e14f 100%);
-      color: #3d3d3d;
-      justify-content: center;
-      align-items: center;
-      gap: 1rem;
-      font-size: 1rem;
-      font-family: Verdana, Geneva, Tahoma, sans-serif;
-      font-style: normal;
-      font-weight: 600;
-      border: none;
-      border-radius: 6.25rem;
-      cursor: pointer;
-      transition: background-image 0.1s ease;
-
-      &:hover {
-        transform: scale(1.1);
-        background-image: linear-gradient(to right, #f5e14f 0%, #888888 100%);
-      }
-
-      @include tablet {
-        font-size: 1rem;
-        width: fit-content;
-        margin: auto;
-
-        &:hover {
-          transform: scale(1);
-        }
-      }
-
-      @include mobile {
-        width: 65%;
-        font-size: 1rem;
-        margin: auto;
-
-        &:hover {
-          transform: scale(1);
-        }
-      }
+      @include btn-primary;
     }
   }
 }

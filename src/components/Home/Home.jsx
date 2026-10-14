@@ -5,77 +5,98 @@ import Catalogue from "../Catalogue/Catalogue";
 import Testimonial from "../Testimonials/Testimonial";
 import Contact from "../Contact/Contact";
 import Header from "../Header/Header";
-import PropTypes from "prop-types";
-import { animateScroll as scroll } from "react-scroll";
 import { useState, useRef, useEffect } from "react";
 import Navbar from "../Navbar/Navbar";
-import { motion, AnimatePresence } from "framer-motion";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
+import Seo from "../Seo/Seo";
+import { socials } from "../../data/socials";
+import { WHATSAPP_NUMBER } from "../../data/whatsapp";
+import { SITE_NAME, SITE_URL } from "../../data/site";
 
+const sentence = "A Style For Every Age";
 
-const Home = ({ showContact, toggleContact }) => {
+const storeSchema = {
+  "@context": "https://schema.org",
+  "@type": "ClothingStore",
+  name: SITE_NAME,
+  slogan: sentence,
+  url: `${SITE_URL}/`,
+  logo: `${SITE_URL}/images/logooriginal-640.webp`,
+  image: `${SITE_URL}/og/default.jpg`,
+  telephone: `+${WHATSAPP_NUMBER}`,
+  founder: { "@type": "Person", name: "Esosa Igbinedion" },
+  foundingDate: "2020",
+  sameAs: socials.map((s) => s.href),
+};
+
+const Home = () => {
   const [text, setText] = useState("");
   const contactRef = useRef(null);
+
   const scrollToContact = () => {
-    console.log("Scrolling to contact");
-    scroll.scrollTo(contactRef.current.offsetTop, {
-      duration: 800,
-      offset: -50,
-      smooth: "easeInOutQuad",
-    });
+    contactRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
-  const sentence = "A Style For Every Age";
-
   useEffect(() => {
+    let interval;
+    let timeout;
+
     const typingAnimation = () => {
       let index = 0;
-      const interval = setInterval(() => {
+      interval = setInterval(() => {
         setText(sentence.slice(0, index));
         index++;
         if (index > sentence.length) {
           clearInterval(interval);
-          setTimeout(typingAnimation, 5000);
+          timeout = setTimeout(typingAnimation, 5000);
         }
       }, 100);
-
-      return () => clearInterval(interval);
     };
 
     typingAnimation();
+    return () => {
+      clearInterval(interval);
+      clearTimeout(timeout);
+    };
   }, []);
 
   return (
-    <div className="mainBody">
-      
-      <div className="main">
-        <Header scrollToContact={scrollToContact} isAboutPage={false} />
+    <main className="mainBody">
+      <Seo
+        description="Astonish Designs is a Nigerian fashion house making bespoke, ready-to-wear and special occasion outfits. A style for every age."
+        path="/"
+      >
+        <script type="application/ld+json">{JSON.stringify(storeSchema)}</script>
+      </Seo>
+      <section className="main">
+        <Header scrollToContact={scrollToContact} />
         <Navbar scrollToContact={scrollToContact} />
         <div className="mainContent">
-          <div className="text">
-            <h1>Astonish</h1>
-            <h1 className="design">Designs</h1>
-            <AnimatePresence>
-              <motion.span>{text}</motion.span>
-            </AnimatePresence>
+          <div className="heroCopy">
+            <h1 className="text">
+              <span className="brand">Astonish</span>
+              <span className="brand design">Designs</span>
+            </h1>
+            <p className="tagline" aria-label={sentence}>
+              <span aria-hidden="true">{text}</span>
+              <span className="caret" aria-hidden="true" />
+            </p>
           </div>
         </div>
-      </div>
+        <a href="#about" className="scrollCue" aria-label="Scroll to About section">
+          <span aria-hidden="true">Scroll</span>
+          <FontAwesomeIcon icon={faChevronDown} />
+        </a>
+      </section>
 
       <About />
       <Services />
       <Catalogue />
       <Testimonial />
-      <Contact
-        showContact={showContact}
-        toggleContact={toggleContact}
-        updateButtonText={() => {}}
-        ref={contactRef}
-      />
-    </div>
+      <Contact ref={contactRef} />
+    </main>
   );
 };
-Home.propTypes = {
-  showContact: PropTypes.bool.isRequired,
-  toggleContact: PropTypes.func.isRequired,
-};
+
 export default Home;

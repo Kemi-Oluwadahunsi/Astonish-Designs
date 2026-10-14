@@ -1,60 +1,49 @@
-@import "../../App.scss";
+@use "../../styles/abstracts" as *;
 
 .scroll-buttons {
+  position: fixed;
+  right: calc(clamp(0.75rem, 2vw, 1.5rem) + env(safe-area-inset-right));
+  bottom: calc(clamp(0.75rem, 2vw, 1.5rem) + env(safe-area-inset-bottom));
+  z-index: 900;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
 
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-
-  .btn-Scroll {
-    position: fixed;
-    bottom: 2rem;
-    font-size: 2.8rem;
-    z-index: 10001;
-    cursor: pointer;
-    color: #f1cf1e;
-    right: 1.6%;
-    border-radius: 50px;
+  .fab {
+    display: grid;
+    place-items: center;
+    width: clamp(46px, 5vw, 54px);
+    height: clamp(46px, 5vw, 54px);
     border: none;
-    opacity: 0.9;
-
-    @include tablet {
-      bottom: 2rem;
-      font-size: 2.4rem;
-    }
-
-    @include mobile {
-      bottom: 1rem;
-      font-size: 2.1rem;
-      right: 2%;
-    }
-  }
-
-  .btn-whatsapp {
-    position: fixed;
-    bottom: 6rem;
-    right: 1.5%;
-    font-size: 2rem;
-    z-index: 10001;
-    cursor: pointer;
-    color: #ffffff;
-    background-color: #25d366;
     border-radius: 50%;
-    padding: 5px 10px;
-    border: none;
-    opacity: 0.9;
-    text-decoration: none;
+    font-size: clamp(1.25rem, 2vw, 1.5rem);
+    cursor: pointer;
+    box-shadow: 0 6px 18px -6px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s $ease, opacity 0.3s $ease, visibility 0.3s;
 
-    @include tablet {
-      bottom: 5rem;
-      padding: 4.5px 9px;
-      font-size: 1.7em;
+    @include hover {
+      transform: translateY(-3px);
     }
 
-    @include mobile {
-      bottom: 3.5rem;
-      padding: .2rem .4rem;
-      font-size: 1.7em;
+    &--whatsapp {
+      background-color: #25d366;
+      color: #fff;
+      font-size: clamp(1.5rem, 2.4vw, 1.8rem);
+    }
+
+    &--top {
+      background-color: $dark;
+      color: $gold-soft;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(10px);
+
+      &.is-visible {
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+      }
     }
   }
 }

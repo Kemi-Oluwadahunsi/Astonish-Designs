@@ -1,92 +1,62 @@
 import "./catalogue.scss";
+import Img from "../Img/Img";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
-import { Carousel } from "react-responsive-carousel";
-import "react-responsive-carousel/lib/styles/carousel.min.css";
-import { useMediaQuery } from "react-responsive";
-import adelle2 from "../../../public/images/adelle/adelle2.webp";
-import catalog4 from "../../../public/images/catalog4.jpg";
+import { getCollection } from "../../data/collections";
+import Reveal from "../Reveal/Reveal";
+import { loadCatalogue, loadCollection } from "../../routes";
+
+// First entry is the tall feature tile; the rest fill the smaller grid cells.
+const previews = ["special-occasions", "ross", "bespoke", "kids", "ready-to-wear"].map(
+  getCollection
+);
 
 const Catalogue = () => {
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  };
-
-  const isTabletOrMobile = useMediaQuery({ query: "(max-width: 900px)" });
-
   return (
-    <div className="catalogBody">
-      <div className="catalogTitle">
+    <section className="catalogBody">
+      <Reveal className="catalogTitle">
         <h2>Catalogue</h2>
         <p>
           Explore our curated selection of timeless pieces crafted with
           precision and passion.
         </p>
-      </div>
+      </Reveal>
 
-      <div className="pictures">
-        {isTabletOrMobile ? (
-          <Carousel
-            showArrows={false}
-            infiniteLoop={true}
-            autoPlay={true}
-            interval={3000}
-            showStatus={false}
-            showThumbs={false}
-            stopOnHover={true}
-            emulateTouch={true}
-            swipeable={true}
-          >
-            <div>
-              <img src="/images/ross/ross2.webp" alt="pictures" />
-            </div>
+      <ul className="pictures">
+        {previews.map(({ slug, title, cover }, i) => (
+          <Reveal as="li" className="singlePicture" key={slug} delay={i * 0.08}>
+            <Link
+              to={`/catalogue/${slug}`}
+              onMouseEnter={loadCollection}
+              onFocus={loadCollection}
+            >
+              <Img
+                src={cover}
+                alt=""
+                sizes={
+                  i === 0
+                    ? "(min-width: 768px) 40vw, 100vw"
+                    : "(min-width: 1024px) 25vw, 50vw"
+                }
+              />
+              <span>{title}</span>
+            </Link>
+          </Reveal>
+        ))}
+      </ul>
 
-            <div>
-              <img src="/images/catalog3.jpg" alt="pictures" />
-            </div>
-
-            <div>
-              <img src={adelle2} alt="pictures" />
-            </div>
-
-            <div>
-              <img src={catalog4} alt="pictures" />
-            </div>
-          </Carousel>
-        ) : (
-          <>
-            <div className="singlePictures">
-              <img src="/images/ross/ross1.webp" alt="pictures" />
-            </div>
-
-            <div className="singlePictures">
-              <img src="/images/catalog3.jpg" alt="pictures" />
-            </div>
-
-            <div className="singlePictures">
-              <img src={adelle2} alt="pictures" />
-            </div>
-
-            <div className="singlePictures">
-              <img src={catalog4} alt="pictures" />
-            </div>
-          </>
-        )}
-      </div>
-
-      <Link to="/catalogue">
-        <div className="viewCatalog">
-          <button onClick={scrollToTop}>
-            View Catalogue
-            <FontAwesomeIcon icon={faArrowRight} />
-          </button>
-        </div>
+      <Link
+        to="/catalogue"
+        className="viewCatalog"
+        onMouseEnter={loadCatalogue}
+        onFocus={loadCatalogue}
+        onTouchStart={loadCatalogue}
+      >
+        View Catalogue
+        <FontAwesomeIcon icon={faArrowRight} />
       </Link>
-    </div>
+    </section>
   );
 };
 

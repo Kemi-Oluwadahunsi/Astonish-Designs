@@ -1,115 +1,89 @@
 import { Link } from "react-router-dom";
 import "./footer.scss";
+import Img from "../Img/Img";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faFacebookSquare,
-  faInstagram,
-  faLinkedin,
-  faXTwitter,
-} from "@fortawesome/free-brands-svg-icons";
+import { socials } from "../../data/socials";
 
 const Footer = () => {
   const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
+
   return (
-    <div className="footer">
+    <footer className="footer">
       <div className="firstFooter">
-        <div className="logoOriginal">
-          <img src="/images/logoOriginal.jpg" alt="logo" width={100} />
+        <div className="brandCol">
+          <Img
+            src="/images/logoOriginal.jpg"
+            alt="Astonish Designs logo"
+            sizes="88px"
+            width={88}
+            height={88}
+          />
+          <p>A Style For Every Age.</p>
         </div>
 
-        <div className="footerLinks">
+        <nav className="footerCol" aria-label="Footer">
+          <h3>Explore</h3>
           <ul>
-            <li onClick={scrollToTop}>
-              <Link to="/">Home</Link>
+            <li>
+              <Link to="/" onClick={scrollToTop}>Home</Link>
             </li>
-            <li onClick={scrollToTop}>
-              <Link to="/about">About Us</Link>
+            <li>
+              <Link to="/about" onClick={scrollToTop}>About Us</Link>
             </li>
-
-            <li onClick={scrollToTop}>
-              <Link to="/catalogue">Catalogue</Link>
+            <li>
+              <Link to="/catalogue" onClick={scrollToTop}>Catalogue</Link>
             </li>
           </ul>
+        </nav>
 
-          <div className="externalLinks">
-            <a
-              href="https://leadingladiesafrica.org/from-threads-to-trends-esosa-igbinedion-is-carving-her-way-into-the-fashion-industry/"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Featured Blog
-            </a>
-            <a href="https://www.elle.com" target="_blank" rel="noreferrer">
-              Fashion Magazine
-            </a>
-
-            <a href="https://www.elle.com" target="_blank" rel="noreferrer">
-              Fashionista
-            </a>
-          </div>
-        </div>
-
-        <div className="socials">
+        <div className="footerCol">
+          <h3>Press</h3>
           <ul>
             <li>
               <a
-                href="https://www.instagram.com/astonishdesigns"
+                href="https://leadingladiesafrica.org/from-threads-to-trends-esosa-igbinedion-is-carving-her-way-into-the-fashion-industry/"
                 target="_blank"
                 rel="noreferrer"
-                className="instagram"
               >
-                <FontAwesomeIcon icon={faInstagram} />
+                Featured Blog
               </a>
             </li>
-
             <li>
-              <a
-                href="https://www.facebook.com/officialastonishdesigns"
-                target="_blank"
-                rel="noreferrer"
-                className="facebook"
-              >
-                <FontAwesomeIcon icon={faFacebookSquare} />
+              <a href="https://www.elle.com" target="_blank" rel="noreferrer">
+                Fashion Magazine
               </a>
             </li>
-
             <li>
-              <a
-                href="https://www.facebook.com/officialastonishdesigns"
-                target="_blank"
-                rel="noreferrer"
-                className="xTwitter"
-              >
-                <FontAwesomeIcon icon={faXTwitter} />
+              <a href="https://www.elle.com" target="_blank" rel="noreferrer">
+                Fashionista
               </a>
             </li>
+          </ul>
+        </div>
 
-            <li>
-              <a
-                href="https://www.facebook.com/officialastonishdesigns"
-                target="_blank"
-                rel="noreferrer"
-                className="linkedin"
-              >
-                <FontAwesomeIcon icon={faLinkedin} />
-              </a>
-            </li>
+        <div className="footerCol">
+          <h3>Follow</h3>
+          <ul className="socials">
+            {socials.map(({ href, icon, label }) => (
+              <li key={label}>
+                <a href={href} target="_blank" rel="noreferrer" aria-label={label}>
+                  <FontAwesomeIcon icon={icon} />
+                </a>
+              </li>
+            ))}
           </ul>
         </div>
       </div>
 
       <div className="secondFooter">
-        <div className="rights">
-          <span className="circleC">&#169;</span> {new Date().getFullYear()}{" "}
-          Astonish Designs. All rights reserved.
-        </div>
+        <p className="rights">
+          &copy; {new Date().getFullYear()} Astonish Designs. All rights
+          reserved.
+        </p>
       </div>
-    </div>
+    </footer>
   );
 };
 

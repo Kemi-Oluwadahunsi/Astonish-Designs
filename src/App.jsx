@@ -1,57 +1,43 @@
 import "./App.scss";
-// import { BrowserRouter as Routes, Route, Switch } from "react-router-dom";
+import { lazy, Suspense } from "react";
 import Footer from "./components/Footer/Footer";
 import Home from "./components/Home/Home";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import AboutMajor from "./components/AboutMajor/AboutMajor";
-import CatalogueMain from "./components/CatalogueMain/CatalogueMain";
-import { useState } from "react";
+import ScrollToTop from "./components/ScrollToTop";
 import ScrollArrow from "./components/backarrow/ScrollArrow";
 import { HelmetProvider } from "react-helmet-async";
+import { LazyMotion } from "framer-motion";
+import { loadAbout, loadCatalogue, loadCollection, loadNotFound } from "./routes";
+
+const AboutMajor = lazy(loadAbout);
+const CatalogueMain = lazy(loadCatalogue);
+const CollectionPage = lazy(loadCollection);
+const NotFound = lazy(loadNotFound);
+
+const loadMotionFeatures = () =>
+  import("./motionFeatures").then((mod) => mod.default);
 
 function App() {
-  const [showContact, setShowContact] = useState(true);
-
-  const toggleContact = () => {
-    setShowContact((prevShowContact) => !prevShowContact);
-  };
-
   return (
-    <>
+    <LazyMotion features={loadMotionFeatures} strict>
       <ScrollArrow />
       <HelmetProvider>
         <Router>
-          <Routes>
-            <Route
-              path="/"
-              element={
-                <Home showContact={showContact} toggleContact={toggleContact} />
-              }
-            />
-            <Route
-              path="/about"
-              element={
-                <AboutMajor
-                  showContact={showContact}
-                  toggleContact={toggleContact}
-                />
-              }
-            />
-            <Route
-              path="/catalogue"
-              element={
-                <CatalogueMain
-                  showContact={showContact}
-                  toggleContact={toggleContact}
-                />
-              }
-            />
-          </Routes>
+          <ScrollToTop />
+          <Suspense fallback={<div className="routeFallback" aria-busy="true" />}>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/about" element={<AboutMajor />} />
+              <Route path="/catalogue" element={<CatalogueMain />} />
+              <Route path="/catalogue/:slug" element={<CollectionPage />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </Suspense>
 
           <Footer />
         </Router>
       </HelmetProvider>
-    </>
+    </LazyMotion>
   );
 }
 

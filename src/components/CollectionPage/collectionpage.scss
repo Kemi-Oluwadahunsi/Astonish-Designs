@@ -1,0 +1,344 @@
+@use "../../styles/abstracts" as *;
+
+.collectionPage {
+  display: flex;
+  flex-direction: column;
+  gap: $space-section;
+  padding-bottom: $space-section;
+
+  .tag {
+    align-self: flex-start;
+    padding: 0.3rem 0.7rem;
+    border-radius: $radius-pill;
+    background-color: rgba($gold-soft, 0.12);
+    color: $gold-soft;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .whatsappButton {
+    @include btn-whatsapp;
+  }
+
+  .ghostButton {
+    @include btn-ghost;
+  }
+
+  .contactButton {
+    @include btn-primary;
+  }
+
+  h2 {
+    @include section-title;
+  }
+
+  > .contactContainer {
+    animation: contactIn 0.5s $ease;
+  }
+}
+
+// Full-bleed hero: copy on the left, cover image flush to the right edge
+.collectionHero {
+  padding-top: var(--header-h);
+  background-color: $dark;
+  color: $cream;
+
+  .heroGrid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+
+    @include up(md) {
+      grid-template-columns: minmax(0, 11fr) minmax(0, 9fr);
+      min-height: calc(min(100svh, 56rem) - var(--header-h));
+    }
+  }
+
+  .heroText {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.1rem;
+    padding: clamp(1.5rem, 5vw, 4rem) $gutter clamp(2rem, 6vw, 5rem);
+
+    @include up(md) {
+      padding-left: max(#{$gutter}, calc((100vw - #{$container}) / 2));
+    }
+
+    h1 {
+      font-size: clamp(3rem, 1.8rem + 5vw, 6rem);
+      line-height: 0.95;
+      color: $gold;
+    }
+
+    > p {
+      max-width: 46ch;
+      font-size: clamp(1rem, 0.95rem + 0.35vw, 1.2rem);
+      line-height: 1.7;
+      color: rgba($cream, 0.85);
+    }
+
+    .palette {
+      @include palette(rgba($cream, 0.6));
+    }
+  }
+
+  .breadcrumb {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    letter-spacing: 0.04em;
+    color: rgba($cream, 0.6);
+
+    a {
+      color: $gold-soft;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+  }
+
+  .heroActions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+  }
+
+  .heroMedia {
+    position: relative;
+    overflow: hidden;
+    background-color: #2a2a2a;
+
+    img {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      max-height: 80svh;
+      object-fit: cover;
+      object-position: top;
+
+      @include up(md) {
+        position: absolute;
+        inset: 0;
+        height: 100%;
+        aspect-ratio: auto;
+        max-height: none;
+      }
+    }
+  }
+}
+
+.looks {
+  @include container;
+  display: flex;
+  flex-direction: column;
+  gap: $space-block;
+
+  .looksLead {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: -1rem;
+    color: $muted;
+    text-align: center;
+
+    svg {
+      color: $gold-deep;
+    }
+  }
+
+  .lookGrid {
+    list-style: none;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: $space-stack;
+
+    @include up(sm) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    @include up(lg) {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+
+  figure {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    margin: 0;
+  }
+
+  figcaption {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    font-weight: 600;
+    color: $ink;
+  }
+
+  .lookEnquire {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    min-height: 44px;
+    padding-inline: 0.25rem;
+    color: #128c4a;
+    font-size: 0.9rem;
+    font-weight: 600;
+
+    @include hover {
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+  }
+}
+
+// Zoomable look tile: expand badge is always visible so the click affordance is obvious
+.galleryItem {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: none;
+  border-radius: $radius-sm;
+  overflow: hidden;
+  background-color: #eee;
+  cursor: zoom-in;
+
+  img {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    object-position: top;
+    transition: transform 0.8s $ease;
+  }
+
+  .viewHint {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    display: inline-flex;
+    align-items: center;
+    min-width: 2.25rem;
+    height: 2.25rem;
+    padding-inline: 0.7rem;
+    border-radius: $radius-pill;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    font-size: 0.85rem;
+    backdrop-filter: blur(4px);
+  }
+
+  .viewHintLabel {
+    max-width: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    opacity: 0;
+    transition: max-width 0.35s $ease, opacity 0.25s $ease, margin 0.35s $ease;
+  }
+
+  &:hover,
+  &:focus-visible {
+    img {
+      transform: scale(1.05);
+    }
+
+    .viewHintLabel {
+      max-width: 8rem;
+      margin-left: 0.45rem;
+      opacity: 1;
+    }
+  }
+}
+
+.collectionPage > .enquire {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+  padding-inline: $gutter;
+  text-align: center;
+
+  p {
+    font-family: $font-display;
+    font-size: clamp(1.75rem, 1.2rem + 2vw, 3rem);
+    font-weight: 600;
+    line-height: 1.1;
+    color: $ink;
+  }
+
+  .enquireActions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+  }
+}
+
+.otherCollections {
+  display: flex;
+  flex-direction: column;
+  gap: $space-block;
+
+  .otherStrip {
+    list-style: none;
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: clamp(10rem, 42vw, 15rem);
+    gap: $space-stack;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: $gutter;
+    padding: 0 max(#{$gutter}, calc((100vw - #{$container}) / 2)) 0.75rem;
+    scrollbar-width: thin;
+    scrollbar-color: $gold transparent;
+
+    li {
+      scroll-snap-align: start;
+    }
+  }
+
+  .otherCard {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    border-radius: $radius;
+    background-color: $surface;
+
+    img {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      object-fit: cover;
+      object-position: top;
+      transition: transform 0.8s $ease;
+    }
+
+    span {
+      position: absolute;
+      inset: auto 0 0;
+      padding: 2.5rem 1rem 1rem;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.75), transparent);
+      color: #fff;
+      font-family: $font-display;
+      font-size: 1.4rem;
+      font-weight: 600;
+      line-height: 1.1;
+    }
+
+    @include hover {
+      img {
+        transform: scale(1.05);
+      }
+    }
+
+    &:focus-visible {
+      outline: 2px solid $gold;
+      outline-offset: 3px;
+    }
+  }
+}

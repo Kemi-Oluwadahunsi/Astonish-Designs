@@ -1,0 +1,74 @@
+@use "../../styles/abstracts" as *;
+
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: max(3.5rem, env(safe-area-inset-top)) 1rem
+    max(1rem, env(safe-area-inset-bottom));
+  background-color: rgba(0, 0, 0, 0.9);
+  animation: modalIn 0.25s ease-out;
+  cursor: zoom-out;
+
+  .modalImage {
+    max-width: min(92vw, 900px);
+    max-height: 85svh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border-radius: $radius-sm;
+    cursor: default;
+    animation: modalImageIn 0.35s $ease;
+  }
+
+  &--withActions .modalImage {
+    max-height: calc(85svh - 4.5rem);
+  }
+
+  .modalActions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+    cursor: default;
+  }
+
+  .modalClose {
+    position: absolute;
+    top: max(0.75rem, env(safe-area-inset-top));
+    right: max(0.75rem, env(safe-area-inset-right));
+    display: grid;
+    place-items: center;
+    width: 48px;
+    height: 48px;
+    border: none;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.15);
+    color: #fff;
+    font-size: 1.4rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.3);
+    }
+  }
+}
+
+@keyframes modalIn {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes modalImageIn {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+}

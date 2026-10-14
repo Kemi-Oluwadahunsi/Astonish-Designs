@@ -1,103 +1,143 @@
-@import "../../App.scss";
+@use "../../styles/abstracts" as *;
 
 .mainBody {
   .main {
-    height: 50rem;
-    background: linear-gradient(
-        to bottom,
-        rgba(0, 0, 0, 0.5),
-        rgba(0, 0, 0, 0.5)
-      ),
-      url(/images/hero-back2.jpg);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    position: relative;
     display: flex;
     flex-direction: column;
-    gap: 5rem;
-    padding: 0 4rem;
+    min-height: 30rem;
+    min-height: max(30rem, 100vh);
+    min-height: max(30rem, 100svh);
+    padding-top: var(--header-h);
+    $hero-shade: linear-gradient(to bottom, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.45));
+    background: $hero-shade, url(/images/hero-back2-1280.webp) center / cover no-repeat;
+    background-image: $hero-shade,
+      image-set(
+        url(/images/hero-back2-1920.avif) type("image/avif"),
+        url(/images/hero-back2-1920.webp) type("image/webp")
+      );
 
-    @include tablet {
-      height: 33rem;
-      gap: 3rem;
-      padding: 0;
-    }
-
-    @include mobile {
-      height: 25rem;
-      gap: 3rem;
-      padding: 0;
+    @include down(md) {
+      background-image: $hero-shade,
+        image-set(
+          url(/images/hero-back2-1280.avif) type("image/avif"),
+          url(/images/hero-back2-1280.webp) type("image/webp")
+        );
     }
 
     .mainContent {
+      flex: 1;
       display: flex;
-      color:#b0b0b0;
-      flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 2rem;
+      padding: 2rem $gutter clamp(3rem, 8vh, 6rem);
+    }
 
-      @include tablet {
-      }
+    .heroCopy {
+      display: flex;
+      flex-direction: column;
+      max-width: 100%;
+    }
 
-      @include mobile {
-      }
+    .text {
+      display: flex;
+      flex-direction: column;
+      color: $gold;
+      font-family: $font-display;
+      font-size: clamp(3.5rem, 0.5rem + 14vw, 13rem);
+      font-weight: 500;
+      line-height: 0.9;
+      letter-spacing: -0.015em;
+      white-space: nowrap;
 
-      .text {
-        h1 {
-        color: #be9d24;
-          line-height: 12rem;
-          font-size: 12rem;
-          letter-spacing: 1px;
-
-          @include tablet {
-            font-size: 6rem;
-            line-height: 6rem;
-          }
-
-          @include mobile {
-            font-size: 4rem;
-            line-height: 4rem;
-          }
-        }
-
-        .design {
-          margin-left: 1em;
-
-          @include mobile {
-            margin-left: 0.5em;
-          }
-        }
-        span {
-          display: block;
-          font-size: 3em;
-          font-family: "Helvetica Neue";
-          padding-left: 6em;
-          color: #fdfce9;
-          margin-top: 1rem;
-
-          @include tablet {
-            display: block;
-            margin-top: 0.5rem;
-            font-size: 2em;
-            padding-left: 4em;
-          }
-
-          @include mobile {
-            display: block;
-            margin-top: 0.5rem;
-            font-size: 1.3em;
-            padding-left: 3em;
-          }
-        }
-      }
-
-      .rightMain {
-        width: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+      .design {
+        margin-left: 0.6em;
+        font-style: italic;
       }
     }
+
+    .tagline {
+      display: flex;
+      align-items: center;
+      min-height: 1.4em;
+      margin-top: clamp(1rem, 3vh, 2rem);
+      padding-left: 30%;
+      color: $cream;
+      font-family: $font-display;
+      font-style: italic;
+      font-weight: 500;
+      font-size: clamp(1.35rem, 0.8rem + 2.8vw, 3.5rem);
+
+      @include down(sm) {
+        padding-left: 12%;
+      }
+    }
+
+    .caret {
+      display: inline-block;
+      flex-shrink: 0;
+      width: 2px;
+      height: 1em;
+      margin-left: 4px;
+      background-color: $gold;
+      animation: blink 1s steps(1) infinite;
+    }
+
+    .scrollCue {
+      position: absolute;
+      left: 50%;
+      bottom: max(1.25rem, env(safe-area-inset-bottom));
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.35rem;
+      min-width: 48px;
+      padding: 0.5rem;
+      color: $cream;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      opacity: 0.85;
+      transform: translateX(-50%);
+      transition: color 0.25s $ease, opacity 0.25s $ease;
+
+      svg {
+        font-size: 1rem;
+        color: $gold;
+        animation: nudge 1.8s $ease infinite;
+      }
+
+      @include hover {
+        opacity: 1;
+        color: $gold;
+      }
+
+      &:focus-visible {
+        outline: 2px solid $gold;
+        outline-offset: 4px;
+        border-radius: $radius-sm;
+      }
+
+      @media (max-height: 560px) {
+        display: none;
+      }
+    }
+  }
+}
+
+@keyframes nudge {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(6px);
+  }
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
   }
 }

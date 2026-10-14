@@ -1,68 +1,68 @@
 import Header from "../Header/Header";
 import "./cataloguemain.scss";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Contact from "../Contact/Contact";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
-import PropTypes from "prop-types";
+import { faArrowRight, faTimes } from "@fortawesome/free-solid-svg-icons";
 import Navbar from "../Navbar/Navbar";
 import Collections from "./Collections";
+import Seo from "../Seo/Seo";
 
-const CatalogueMain = ({ showContact, toggleContact }) => {
-  const [buttonText, setButtonText] = useState("Click to close");
-
-  const updateButtonText = (text) => {
-    setButtonText(text);
-  };
+const CatalogueMain = () => {
+  const [showContact, setShowContact] = useState(false);
+  const contactRef = useRef(null);
 
   const scrollToContact = () => {
-    const contactMeSection = document.getElementById("contactMe");
-    contactMeSection.scrollIntoView({ behavior: "smooth" });
+    document
+      .getElementById("contactMe")
+      ?.scrollIntoView({ behavior: "smooth" });
   };
 
+  useEffect(() => {
+    if (showContact) {
+      contactRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }, [showContact]);
+
   return (
-    <>
-      <div className="catalogueMain">
-        <div className="subHeader">
-          <Header scrollToContact={scrollToContact} />
-          <Navbar scrollToContact={scrollToContact} />
-          <div className="catalogueMainTitle">
-            <h1>Our Collections</h1>
-            <p>
-              Explore our curated selection of timeless pieces crafted with
-              precision and passion, designed to inspire confidence and
-              captivate the senses.
-            </p>
-          </div>
-        </div>
-
-        <Collections />
-
-        <div className="contactMe" id="contactMe">
-          <p>Let&apos;s Make Your Dream Outfits Real!</p>
-          <button onClick={toggleContact} className="contactButton">
-            {showContact ? "Contact Us Now" : buttonText}
-            <FontAwesomeIcon icon={faArrowRight} />
-          </button>
+    <main className="catalogueMain">
+      <Seo
+        title="Catalogue"
+        description="Browse every Astonish Designs collection: bespoke pieces, ready-to-wear, special occasion outfits and kids' wear, with colour palettes and full lookbooks."
+        path="/catalogue"
+      />
+      <div className="subHeader">
+        <Header scrollToContact={scrollToContact} />
+        <Navbar scrollToContact={scrollToContact} />
+        <div className="catalogueMainTitle">
+          <h1>Our Collections</h1>
+          <p>
+            Explore our curated selection of timeless pieces crafted with
+            precision and passion, designed to inspire confidence and captivate
+            the senses.
+          </p>
         </div>
       </div>
 
-      {!showContact && (
-        <Contact
-          showContact={showContact}
-          toggleContact={toggleContact}
-          updateButtonText={updateButtonText}
-        />
-      )}
-    </>
-  );
-};
+      <Collections />
 
-CatalogueMain.propTypes = {
-  showContact: PropTypes.bool.isRequired,
-  toggleContact: PropTypes.func.isRequired,
+      <div className="contactMe" id="contactMe">
+        <p>Let&apos;s Make Your Dream Outfits Real!</p>
+        <button
+          type="button"
+          onClick={() => setShowContact((open) => !open)}
+          className="contactButton"
+          aria-expanded={showContact}
+          aria-controls="contact"
+        >
+          {showContact ? "Close form" : "Contact Us Now"}
+          <FontAwesomeIcon icon={showContact ? faTimes : faArrowRight} />
+        </button>
+      </div>
+
+      {showContact && <Contact ref={contactRef} />}
+    </main>
+  );
 };
 
 export default CatalogueMain;
