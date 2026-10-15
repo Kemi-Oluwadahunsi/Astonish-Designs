@@ -34,6 +34,8 @@
     }
 
     .heroCopy {
+      --title-size: clamp(3.5rem, 0.5rem + 14vw, 13rem);
+
       display: flex;
       flex-direction: column;
       max-width: 100%;
@@ -44,7 +46,7 @@
       flex-direction: column;
       color: $gold;
       font-family: $font-display;
-      font-size: clamp(3.5rem, 0.5rem + 14vw, 13rem);
+      font-size: var(--title-size);
       font-weight: 500;
       line-height: 0.9;
       letter-spacing: -0.015em;
@@ -57,28 +59,36 @@
     }
 
     .tagline {
-      display: flex;
-      align-items: center;
+      display: grid;
+      align-self: flex-end;
+      // "Designs" ends ~0.2em (title size) short of "Astonish".
+      margin-right: calc(var(--title-size) * 0.204);
       min-height: 1.4em;
       margin-top: clamp(1rem, 3vh, 2rem);
-      padding-left: 30%;
       color: $cream;
       font-family: $font-display;
       font-style: italic;
       font-weight: 500;
       font-size: clamp(1.35rem, 0.8rem + 2.8vw, 3.5rem);
+      white-space: nowrap;
 
-      @include down(sm) {
-        padding-left: 12%;
+      > span {
+        grid-area: 1 / 1;
       }
+    }
+
+    .taglineGhost {
+      visibility: hidden;
     }
 
     .caret {
       display: inline-block;
-      flex-shrink: 0;
       width: 2px;
       height: 1em;
       margin-left: 4px;
+      // Cancels the caret's width so the finished line ends flush with the title.
+      margin-right: -6px;
+      vertical-align: -0.15em;
       background-color: $gold;
       animation: blink 1s steps(1) infinite;
     }

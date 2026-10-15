@@ -79,8 +79,13 @@ const Home = () => {
               <span className="brand design">Designs</span>
             </h1>
             <p className="tagline" aria-label={sentence}>
-              <span aria-hidden="true">{text}</span>
-              <span className="caret" aria-hidden="true" />
+              <span className="taglineGhost" aria-hidden="true">
+                {sentence}
+              </span>
+              <span aria-hidden="true">
+                {text}
+                <span className="caret" />
+              </span>
             </p>
           </div>
         </div>
