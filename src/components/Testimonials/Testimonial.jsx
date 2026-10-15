@@ -43,7 +43,13 @@ const Testimonial = () => {
       </Reveal>
       <ul className="testimonies" aria-label="Client testimonials">
         {testimonies.map(({ image, name, quote }, i) => (
-          <Reveal as="li" className="eachTestimony" key={name} delay={i * 0.08}>
+          <Reveal
+            as="li"
+            className="eachTestimony"
+            key={name}
+            delay={i * 0.08}
+            disableBelow={768}
+          >
             <Img
               src={image}
               alt=""
