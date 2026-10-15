@@ -87,7 +87,7 @@ Goal: give each collection or look its own shareable page and an easy route to p
 
 Goal: correct titles and descriptions per page, plus rich previews when links are shared.
 
-- [x] Create a `<Seo title description image path />` component using `react-helmet-async` — `src/components/Seo/Seo.jsx`, site URL in `src/data/site.js` (`https://astonish-designs.netlify.app`)
+- [x] Create a `<Seo title description image path />` component using `react-helmet-async` — `src/components/Seo/Seo.jsx`, site URL in `src/data/site.js` (`https://astonish-designs.com.ng`)
 - [x] Add unique titles/descriptions for `/`, `/about`, `/catalogue` (and detail pages) — 404 gets `noindex`
 - [x] Open Graph tags: `og:title`, `og:description`, `og:image` (1200×630), `og:url`, `og:type` — images in `public/og/` (default + one per collection)
 - [x] Twitter card tags (`summary_large_image`)

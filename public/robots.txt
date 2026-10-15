@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://astonish-designs.netlify.app/sitemap.xml
+Sitemap: https://astonish-designs.com.ng/sitemap.xml

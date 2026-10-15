@@ -11,21 +11,23 @@ const variants = {
   }),
 };
 
-const Reveal = ({ as = "div", delay = 0, y = 20, children, ...rest }) => {
+const Reveal = ({ as = "div", delay = 0, y = 20, disableBelow, children, ...rest }) => {
   const ref = useRef(null);
   const reduceMotion = useReducedMotion();
-  const [inViewAtMount, setInViewAtMount] = useState(false);
+  const [isStatic, setIsStatic] = useState(false);
 
   useLayoutEffect(() => {
     const el = ref.current;
-    if (el && el.getBoundingClientRect().top < window.innerHeight) {
-      setInViewAtMount(true);
+    const belowBreakpoint =
+      disableBelow && window.matchMedia(`(max-width: ${disableBelow - 0.02}px)`).matches;
+    if (belowBreakpoint || (el && el.getBoundingClientRect().top < window.innerHeight)) {
+      setIsStatic(true);
     }
-  }, []);
+  }, [disableBelow]);
 
   // Content already on screen (or with reduced motion) renders as a plain
   // element; the swap happens in a layout effect, so before first paint.
-  if (reduceMotion || inViewAtMount) {
+  if (reduceMotion || isStatic) {
     const Tag = as;
     return <Tag {...rest}>{children}</Tag>;
   }
@@ -50,6 +52,8 @@ Reveal.propTypes = {
   as: PropTypes.string,
   delay: PropTypes.number,
   y: PropTypes.number,
+  // Viewport width (px) below which content renders without animation.
+  disableBelow: PropTypes.number,
   children: PropTypes.node,
 };
 
